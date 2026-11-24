@@ -744,9 +744,26 @@
       transition: all 0.15s ease;
     }
 
+    .task-item.featured {
+      border: 2px solid var(--writing);
+      background: linear-gradient(135deg, var(--writing-soft), var(--bg-surface));
+      box-shadow: 0 6px 18px -6px rgba(225, 29, 72, 0.22);
+    }
+
     .task-item.completed {
       background: var(--reading-soft);
       border-color: var(--reading-border);
+      box-shadow: none;
+    }
+
+    .priority-now-badge {
+      font-size: 0.7rem;
+      font-weight: 900;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #e11d48, #ea580c);
+      color: #ffffff;
+      letter-spacing: 0.02em;
     }
 
     .task-checkbox {
@@ -1836,8 +1853,8 @@
           id: 'w_paraphrase',
           skill: 'Writing',
           name: 'Cẩm nang Paraphrasing Task 1',
-          desc: 'Chart Section 1–19, Process Section 1–6, Map Section 1–12',
-          url: 'https://drive.google.com/drive/u/2/folders/1dIp2yjOO-RlvR4TuPSJP5jME6HtAtDo5'
+          desc: 'Map Section 1–12, Process Section 1–6, Chart Section 1–19',
+          url: 'https://drive.google.com/drive/u/2/folders/1dIp2yjQO-RlvR4TuPSJP5jME6HtAtDo5'
         },
         w_simon: {
           id: 'w_simon',
@@ -1865,13 +1882,13 @@
           skill: 'Vocab',
           name: 'Từ vựng bản xứ Speaking & Writing (Phần Writing — 15 chủ đề)',
           desc: 'Học collocations theo ngữ cảnh (Ngữ liệu + Exercises + Viết đoạn văn)',
-          url: 'https://drive.google.com/file/d/16kzGWXsgEb6sUbFowrnF-CCdpjabvfz/view?usp=sharing'
+          url: 'https://drive.google.com/file/d/16kzGWXsgEb6sUbFowrnF_-CCdpjabvfz/view?usp=sharing'
         },
         w_forecast: {
           id: 'w_forecast',
           skill: 'Writing',
           name: 'Bộ đề dự đoán IELTS Speaking & Writing quý III–2026 (Phần Writing)',
-          desc: 'Task 2: 10 topics trọng tâm • Task 1: 7 dạng biểu đồ × 2 đề dự đoán sát phòng thi',
+          desc: 'Task 1: Map, Process, Line, Bar, Pie, Table, Mixed (mỗi dạng 2 đề) • Task 2: 10 topics trọng tâm',
           url: 'https://drive.google.com/file/d/1gBLo2WM39vzlCwYRZeFjAEM3rf2W3L_2/view?usp=sharing'
         },
         s_natural: {
@@ -1886,7 +1903,7 @@
           skill: 'Speaking',
           name: 'Từ vựng bản xứ Speaking & Writing (Phần Speaking — 25 chủ đề)',
           desc: 'Cụm từ & idioms tự nhiên như người bản xứ cho các chủ đề đời sống',
-          url: 'https://drive.google.com/file/d/16kzGWXsgEb6sUbFowrnF-CCdpjabvfz/view?usp=sharing'
+          url: 'https://drive.google.com/file/d/16kzGWXsgEb6sUbFowrnF_-CCdpjabvfz/view?usp=sharing'
         },
         s_forecast: {
           id: 's_forecast',
@@ -1907,289 +1924,289 @@
       const SKILL_STRATEGY_GROUPS = [
         {
           skill: 'Writing',
-          title: 'WRITING — Ưu tiên #1 (Kỹ năng yếu cần kéo mạnh nhất)',
-          how: 'Task 1: Học tinh gọn 10 Unit trong Improve your IELTS Writing Skills, luyện paraphrase với Cẩm nang Paraphrasing Task 1 (Chart/Process/Map) và viết thực chiến 7 dạng biểu đồ. Task 2: Thuộc lòng 5 dạng bài theo Essay Templates (Simon), lấy luận điểm từ Kho ý tưởng, thực hành trong 30 Ngày Chuyên Sâu và Bộ đề dự đoán Q3-2026 (10 topics). BẮT BUỘC ở các buổi "Sửa bài & viết lại": dùng Grammarly hoặc ChatGPT chấm nhận xét theo 4 tiêu chí (TA/TR, CC, LR, GRA) rồi tự viết lại đoạn yếu!',
+          title: 'WRITING — Ưu tiên #1 (Bắt đầu ngay từ Map → Process → 5 dạng Biểu đồ)',
+          how: 'Task 1: Học đảo thứ tự ưu tiên từ Dạng Map (Unit 5 Improve Writing + Paraphrasing Map Sec 1–12) → Process (Unit 3) → Line, Bar, Pie, Table, Mixed Charts, sau đó bước vào Bộ đề dự đoán Q3-2026 cũng bắt đầu ngay bằng Map Đề 1 & 2. Task 2: Thuộc 5 Essay Templates (Simon), lấy luận điểm từ Kho ý tưởng và sửa bài bằng ChatGPT/Grammarly theo 4 tiêu chí (TA/TR, CC, LR, GRA) rồi tự viết lại đoạn yếu.',
           resIds: ['w_improve', 'w_paraphrase', 'w_simon', 'w_ideas', 'w_30days', 'w_vocab', 'w_forecast']
         },
         {
           skill: 'Speaking',
           title: 'SPEAKING — Ưu tiên #2 (Hơi yếu — cần bật phản xạ & tự nhiên)',
-          how: 'Khởi động nhanh Part 1 với Natural English for IELTS Speaking và 25 chủ đề Speaking trong Từ vựng bản xứ. Sau đó chuyển thẳng sang Bộ đề dự đoán Q3-2026: 25 topic Part 1 và 46 đề Part 2 & 3 được GỘP THÀNH 6 NHÓM CHÍNH (Person, Object, Event, Activity, Place, Others) để 1 câu chuyện xử lý nhiều đề. Khi tập nói, dùng AI Chatbot IELTS Speaking Tutor bằng giọng nói để nhận feedback về ý tưởng, từ vựng và độ trôi chảy.',
+          how: 'Khởi động trực tiếp Bộ đề dự đoán Speaking Q3-2026 (25 topic Part 1 + 46 đề Part 2 & 3 gộp thành 6 nhóm: Person, Object, Event, Activity, Place, Others) kết hợp cụm từ tự nhiên trong Từ vựng bản xứ Speaking và luyện nói bằng giọng nói với AI Chatbot IELTS Speaking Tutor.',
           resIds: ['s_ai', 's_forecast', 's_vocab', 's_natural']
         },
         {
           skill: 'Listening',
           title: 'LISTENING — Đã ổn (Rà bẫy Handbook & bứt band Cam 16–20)',
-          how: 'Rà nhanh 7 mẹo bẫy cốt lõi trong Listening Handbook trong 3 ngày đầu. Bỏ qua Section 1&2 cơ bản để tăng tốc thẳng vào Section 3&4 Cam 16–17 và Full Test Cam 18–20 vào các Ngày Vàng. Chữa đề bằng cách nghe lại đoạn sai + đối chiếu transcript, xen kẽ Nghe chép chính tả để giữ độ nhạy điền từ.',
+          how: 'Rà nhanh 7 mẹo bẫy cốt lõi trong Listening Handbook (ưu tiên mục 4.5 Map & 4.1 Changing opinion ngay Ngày 1), luyện Section 3&4 Cam 16–17, Full Test Cam 18–20 và Nghe chép chính tả Cam 11–13 để giữ độ nhạy điền từ.',
           resIds: ['l_handbook', 'l_cam', 'l_dictation']
         },
         {
           skill: 'Reading',
           title: 'READING — Đã ổn (Giữ tốc độ 20p/passage & săn bẫy Paraphrase)',
-          how: 'Bỏ qua giai đoạn làm quen dạng câu hỏi lẻ vì bạn đã vững nền — bấm giờ 20 phút/passage với Cambridge 17 rồi cày Full Test Cam 18–20 (60 phút) vào các Ngày Vàng. Khi sai, dùng Hướng dẫn giải đề Reading Cambridge để phân tích cách đề paraphrase, kết hợp 30 ngày thành thạo từ vựng Cambridge Reading.',
+          how: 'Ôn 30 ngày thành thạo từ vựng Cambridge Reading, luyện nhanh dạng bẫy như True/False/Not Given, bấm giờ 20p/passage Cam 17 và cày Full Test Cam 18–20 (60 phút) vào các Ngày Vàng, đối chiếu Hướng dẫn giải đề Reading Cambridge.',
           resIds: ['r_cam', 'r_guide', 'r_vocab']
         }
       ];
 
       /* =======================================================================
-         3. COMPLETE 33-DAY ROADMAP (DAY 1 = 2026-11-24 .. EXAM = 2026-12-26)
+         3. COMPLETE 32-DAY ROADMAP (MAP-FIRST SEQUENCE: 24/11 -> 26/12/2026)
          ======================================================================= */
       const ROADMAP = [
         // --- TUẦN 1 (NGÀY 1 – 7: 24/11 – 30/11/2026) ---
         {
           index: 0, dayLabel: 'Ngày 1 / 30', shortLabel: 'N1', date: '2026-11-24', weekday: 2, week: 1,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'Ngày Vàng T3: Mở màn Task 1 Trends + Task 2 Opinion + Rà bẫy Listening',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'Ngày Vàng T3: Mở màn Task 1 Dạng Map (Phần 1) + Task 2 Opinion + Speaking P1',
           tasks: [
-            { id: 't1-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_improve',
-              goal: 'Task 1: Học Unit 1 & 2 (Describing trends, Comparing data) + Cẩm nang Paraphrasing Task 1 (Chart: Sec 1–4) → viết 1 đoạn Overview & Body mẫu.',
-              how: 'Mở Improve your IELTS Writing Skills (Unit 1–2) nắm động từ/danh từ chỉ xu hướng, kết hợp Paraphrasing Task 1 (Chart Sec 1–4) để biến đổi đề bài.' },
-            { id: 't1-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_simon',
-              goal: 'Task 2: Học Dạng 1 — Opinion (Partly & Completely Agree/Disagree) theo Simon Templates + đọc Kho ý tưởng Business.',
-              how: 'Xem cấu trúc Intro–Body–Conclusion Dạng 1 trong Essay Templates (Simon), sau đó lấy ý từ Kho ý tưởng IELTS Writing (Topic Business) lập dàn ý 1 đề.' },
-            { id: 't1-3', skill: 'Speaking', mins: '40p', resId: 's_natural',
-              goal: 'Speaking Part 1: Luyện phản xạ Topic 1–10 (Work/Studies, Hometown, Sports, Photos...) & test giọng nói với AI Speaking Tutor.',
-              how: 'Đọc cụm từ gợi ý trong Natural English for IELTS Speaking (Topic 1–10) rồi mở AI Speaking Tutor trả lời thành tiếng.' },
-            { id: 't1-4', skill: 'Listening', mins: '35p', resId: 'l_handbook',
-              goal: 'Listening: Rà nhanh mục 4.1–4.4 Listening Handbook (Changing opinion, Take note, Multiple choice, Matching) + luyện Cam 16 Test 1 Sec 3&4.',
-              how: 'Đọc mẹo tránh bẫy đổi ý & nối thông tin trong Listening Handbook, áp dụng ngay vào Cam 16 Test 1 Section 3&4.' }
+            { id: 't1-1', featured: true, skill: 'Writing', mins: '60p', timer: 'task1', resId: 'w_improve',
+              goal: 'Writing Task 1 (Mục tiêu số 1 hôm nay): Dạng Map (Phần 1: Nền tảng, phương hướng & ngôn ngữ biến đổi) — Học Improve your IELTS Writing Skills (Unit 5: Describing changes & Locations) + Cẩm nang Paraphrasing Task 1 (Mục Map: Section 1–6), sau đó lập dàn ý & viết Overview + 1 đoạn Body cho bài Map mẫu.',
+              how: 'Mở Improve your IELTS Writing Skills (Unit 5) nắm giới từ chỉ phương hướng (to the north of, in the northwest corner) & động từ biến đổi (demolished, replaced by, expanded), kết hợp Cẩm nang Paraphrasing Task 1 (Map: Sec 1–6) rồi viết khung Overview + Body 1.' },
+            { id: 't1-2', skill: 'Writing', mins: '40p', timer: 'task2', resId: 'w_simon',
+              goal: 'Writing Task 2: Dạng 1: Opinion (Agree/Disagree) — Nắm khung Essay Templates (Simon) + lập dàn ý đề chủ đề Education.',
+              how: 'Xem cấu trúc 4 đoạn Dạng 1 Opinion trong Essay Templates (Simon), lấy luận điểm từ Kho ý tưởng IELTS Writing (Topic Education) để lập dàn ý chi tiết.' },
+            { id: 't1-3', skill: 'Speaking', mins: '25p', resId: 's_forecast',
+              goal: 'Speaking: Khởi động Bộ đề dự đoán Speaking (Part 1: Topic 1–5) + luyện phản xạ 15p với AI Speaking Tutor.',
+              how: 'Mở Bộ đề dự đoán Speaking Q3-2026 (Part 1 Topic 1–5), bật micro trả lời trực tiếp 2–3 câu mỗi hỏi với AI Speaking Tutor.' },
+            { id: 't1-4', skill: 'Listening', mins: '30p', resId: 'l_handbook',
+              goal: 'Listening: Mẹo thi Listening Handbook (4.1 Changing opinion + 4.5 Map — đồng bộ kỹ năng Map!) + Nghe chép chính tả Cam 11 Test 1 Sec 2.',
+              how: 'Đọc mẹo định vị phương hướng trong Listening Handbook mục 4.5 Map & 4.1 Changing opinion, sau đó luyện nghe chép Cam 11 Test 1 Sec 2.' },
+            { id: 't1-5', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_vocab',
+              goal: 'Reading: 30 ngày thành thạo từ vựng Cam Reading (Day 1) + luyện nhanh dạng True/False/Not Given (Cam 14 Test 2 Passage 1).',
+              how: 'Học Day 1 trong 30 ngày thành thạo từ vựng Cambridge Reading rồi làm Cam 14 Test 2 Passage 1 để rèn phân biệt False và Not Given.' }
           ]
         },
         {
           index: 1, dayLabel: 'Ngày 2 / 30', shortLabel: 'N2', date: '2026-11-25', weekday: 3, week: 1,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'Ngày bận T4: Thực chiến 1 bài Line Graph + 1 bài Opinion bấm giờ',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'Ngày bận T4: Dạng Map (Phần 2: Viết hoàn chỉnh 20p) + Opinion + Speaking P1',
           tasks: [
-            { id: 't2-1', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_paraphrase',
-              goal: 'Task 1: Học Paraphrasing Chart (Sec 5–10) → Viết bấm giờ 20 phút trọn vẹn 1 đề Line Graph.',
-              how: 'Đọc nhanh Chart Sec 5–10 trong Cẩm nang Paraphrasing, chọn 1 đề Line Graph trong 30 Ngày Chuyên Sâu và bấm đồng hồ đúng 20 phút.' },
-            { id: 't2-2', skill: 'Writing', mins: '50p', timer: 'task2', resId: 'w_ideas',
-              goal: 'Task 2: Đọc Kho ý tưởng Topic Education → Viết bấm giờ 40 phút 1 bài Opinion hoàn chỉnh.',
-              how: 'Nạp 3 luận điểm Topic Education từ Kho ý tưởng IELTS Writing, áp dụng khung Simon Dạng 1 viết trọn bài trong 40 phút.' },
-            { id: 't2-3', skill: 'Speaking', mins: '25p', resId: 's_vocab',
-              goal: 'Speaking: Học Từ vựng bản xứ (Topic 1–5: Daily Routine, Family, Friends, Hometown, Food) + luyện cùng AI Tutor.',
-              how: 'Gạch chân 3–4 cụm bản xứ mỗi topic trong Từ vựng bản xứ (Phần Speaking) và đặt câu trả lời trực tiếp với AI.' }
+            { id: 't2-1', featured: true, skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_paraphrase',
+              goal: 'Writing Task 1: Dạng Map (Phần 2: Paraphrase nâng cao & Viết hoàn chỉnh) — Học nốt Cẩm nang Paraphrasing (Map: Section 7–12) + Viết hoàn chỉnh 1 bài Map bấm giờ 20 phút trong 30 Ngày Chuyên Sâu IELTS Writing & nhờ AI chấm sửa theo 4 tiêu chí.',
+              how: 'Đọc nốt Map Sec 7–12 trong Cẩm nang Paraphrasing Task 1, chọn 1 đề Map trong 30 Ngày Chuyên Sâu IELTS Writing viết trọn bài đúng 20 phút và dán vào ChatGPT chấm theo 4 tiêu chí.' },
+            { id: 't2-2', skill: 'Writing', mins: '45p', timer: 'task2', resId: 'w_ideas',
+              goal: 'Writing Task 2: Viết bấm giờ 40 phút trọn vẹn 1 bài Opinion (chủ đề Education) dựa trên dàn ý Ngày 1.',
+              how: 'Áp dụng khung Simon Dạng 1 đã học, tập trung viết câu Topic Sentence rõ ràng cho 2 đoạn Body.' },
+            { id: 't2-3', skill: 'Speaking', mins: '25p', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Speaking Part 1 (Topic 6–10) + Từ vựng bản xứ Speaking (Topic 1–3) với AI Tutor.',
+              how: 'Luyện tiếp Topic 6–10 Part 1 trong Bộ đề dự đoán Q3-2026 cùng AI Speaking Tutor.' }
           ]
         },
         {
           index: 2, dayLabel: 'Ngày 3 / 30', shortLabel: 'N3', date: '2026-11-26', weekday: 4, week: 1,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'Ngày vừa T5: Sửa bài AI + Listening Handbook 4.5–4.7 + Reading Cam 17',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'Ngày vừa T5: Task 1 Process (Phần 1) + Sửa bài Map Ngày 2 + Listening Handbook',
           tasks: [
-            { id: 't3-1', skill: 'Writing', mins: '45p', resId: 'w_30days',
-              goal: 'Sửa bài Line Graph & Opinion (Ngày 2) bằng ChatGPT/Grammarly theo 4 tiêu chí, viết lại 1 đoạn Body yếu nhất.',
-              how: 'Dán bài viết ngày 2 vào AI yêu cầu chấm TA/TR, CC, LR, GRA chi tiết; ghi lỗi hay sai vào Tab Sổ lỗi sai.' },
-            { id: 't3-2', skill: 'Speaking', mins: '35p', resId: 's_vocab',
-              goal: 'Speaking: Học Từ vựng bản xứ (Topic 6–10: Free time, Studies, Work, Sports, Shopping) + luyện P1 với AI.',
-              how: 'Học collocations tự nhiên trong Từ vựng bản xứ Speaking Topic 6–10 và luyện phản xạ 2–3 câu/câu hỏi với AI Tutor.' },
-            { id: 't3-3', skill: 'Listening', mins: '35p', resId: 'l_handbook',
-              goal: 'Listening: Rà nốt mục 4.5–4.7 Listening Handbook (Map, Giọng đọc, Lỗi sai ngớ ngẩn) + luyện Cam 16 Test 2 Sec 3&4.',
-              how: 'Hoàn tất 7 mẹo bẫy trong Listening Handbook và thực hành ngay Cam 16 Test 2 Sec 3&4.' },
+            { id: 't3-1', skill: 'Writing', mins: '50p', timer: 'task1', resId: 'w_improve',
+              goal: 'Writing Task 1: Dạng Process (Phần 1) — Học Unit 3 Improve your IELTS Writing Skills (The passive & Sequencing) + Paraphrasing Process (Section 1–6) + viết lại bài Map Ngày 2 theo feedback AI.',
+              how: 'Nắm công thức bị động (is harvested, are transported) & từ nối quy trình (Subsequently, Following this) trong Unit 3 + Paraphrasing Process Sec 1–6, đồng thời viết lại đoạn yếu của bài Map Ngày 2.' },
+            { id: 't3-2', skill: 'Speaking', mins: '35p', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Speaking Part 1 (Topic 11–15) + luyện phản xạ mượt mà với AI Tutor.',
+              how: 'Luyện nói trực tiếp Topic 11–15 Part 1 cùng AI Speaking Tutor.' },
+            { id: 't3-3', skill: 'Listening', mins: '30p', resId: 'l_handbook',
+              goal: 'Listening: Rà nhanh mục 4.2–4.4 & 4.6–4.7 Listening Handbook + luyện Cam 16 Test 1 Sec 3&4.',
+              how: 'Hoàn tất 7 mẹo bẫy trong Listening Handbook và thực hành Cam 16 Test 1 Sec 3&4.' },
             { id: 't3-4', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_cam',
-              goal: 'Reading: Bấm giờ 20 phút làm Cam 17 – Test 1 (Passage 1) + đối chiếu Hướng dẫn giải đề.',
-              how: 'Làm nghiêm túc 20 phút trong Cam 17 Test 1 P1, sau đó tra Hướng dẫn giải đề Reading Cambridge để xem cách paraphrase.' }
+              goal: 'Reading: Bấm giờ 20p làm Cam 17 – Test 1 (Passage 1) + ôn Day 2–3 từ vựng Cam Reading.',
+              how: 'Làm Cam 17 Test 1 P1 trong 20 phút và tra Hướng dẫn giải đề Reading Cambridge.' }
           ]
         },
         {
           index: 3, dayLabel: 'Ngày 4 / 30', shortLabel: 'N4', date: '2026-11-27', weekday: 5, week: 1,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'Ngày bận T6 (Giảm tải): Collocations Education + Speaking Topic 11–15',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'Ngày bận T6 (Giảm tải): Viết hoàn chỉnh 1 bài Process + Collocations Education',
           tasks: [
-            { id: 't4-1', skill: 'Vocab', mins: '30p', resId: 'w_vocab',
-              goal: 'Từ vựng bản xứ Writing — Topic 1: Studies (Education) (đọc ngữ liệu + làm Exercises + viết 1 đoạn ngắn).',
-              how: 'Mở Từ vựng bản xứ (Phần Writing – Topic 1 Studies), học cụm từ in đậm theo ngữ cảnh và viết 4–5 câu ứng dụng.' },
-            { id: 't4-2', skill: 'Speaking', mins: '35p', resId: 's_vocab',
-              goal: 'Speaking: Học Từ vựng bản xứ (Topic 11–15: Weather, Films, Mobile Phones, Keeping Fit, Travel).',
-              how: 'Đọc to các cụm từ tự nhiên trong Từ vựng bản xứ Speaking Topic 11–15 và luyện nói 10 phút với AI Tutor.' },
-            { id: 't4-3', skill: 'Listening', mins: '25p', resId: 'l_dictation',
-              goal: 'Nghe chép chính tả: Cam 12 – Test 1 Section 2 (luyện bắt âm cuối & từ nối).',
-              how: 'Mở file Nghe chép chính tả Cambridge 8–20 (Cam 12 Test 1 Sec 2), nghe từng câu và chép chính xác 100%.' }
+            { id: 't4-1', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_30days',
+              goal: 'Writing Task 1: Dạng Process (Phần 2) — Viết hoàn chỉnh 1 bài Process bấm giờ 20 phút (30 Ngày Chuyên Sâu) & chấm sửa AI.',
+              how: 'Chọn 1 đề Process trong 30 Ngày Chuyên Sâu IELTS Writing, viết trọn vẹn trong 20 phút và nhờ ChatGPT kiểm tra chia động từ bị động.' },
+            { id: 't4-2', skill: 'Vocab', mins: '25p', resId: 'w_vocab',
+              goal: 'Từ vựng bản xứ Writing — Topic 1: Studies (Education) (học collocations + viết 1 đoạn ngắn).',
+              how: 'Mở Từ vựng bản xứ (Phần Writing – Topic 1 Studies), học cụm từ in đậm và viết 4–5 câu ứng dụng.' },
+            { id: 't4-3', skill: 'Speaking', mins: '30p', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Speaking Part 1 (Topic 16–20) với AI Speaking Tutor.',
+              how: 'Luyện phản xạ 5 chủ đề Part 1 tiếp theo trong Bộ đề dự đoán Q3-2026.' }
           ]
         },
         {
           index: 4, dayLabel: 'Ngày 5 / 30', shortLabel: 'N5', date: '2026-11-28', weekday: 6, week: 1,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'SIÊU NGÀY VÀNG T7: Bar Chart + Task 2 Discussion + Cam 17 Reading/Listening',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'SIÊU NGÀY VÀNG T7: Task 1 Line Graph (Phần 1) + Task 2 Discussion + Cam 17',
           tasks: [
-            { id: 't5-1', skill: 'Writing', mins: '60p', timer: 'task1', resId: 'w_paraphrase',
-              goal: 'Task 1: Học Unit 4 (Proportions) + Paraphrasing Chart (Sec 11–19) → Viết bấm giờ 20p 1 bài Bar Chart.',
-              how: 'Xem cách miêu tả tỷ trọng ở Unit 4 Improve Writing + Chart Sec 11–19 Paraphrasing, sau đó viết 1 bài Bar Chart (30 Ngày Chuyên Sâu).' },
-            { id: 't5-2', skill: 'Writing', mins: '65p', timer: 'task2', resId: 'w_simon',
-              goal: 'Task 2: Học Dạng 2 — Discussion (Simon Template) → Viết bấm giờ 40p 1 đề Discussion + chấm AI.',
-              how: 'Nắm bố cục bàn luận 2 chiều trong Simon Templates Dạng 2, viết full bài trong 40p và nhờ ChatGPT chấm feedback.' },
-            { id: 't5-3', skill: 'Speaking', mins: '45p', resId: 's_vocab',
-              goal: 'Speaking: Học Từ vựng bản xứ (Topic 16–20: Streets/Bikes, Art, Money, Languages, Festivals) + luyện AI.',
-              how: 'Học collocations Topic 16–20 trong Từ vựng bản xứ Speaking và thực hành hội thoại với AI Speaking Tutor.' },
+            { id: 't5-1', skill: 'Writing', mins: '55p', timer: 'task1', resId: 'w_improve',
+              goal: 'Writing Task 1: Line Graph (Phần 1) — Học Unit 1 & Unit 8 Improve your IELTS Writing Skills + Paraphrasing Chart (Section 1–6) + lập dàn ý Line Graph.',
+              how: 'Nắm từ vựng miêu tả xu hướng tăng/giảm (Unit 1), dự đoán tương lai (Unit 8) và Paraphrasing Chart Sec 1–6.' },
+            { id: 't5-2', skill: 'Writing', mins: '60p', timer: 'task2', resId: 'w_simon',
+              goal: 'Writing Task 2: Học Dạng 2 — Discussion (Simon Template) → Viết bấm giờ 40p 1 đề Discussion + chấm AI.',
+              how: 'Áp dụng khung bàn luận 2 quan điểm trong Simon Templates Dạng 2 + Kho ý tưởng Business, viết full 40p.' },
+            { id: 't5-3', skill: 'Speaking', mins: '40p', resId: 's_forecast',
+              goal: 'Speaking: Hoàn tất Bộ đề dự đoán Part 1 (Topic 21–25) + Từ vựng bản xứ Speaking (Topic 4–10).',
+              how: 'Hoàn thành nốt Part 1 Topic 21–25 trong Bộ đề dự đoán Q3-2026 cùng AI Speaking Tutor.' },
             { id: 't5-4', skill: 'Reading', mins: '55p', timer: 'readingP', resId: 'r_guide',
-              goal: 'Reading: Bấm giờ 20p/bài làm Cam 17 – Test 1 (Passage 2 & 3) + phân tích câu sai.',
-              how: 'Làm liên tiếp Passage 2 & 3 Cam 17 Test 1, tra Hướng dẫn giải đề Reading Cambridge để ghi chú bẫy True/False/Not Given.' },
+              goal: 'Reading: Bấm giờ 20p/bài làm Cam 17 – Test 1 (Passage 2 & 3) + chữa câu sai.',
+              how: 'Làm liên tiếp P2 & P3 Cam 17 Test 1, tra Hướng dẫn giải đề Reading Cambridge.' },
             { id: 't5-5', skill: 'Listening', mins: '35p', resId: 'l_cam',
-              goal: 'Listening: Luyện Cam 16 – Test 3 & 4 (Section 3 & 4) + rà lại transcript câu sai.',
-              how: 'Nghe 1 lần duy nhất Cam 16 Test 3&4 Sec 3&4, gạch chân từ đồng nghĩa trong transcript.' }
+              goal: 'Listening: Luyện Cam 16 – Test 2 & 3 (Section 3 & 4) + rà transcript.',
+              how: 'Nghe 1 lần duy nhất Cam 16 Test 2&3 Sec 3&4, đối chiếu transcript tìm từ đồng nghĩa.' }
           ]
         },
         {
           index: 5, dayLabel: 'Ngày 6 / 30', shortLabel: 'N6', date: '2026-11-29', weekday: 0, week: 1,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'SIÊU NGÀY VÀNG CN: Chinh phục Task 1 Process + Problem–Solution + Cam 17',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'SIÊU NGÀY VÀNG CN: Viết hoàn chỉnh Line Graph + Task 2 Problem–Solution',
           tasks: [
-            { id: 't6-1', skill: 'Writing', mins: '60p', timer: 'task1', resId: 'w_improve',
-              goal: 'Task 1: Học Unit 3 (The passive & Sequencing) + Paraphrasing Process (Sec 1–6) → Viết 20p 1 bài Process.',
-              how: 'Học cấu trúc bị động & từ nối trình tự (Unit 3 Improve Writing + Paraphrasing Process Sec 1–6), viết 1 đề Process trong 30 Ngày Chuyên Sâu.' },
-            { id: 't6-2', skill: 'Writing', mins: '65p', timer: 'task2', resId: 'w_simon',
-              goal: 'Task 2: Học Dạng 3 — Problem & Solution / Cause – Solution (Simon Template) → Viết 40p 1 đề Cause–Solution.',
-              how: 'Đọc mẫu Dạng 3 Simon Templates + Kho ý tưởng (Topic Health), viết full bài trong 40p.' },
-            { id: 't6-3', skill: 'Speaking', mins: '40p', resId: 's_vocab',
-              goal: 'Speaking: Hoàn tất Từ vựng bản xứ (Topic 21–25: Memory, News, History, Nature, Science) + AI Tutor.',
-              how: 'Hoàn thành nốt 5 chủ đề cuối trong Từ vựng bản xứ Speaking và luyện nói trôi chảy với AI Chatbot.' },
+            { id: 't6-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_30days',
+              goal: 'Writing Task 1: Line Graph (Phần 2) — Viết hoàn chỉnh 1 bài Line Graph bấm giờ 20 phút (30 Ngày Chuyên Sâu) & sửa bài AI.',
+              how: 'Chọn 1 đề Line Graph trong 30 Ngày Chuyên Sâu, viết trọn bài trong 20 phút, chú ý nhóm đường theo xu hướng.' },
+            { id: 't6-2', skill: 'Writing', mins: '60p', timer: 'task2', resId: 'w_simon',
+              goal: 'Writing Task 2: Học Dạng 3 — Problem & Solution / Cause – Solution (Simon Template) → Viết 40p 1 đề Cause–Solution.',
+              how: 'Xem mẫu Dạng 3 Simon Templates + Kho ý tưởng Health, viết trọn bài trong 40 phút.' },
+            { id: 't6-3', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Part 2 & 3 — Nhóm 1 Person (1.1 – 1.3): chuẩn bị 1p & nói 2p với AI Tutor.',
+              how: 'Mở Bộ đề dự đoán Speaking Q3-2026 Nhóm 1 Person (1.1–1.3), dùng 1 hình mẫu nhân vật để trả lời linh hoạt.' },
             { id: 't6-4', skill: 'Reading', mins: '55p', timer: 'readingP', resId: 'r_cam',
               goal: 'Reading: Bấm giờ 20p/bài làm Cam 17 – Test 2 (Passage 1 & 2) + chữa chi tiết.',
-              how: 'Bấm giờ 20 phút mỗi passage Cam 17 Test 2 P1–P2, đối chiếu Hướng dẫn giải đề Reading Cambridge.' }
+              how: 'Làm Cam 17 Test 2 P1–P2, đối chiếu Hướng dẫn giải đề Reading Cambridge.' }
           ]
         },
         {
           index: 6, dayLabel: 'Ngày 7 / 30', shortLabel: 'N7', date: '2026-11-30', weekday: 1, week: 1,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'Ngày bận T2: Sửa bài Process & Cause–Solution + Mở màn Bộ đề dự đoán P1',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'Ngày bận T2: Task 1 Bar Chart (Phần 1) + Nhóm 1 Person (1.4–1.6)',
           tasks: [
-            { id: 't7-1', skill: 'Writing', mins: '45p', resId: 'w_30days',
-              goal: 'Sửa bài Process & Cause–Solution (Ngày 6) theo feedback AI 4 tiêu chí + viết lại 1 đoạn Body.',
-              how: 'Dán 2 bài viết ngày 6 vào ChatGPT yêu cầu sửa lỗi bị động/ngữ pháp và nâng cấp từ vựng học thuật.' },
-            { id: 't7-2', skill: 'Speaking', mins: '40p', resId: 's_forecast',
-              goal: 'Chuyển sang Bộ đề dự đoán Speaking quý III–2026: Luyện Part 1 (Topic 1–10) bằng giọng nói với AI Tutor.',
-              how: 'Mở Bộ đề dự đoán Speaking Q3-2026 (Part 1 Topic 1–10), bật micro nói trực tiếp với AI Speaking Tutor.' },
-            { id: 't7-3', skill: 'Vocab', mins: '25p', resId: 'r_vocab',
-              goal: 'Từ vựng Reading: Ôn Day 1–10 trong 30 ngày thành thạo từ vựng Cambridge Reading.',
-              how: 'Rà nhanh các từ vựng học thuật hay gặp trong 30 ngày thành thạo từ vựng Cambridge Reading.' }
+            { id: 't7-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_improve',
+              goal: 'Writing Task 1: Bar Chart (Phần 1) — Học Unit 2 & Unit 4 Improve your IELTS Writing Skills (Comparing & Proportions) + Paraphrasing Chart (Section 7–13).',
+              how: 'Nắm cấu trúc so sánh gấp đôi/gấp ba & diễn đạt tỷ lệ phần trăm trong Unit 2 & 4 + Paraphrasing Chart Sec 7–13.' },
+            { id: 't7-2', skill: 'Speaking', mins: '40p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Part 2 & 3 — Nhóm 1 Person (1.4 – 1.6) luyện nói 2p + Part 3 với AI Tutor.',
+              how: 'Luyện trôi chảy 3 đề Person tiếp theo trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't7-3', skill: 'Listening', mins: '25p', resId: 'l_dictation',
+              goal: 'Listening: Nghe chép chính tả Cam 12 – Test 1 Section 2 & 3.',
+              how: 'Luyện nghe chi tiết trong file Nghe chép chính tả Cambridge 8–20.' }
           ]
         },
 
         // --- TUẦN 2 (NGÀY 8 – 14: 01/12 – 07/12/2026) ---
         {
           index: 7, dayLabel: 'Ngày 8 / 30', shortLabel: 'N8', date: '2026-12-01', weekday: 2, week: 2,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'Ngày Vàng T3: Đột phá Task 1 Map + Two-part Question + Dự đoán P1',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'Ngày Vàng T3: Viết hoàn chỉnh Bar Chart + Task 2 Two-part + Nhóm 1 Person',
           tasks: [
-            { id: 't8-1', skill: 'Writing', mins: '65p', timer: 'task1', resId: 'w_paraphrase',
-              goal: 'Task 1 Map: Học Unit 5 (Locations & Changes) + Paraphrasing Map (Sec 1–12) → Viết bấm giờ 20p 1 bài Map.',
-              how: 'Học giới từ chỉ vị trí & động từ biến đổi đô thị (Unit 5 Improve Writing + Paraphrasing Map Sec 1–12), sau đó viết 1 bài Map trong 30 Ngày Chuyên Sâu.' },
+            { id: 't8-1', skill: 'Writing', mins: '55p', timer: 'task1', resId: 'w_30days',
+              goal: 'Writing Task 1: Bar Chart (Phần 2) — Viết hoàn chỉnh 1 bài Bar Chart bấm giờ 20 phút (30 Ngày Chuyên Sâu) & sửa bài theo feedback AI.',
+              how: 'Chọn 1 đề Bar Chart trong 30 Ngày Chuyên Sâu, viết trong 20 phút, dán vào AI chấm sửa và viết lại đoạn yếu.' },
             { id: 't8-2', skill: 'Writing', mins: '60p', timer: 'task2', resId: 'w_simon',
-              goal: 'Task 2: Học Dạng 4 — Two-part Question (Simon Template) → Viết bấm giờ 40p 1 đề Two-part.',
-              how: 'Xem cách trả lời cân bằng 2 câu hỏi trong Simon Templates Dạng 4 + Kho ý tưởng (Entertainment), viết full 40p.' },
-            { id: 't8-3', skill: 'Speaking', mins: '45p', resId: 's_forecast',
-              goal: 'Bộ đề dự đoán Speaking Q3-2026: Luyện Part 1 (Topic 11–18) với AI Speaking Tutor.',
-              how: 'Luyện phản xạ 8 chủ đề Part 1 tiếp theo trong Bộ đề dự đoán Q3-2026 cùng AI Tutor.' },
+              goal: 'Writing Task 2: Học Dạng 4 — Two-part Question (Simon Template) → Viết bấm giờ 40p 1 đề Two-part.',
+              how: 'Xem mẫu trả lời cân bằng 2 câu hỏi trong Simon Templates Dạng 4 + Kho ý tưởng Entertainment, viết full 40p.' },
+            { id: 't8-3', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Part 2 & 3 — Nhóm 1 Person (1.7 – 1.10) với AI Speaking Tutor.',
+              how: 'Luyện 4 đề Person (1.7–1.10) cùng câu hỏi thảo luận Part 3 với AI Tutor.' },
             { id: 't8-4', skill: 'Listening', mins: '35p', resId: 'l_cam',
-              goal: 'Listening: Luyện Cam 17 – Test 1 & 2 (Section 3 & 4) + đối chiếu transcript.',
+              goal: 'Listening: Luyện Cam 17 – Test 1 & 2 (Section 3 & 4) + chữa transcript.',
               how: 'Tập trung bắt từ khóa paraphrase ở Section 3&4 Cam 17 Test 1&2.' }
           ]
         },
         {
           index: 8, dayLabel: 'Ngày 9 / 30', shortLabel: 'N9', date: '2026-12-02', weekday: 3, week: 2,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
           title: 'Ngày bận T4: Task 1 Pie Chart + Task 2 Advantages/Disadvantages',
           tasks: [
-            { id: 't9-1', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_30days',
-              goal: 'Task 1: Ôn Unit 7 (Adverbs to evaluate data) → Viết bấm giờ 20p 1 đề Pie Chart.',
-              how: 'Xem Unit 7 Improve Writing rồi chọn 1 đề Pie Chart trong 30 Ngày Chuyên Sâu viết trọn vẹn trong 20 phút.' },
-            { id: 't9-2', skill: 'Writing', mins: '45p', resId: 'w_simon',
-              goal: 'Task 2: Học Dạng 5 — Advantages vs Disadvantages (Outweigh & Neutral) theo Simon Templates + lập dàn ý.',
-              how: 'Nắm chắc sự khác biệt giữa "Outweigh" (có nêu quan điểm) và "What are the advantages/disadvantages" (trung lập) trong Simon Templates.' },
-            { id: 't9-3', skill: 'Speaking', mins: '30p', resId: 's_forecast',
-              goal: 'Hoàn tất Bộ đề dự đoán Speaking Part 1 (Topic 19–25) với AI Speaking Tutor.',
-              how: 'Hoàn thành nốt Topic 19–25 Part 1 trong Bộ đề dự đoán Q3-2026.' }
+            { id: 't9-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_paraphrase',
+              goal: 'Writing Task 1: Pie Chart — Học Paraphrasing Chart (Section 14–19) + Viết hoàn chỉnh 1 bài Pie Chart bấm giờ 20 phút.',
+              how: 'Học cách diễn đạt phân số & tỷ trọng (accounted for, constituted) ở Paraphrasing Chart Sec 14–19 rồi viết 1 đề Pie Chart (30 Ngày Chuyên Sâu).' },
+            { id: 't9-2', skill: 'Writing', mins: '45p', timer: 'task2', resId: 'w_simon',
+              goal: 'Writing Task 2: Học Dạng 5 — Advantages vs Disadvantages (Outweigh & Neutral) theo Simon Templates + lập dàn ý.',
+              how: 'Nắm rõ khi nào cần nêu quan điểm (Outweigh) và khi nào viết trung lập trong Simon Templates Dạng 5.' },
+            { id: 't9-3', skill: 'Speaking', mins: '30p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Hoàn tất Nhóm 1 Person (1.11 – 1.13) + chốt 2 câu chuyện đa năng tả người.',
+              how: 'Hoàn thành trọn bộ Nhóm 1 Person trong Bộ đề dự đoán Q3-2026.' }
           ]
         },
         {
           index: 9, dayLabel: 'Ngày 10 / 30', shortLabel: 'N10', date: '2026-12-03', weekday: 4, week: 2,
-          phase: 'Chặng 1: Nền tảng tăng tốc',
-          title: 'Ngày vừa T5: Task 1 Table + Viết Adv–Disadv + Mở màn Part 2 Person',
+          phase: 'Chặng 1: Nền tảng tăng tốc (Map-First)',
+          title: 'Ngày vừa T5: Task 1 Table + Viết Adv–Disadv + Nhóm 2 Object (2.1–2.3)',
           tasks: [
-            { id: 't10-1', skill: 'Writing', mins: '35p', timer: 'task1', resId: 'w_30days',
-              goal: 'Task 1: Ôn Unit 8–9 (Predictions & Varying vocab) → Viết bấm giờ 20p 1 đề Table.',
-              how: 'Đọc Unit 8–9 Improve Writing, sau đó viết 1 bài Table trong 30 Ngày Chuyên Sâu đúng 20 phút.' },
+            { id: 't10-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_improve',
+              goal: 'Writing Task 1: Table — Học Unit 7 Improve your IELTS Writing Skills (Adverbs to evaluate data) + Viết hoàn chỉnh 1 bài Table bấm giờ 20 phút.',
+              how: 'Dùng trạng từ đánh giá số liệu nổi bật (significantly, marginally, disproportionately) ở Unit 7 rồi viết 1 bài Table (30 Ngày Chuyên Sâu).' },
             { id: 't10-2', skill: 'Writing', mins: '50p', timer: 'task2', resId: 'w_ideas',
-              goal: 'Task 2: Viết bấm giờ 40p 1 bài Advantages vs Disadvantages (Outweigh) + đọc Kho ý tưởng Psychology & Space.',
+              goal: 'Writing Task 2: Viết bấm giờ 40p 1 bài Advantages vs Disadvantages (Outweigh) + đọc Kho ý tưởng Psychology & Space.',
               how: 'Áp dụng Simon Templates Dạng 5 viết trọn bài trong 40 phút.' },
             { id: 't10-3', skill: 'Speaking', mins: '35p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Bộ đề dự đoán Part 2 & 3 — Nhóm 1 Person (1.1 + 1.2): chuẩn bị 1p & nói 2p với AI Tutor.',
-              how: 'Mở Bộ đề dự đoán Speaking Q3-2026 Nhóm 1 Person, bấm đồng hồ 1p note ý chính + 2p nói liên tục.' },
+              goal: 'Speaking: Bộ đề dự đoán Part 2 & 3 — Nhóm 2 Object (2.1 – 2.3) với AI Speaking Tutor.',
+              how: 'Bắt đầu nhóm miêu tả đồ vật/sản phẩm (2.1–2.3) trong Bộ đề dự đoán Q3-2026.' },
             { id: 't10-4', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_cam',
-              goal: 'Reading: Bấm giờ 20p làm Cam 17 – Test 2 (Passage 3) + xem Hướng dẫn giải đề.',
+              goal: 'Reading: Bấm giờ 20p làm Cam 17 – Test 2 (Passage 3) + chữa paraphrase.',
               how: 'Luyện Passage 3 khó nhất của Cam 17 Test 2 và tra Hướng dẫn giải đề Reading Cambridge.' }
           ]
         },
         {
           index: 10, dayLabel: 'Ngày 11 / 30', shortLabel: 'N11', date: '2026-12-04', weekday: 5, week: 2,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'Ngày bận T6 (Giảm tải): Sửa bài AI + Collocations Environment/Economy',
+          title: 'Ngày bận T6 (Giảm tải): Task 1 Mixed Charts (Phần 1) + Collocations Environment/Economy',
           tasks: [
-            { id: 't11-1', skill: 'Writing', mins: '40p', resId: 'w_30days',
-              goal: 'Sửa bài Map, Pie, Table & Adv–Disadv bằng ChatGPT theo 4 tiêu chí + ghi lỗi vào Blacklist.',
-              how: 'Kiểm tra lỗi lặp từ và chia thì ở các bài Task 1 & Task 2 vừa viết; viết lại 1 đoạn Overview chuẩn.' },
+            { id: 't11-1', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_improve',
+              goal: 'Writing Task 1: Mixed Charts (Phần 1) — Học Unit 10 Improve your IELTS Writing Skills (Linking with "with") + lập dàn ý & viết Overview 2 đề Mixed Charts.',
+              how: 'Nắm cách ghép thông tin 2 biểu đồ khác loại bằng mệnh đề "with..." trong Unit 10 và thực hành trên 30 Ngày Chuyên Sâu.' },
             { id: 't11-2', skill: 'Vocab', mins: '30p', resId: 'w_vocab',
               goal: 'Từ vựng bản xứ Writing — Topic 2: Environment & Topic 3: Economy (học collocations + viết 1 đoạn).',
               how: 'Đọc ngữ liệu và làm bài tập Topic 2 & 3 trong Từ vựng bản xứ (Phần Writing).' },
-            { id: 't11-3', skill: 'Listening', mins: '25p', resId: 'l_dictation',
-              goal: 'Nghe chép chính tả: Cam 12 – Test 2 Section 2.',
-              how: 'Luyện nghe chi tiết trong file Nghe chép chính tả Cambridge 8–20.' }
+            { id: 't11-3', skill: 'Speaking', mins: '30p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Part 2 & 3 — Nhóm 2 Object (2.4 – 2.6) với AI Tutor.',
+              how: 'Luyện nói trôi chảy 3 đề Object 2.4–2.6 cùng AI Speaking Tutor.' }
           ]
         },
         {
           index: 11, dayLabel: 'Ngày 12 / 30', shortLabel: 'N12', date: '2026-12-05', weekday: 6, week: 2,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'SIÊU NGÀY VÀNG T7: Full Test Cam 18 Test 1 + Dự đoán Education + Person',
+          title: 'SIÊU NGÀY VÀNG T7: Viết Mixed Charts + Sửa tổng hợp 7 dạng Task 1 + Full Cam 18 T1',
           tasks: [
-            { id: 't12-1', skill: 'Listening', mins: '45p', resId: 'l_cam',
+            { id: 't12-1', skill: 'Writing', mins: '60p', timer: 'task1', resId: 'w_30days',
+              goal: 'Writing Task 1: Mixed Charts (Phần 2) — Viết hoàn chỉnh 1 bài Mixed Chart 20p + Sửa bài tổng hợp 7 dạng cơ bản theo feedback AI 4 tiêu chí.',
+              how: 'Hoàn tất 1 bài Mixed Chart trọn vẹn và rà lại toàn bộ lỗi sai của 7 dạng (Map, Process, Line, Bar, Pie, Table, Mixed) trước khi sang Bộ đề dự đoán.' },
+            { id: 't12-2', skill: 'Listening', mins: '45p', resId: 'l_cam',
               goal: 'Full Test Cambridge 18 – Test 1 (30p) + Nghe lại đối chiếu transcript chữa câu sai.',
               how: 'Làm trọn vẹn 40 câu Cam 18 Test 1 như thi thật, nhập điểm vào Tab Mock Test.' },
-            { id: 't12-2', skill: 'Reading', mins: '75p', timer: 'fullWriting', resId: 'r_cam',
+            { id: 't12-3', skill: 'Reading', mins: '75p', timer: 'fullWriting', resId: 'r_cam',
               goal: 'Full Test Cambridge 18 – Test 1 (60p) + Phân tích câu sai & bảng từ đồng nghĩa.',
               how: 'Bấm giờ 60 phút làm đủ 3 passages Cam 18 Test 1, chữa bằng Hướng dẫn giải đề Reading Cambridge.' },
-            { id: 't12-3', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_30days',
-              goal: 'Task 1: Ôn Unit 10 (Linking with "with") → Viết bấm giờ 20p 1 bài Mixed Chart.',
-              how: 'Kết hợp 2 biểu đồ trong 1 bài Mixed Chart (30 Ngày Chuyên Sâu), chia 2 đoạn Body rõ ràng.' },
-            { id: 't12-4', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
-              goal: 'Chuyển sang Bộ đề dự đoán Writing Q3-2026: Topic 1 Education – Đề 1 (Opinion, viết full 40p).',
-              how: 'Mở Bộ đề dự đoán Writing Q3-2026 Topic 1 Education, vận dụng collocations Topic 1 đã học để viết full 40p.' },
-            { id: 't12-5', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 1 Person (1.3 – 1.6) luyện gộp ý tưởng với AI Tutor.',
-              how: 'Dùng chung 1–2 hình mẫu nhân vật để trả lời linh hoạt cả 4 đề 1.3–1.6 và câu hỏi Part 3.' }
+            { id: 't12-4', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Hoàn tất Nhóm 2 Object (2.7 – 2.10) với AI Speaking Tutor.',
+              how: 'Chốt trọn bộ 10 đề Nhóm 2 Object trong Bộ đề dự đoán Q3-2026.' }
           ]
         },
         {
           index: 12, dayLabel: 'Ngày 13 / 30', shortLabel: 'N13', date: '2026-12-06', weekday: 0, week: 2,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'SIÊU NGÀY VÀNG CN: Dự đoán Line Chart + Environment + Full Cam 18 T2',
+          title: 'SIÊU NGÀY VÀNG CN: Mở đầu Dự đoán Writing bằng MAP: ĐỀ 1 + Topic 1 Education',
           tasks: [
-            { id: 't13-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Line Chart – Đề 1 (viết full 20p) & Đề 2 (lập dàn ý + Overview).',
-              how: 'Luyện sát bộ đề dự đoán Line Chart Q3-2026 để nắm trọn các mẫu số liệu dự đoán.' },
+            { id: 't13-1', featured: true, skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Mở đầu Bộ đề dự đoán IELTS Writing Quý III – 2026: Task 1 Map — Đề 1 (Viết hoàn chỉnh bấm giờ 20p + chấm sửa AI 4 tiêu chí).',
+              how: 'Mở Bộ đề dự đoán Writing Q3-2026 ngay phần Map: Đề 1, áp dụng toàn bộ từ vựng phương hướng & biến đổi đã luyện ở Ngày 1–2 để viết full 20p.' },
             { id: 't13-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 2 Environment & Nature – Đề 1 (Problem & Solution, viết 40p).',
-              how: 'Kết hợp từ vựng Topic 2 Environment đã học để viết bài Problem & Solution trong 40 phút.' },
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 1 Education — Đề 1 (Opinion, viết full 40p) + chấm AI.',
+              how: 'Vận dụng collocations Topic 1 Studies đã học để viết bài Opinion chuẩn 40p.' },
             { id: 't13-3', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 1 Person (1.7 – 1.10) luyện trôi chảy với AI Tutor.',
-              how: 'Tập nói 2 phút không ngắt quãng và trả lời mở rộng Part 3 cùng AI Speaking Tutor.' },
+              goal: 'Speaking: Hoàn tất trọn bộ Nhóm 3 Event (3.1 – 3.5) luyện kể chuyện quá khứ với AI Tutor.',
+              how: 'Luyện đủ 5 đề Nhóm 3 Event (3.1–3.5) trong Bộ đề dự đoán Q3-2026.' },
             { id: 't13-4', skill: 'Listening', mins: '45p', resId: 'l_cam',
               goal: 'Full Test Cambridge 18 – Test 2 (30p) + chữa transcript câu sai.',
-              how: 'Làm Full Listening Cam 18 Test 2 và nghe lại những đoạn bị lỡ thông tin.' }
+              how: 'Làm Full Listening Cam 18 Test 2 và nghe lại đoạn bị lỡ thông tin.' }
           ]
         },
         {
           index: 13, dayLabel: 'Ngày 14 / 30', shortLabel: 'N14', date: '2026-12-07', weekday: 1, week: 2,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'Ngày bận T2: Sửa bài Dự đoán + Chốt Nhóm 1 Person + Reading Cam 18 T2',
+          title: 'Ngày bận T2: Dự đoán Writing MAP: ĐỀ 2 + Mở màn Nhóm 4 Activity',
           tasks: [
-            { id: 't14-1', skill: 'Writing', mins: '45p', resId: 'w_forecast',
-              goal: 'Sửa bài & viết lại Line Chart Đề 1 + Topic 2 Environment (Ngày 13) theo feedback AI 4 tiêu chí.',
-              how: 'Dán bài viết ngày 13 vào AI chấm điểm, tự viết lại đoạn Overview và 1 đoạn Body nâng cấp từ vựng.' },
+            { id: 't14-1', featured: true, skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Map — Đề 2 (Viết hoàn chỉnh bấm giờ 20p + sửa bài Map Đề 1 & Đề 2 qua AI).',
+              how: 'Thực chiến Map: Đề 2 trong Bộ đề dự đoán Q3-2026, so sánh cách dùng từ nối vị trí giữa Đề 1 và Đề 2.' },
             { id: 't14-2', skill: 'Speaking', mins: '40p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Hoàn tất Nhóm 1 Person (1.11 – 1.13) + chốt 2 câu chuyện đa năng tả người.',
-              how: 'Luyện nốt 3 đề cuối Nhóm 1 Person với AI Speaking Tutor.' },
+              goal: 'Speaking: Bộ đề dự đoán Part 2 & 3 — Nhóm 4 Activity (4.1 – 4.3) với AI Speaking Tutor.',
+              how: 'Luyện 3 đề đầu của Nhóm 4 Activity (4.1–4.3) trong Bộ đề dự đoán Q3-2026.' },
             { id: 't14-3', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_guide',
               goal: 'Reading: Bấm giờ 20p làm Cam 18 – Test 2 (Passage 3) + chữa paraphrase.',
-              how: 'Luyện áp lực thời gian 20 phút cho Passage 3 Cam 18 Test 2.' }
+              how: 'Luyện tốc độ 20 phút cho Passage 3 Cam 18 Test 2.' }
           ]
         },
 
@@ -2197,17 +2214,17 @@
         {
           index: 14, dayLabel: 'Ngày 15 / 30', shortLabel: 'N15', date: '2026-12-08', weekday: 2, week: 3,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'Ngày Vàng T3: Dự đoán Bar Chart + Topic 3 Government + Nhóm 2 Object',
+          title: 'Ngày Vàng T3: Dự đoán Process Đề 1 + Topic 2 Environment + Nhóm 4 Activity',
           tasks: [
-            { id: 't15-1', skill: 'Writing', mins: '50p', timer: 'task1', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Bar Chart – Đề 1 (viết full 20p) & Đề 2 (lập dàn ý + Overview).',
-              how: 'Thực chiến 2 đề dự đoán Bar Chart Q3-2026, chú trọng nhóm đối tượng so sánh cao nhất/thấp nhất.' },
+            { id: 't15-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Process — Đề 1 (Viết hoàn chỉnh bấm giờ 20p + chấm AI).',
+              how: 'Thực chiến Process: Đề 1 trong Bộ đề dự đoán Q3-2026, kiểm tra kỹ câu bị động & từ nối bước.' },
             { id: 't15-2', skill: 'Writing', mins: '60p', timer: 'task2', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 3 Government & Society – Đề 3 (Discussion, viết full 40p + chấm AI).',
-              how: 'Viết bài Discussion Topic 3 Government trong 40p và nhờ ChatGPT chấm feedback.' },
-            { id: 't15-3', skill: 'Speaking', mins: '50p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 2 Object (2.1 – 2.4) luyện nói 2p + Part 3 với AI Tutor.',
-              how: 'Chuyển sang nhóm miêu tả đồ vật/sản phẩm (2.1–2.4) trong Bộ đề dự đoán Q3-2026.' },
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 2 Environment & Nature — Đề 1 (Problem & Solution, viết full 40p).',
+              how: 'Kết hợp collocations Topic 2 Environment đã học để viết trọn bài trong 40 phút.' },
+            { id: 't15-3', skill: 'Speaking', mins: '40p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Hoàn tất Nhóm 4 Activity (4.4 – 4.5) + mở màn Nhóm 5 Place (5.1) với AI Tutor.',
+              how: 'Chốt xong Nhóm 4 Activity và sang Nhóm 5 Place trong Bộ đề dự đoán Q3-2026.' },
             { id: 't15-4', skill: 'Vocab', mins: '35p', resId: 'w_vocab',
               goal: 'Từ vựng bản xứ Writing — Topic 4: Culture & Topic 5: Entertainment (Collocations + viết đoạn).',
               how: 'Học cụm từ bản xứ Topic 4 & 5 trong Từ vựng bản xứ (Phần Writing).' }
@@ -2216,46 +2233,46 @@
         {
           index: 15, dayLabel: 'Ngày 16 / 30', shortLabel: 'N16', date: '2026-12-09', weekday: 3, week: 3,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'Ngày bận T4: Dự đoán Pie Chart + Nhóm 2 Object (2.5–2.7)',
+          title: 'Ngày bận T4: Dự đoán Process Đề 2 + Nhóm 5 Place (5.2–5.4)',
           tasks: [
             { id: 't16-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Pie Chart – Đề 1 (viết 20p) & Đề 2 (dàn ý) + sửa bài Topic 3.',
-              how: 'Làm Pie Chart Đề 1–2 trong Bộ đề dự đoán và sửa lỗi bài Topic 3 Government ngày 15.' },
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Process — Đề 2 (Viết hoàn chỉnh 20p + sửa bài Process Đề 1 & Topic 2 Environment).',
+              how: 'Hoàn tất trọn bộ Process dự đoán Q3-2026 và viết lại 1 đoạn Body bài Topic 2 Environment.' },
             { id: 't16-2', skill: 'Speaking', mins: '40p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 2 Object (2.5 – 2.7) với AI Speaking Tutor.',
-              how: 'Luyện nói trôi chảy 3 đề Object 2.5–2.7 và trả lời câu hỏi Part 3.' },
+              goal: 'Speaking: Hoàn tất Nhóm 5 Place (5.2 – 5.4) — luyện miêu tả địa điểm giàu tính từ cùng AI Tutor.',
+              how: 'Hoàn thành trọn bộ Nhóm 5 Place trong Bộ đề dự đoán Q3-2026.' },
             { id: 't16-3', skill: 'Listening', mins: '25p', resId: 'l_dictation',
-              goal: 'Nghe chép chính tả: Cam 12 – Test 3 Section 3.',
+              goal: 'Listening: Nghe chép chính tả Cam 12 – Test 3 Section 3.',
               how: 'Luyện nghe hội thoại học thuật 2–3 người trong file Nghe chép chính tả.' }
           ]
         },
         {
           index: 16, dayLabel: 'Ngày 17 / 30', shortLabel: 'N17', date: '2026-12-10', weekday: 4, week: 3,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'Ngày vừa T5: Dự đoán Topic 4 Work + Chốt Nhóm 2 Object + Cam 17 T3',
+          title: 'Ngày vừa T5: Dự đoán Line Chart Đề 1 + Topic 3 Government + Nhóm 6 Others',
           tasks: [
-            { id: 't17-1', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 4 Work & Employment – Đề 3 (Opinion, bấm giờ 40p) + Vocab Topic 13 Work.',
-              how: 'Đọc nhanh collocations Topic 13 Work trong Từ vựng bản xứ Writing rồi viết trọn bài Topic 4 Đề 3.' },
-            { id: 't17-2', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Hoàn tất Nhóm 2 Object (2.8 – 2.10) + chốt 2 khung miêu tả đồ vật đa năng.',
-              how: 'Luyện nốt 2.8–2.10 cùng AI Speaking Tutor.' },
-            { id: 't17-3', skill: 'Reading', mins: '45p', timer: 'readingP', resId: 'r_cam',
-              goal: 'Reading: Bấm giờ 20p/bài làm Cam 17 – Test 3 (Passage 2 & 3) + chữa paraphrase.',
-              how: 'Làm Cam 17 Test 3 P2–P3 và tra Hướng dẫn giải đề Reading Cambridge.' }
+            { id: 't17-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Line chart — Đề 1 (Viết hoàn chỉnh bấm giờ 20p + chấm AI).',
+              how: 'Thực chiến Line chart: Đề 1 trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't17-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 3 Government & Society — Đề 3 (Discussion, viết full 40p).',
+              how: 'Viết bài Discussion Topic 3 Government trong 40 phút.' },
+            { id: 't17-3', skill: 'Speaking', mins: '40p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Part 2 & 3 — Nhóm 6 Others (6.1 – 6.3) với AI Speaking Tutor.',
+              how: 'Bắt đầu nhóm cuối cùng Nhóm 6 Others (6.1–6.3) trong Bộ đề dự đoán Q3-2026.' }
           ]
         },
         {
           index: 17, dayLabel: 'Ngày 18 / 30', shortLabel: 'N18', date: '2026-12-11', weekday: 5, week: 3,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'Ngày bận T6 (Giảm tải): Sửa bài Work + Mở màn Nhóm 3 Event',
+          title: 'Ngày bận T6 (Giảm tải): Dự đoán Line Chart Đề 2 + Nhóm 6 Others (6.4–6.6)',
           tasks: [
-            { id: 't18-1', skill: 'Writing', mins: '35p', resId: 'w_forecast',
-              goal: 'Sửa bài & viết lại Topic 4 Work (Ngày 17) theo feedback AI 4 tiêu chí.',
-              how: 'Dùng AI chấm & nâng cấp từ vựng chủ đề việc làm, cập nhật lỗi vào Sổ lỗi sai.' },
-            { id: 't18-2', skill: 'Speaking', mins: '30p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 3 Event (3.1 – 3.2) tập kể chuyện quá khứ với AI Tutor.',
-              how: 'Chú ý dùng đúng thì quá khứ đơn/tiếp diễn khi kể sự kiện ở Nhóm 3 Event (3.1–3.2).' },
+            { id: 't18-1', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Line chart — Đề 2 (Viết hoàn chỉnh 20p + sửa bài Topic 3 Government qua AI).',
+              how: 'Hoàn tất Line chart Đề 2 trong Bộ đề dự đoán Q3-2026 và sửa lỗi bài Discussion ngày 17.' },
+            { id: 't18-2', skill: 'Speaking', mins: '35p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Bộ đề dự đoán Part 2 & 3 — Nhóm 6 Others (6.4 – 6.6) với AI Tutor.',
+              how: 'Luyện tiếp 3 đề Nhóm 6 Others (6.4–6.6) cùng AI Speaking Tutor.' },
             { id: 't18-3', skill: 'Vocab', mins: '25p', resId: 'w_vocab',
               goal: 'Từ vựng bản xứ Writing — Topic 6: History & Topic 7: Health (chọn lọc collocations đắt).',
               how: 'Đọc ngữ liệu Topic 6 & 7 trong Từ vựng bản xứ (Phần Writing).' }
@@ -2264,39 +2281,39 @@
         {
           index: 18, dayLabel: 'Ngày 19 / 30', shortLabel: 'N19', date: '2026-12-12', weekday: 6, week: 3,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'SIÊU NGÀY VÀNG T7: Full Test Cam 18 T3 + Dự đoán Table + Science & Tech',
+          title: 'SIÊU NGÀY VÀNG T7: Dự đoán Bar Chart Đề 1 + Topic 4 Work + Full Cam 18 T3',
           tasks: [
-            { id: 't19-1', skill: 'Listening', mins: '45p', resId: 'l_cam',
+            { id: 't19-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Bar chart — Đề 1 (Viết hoàn chỉnh bấm giờ 20p + chấm AI).',
+              how: 'Thực chiến Bar chart: Đề 1 trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't19-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 4 Work & Employment — Đề 3 (Opinion, 40p) + Vocab Topic 13 Work.',
+              how: 'Nạp cụm từ Topic 13 Work (Từ vựng bản xứ Writing) rồi viết trọn bài Topic 4 Đề 3.' },
+            { id: 't19-3', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Speaking: Hoàn tất 100% Bộ đề dự đoán Speaking — Nhóm 6 Others (6.7 – 6.9) với AI Tutor!',
+              how: 'Chúc mừng bạn đã hoàn thành toàn bộ 25 topic Part 1 và 46 đề Part 2&3 dự đoán Q3-2026!' },
+            { id: 't19-4', skill: 'Listening', mins: '45p', resId: 'l_cam',
               goal: 'Full Test Cambridge 18 – Test 3 (30p) + Nghe lại chữa transcript.',
               how: 'Làm Full Listening Cam 18 Test 3 và ghi nhận điểm vào Tab Mock Test.' },
-            { id: 't19-2', skill: 'Reading', mins: '75p', timer: 'fullWriting', resId: 'r_cam',
+            { id: 't19-5', skill: 'Reading', mins: '75p', timer: 'fullWriting', resId: 'r_cam',
               goal: 'Full Test Cambridge 18 – Test 3 (60p) + Phân tích câu sai & paraphrase.',
-              how: 'Làm Full Reading 60p Cam 18 Test 3, đối chiếu Hướng dẫn giải đề Reading Cambridge.' },
-            { id: 't19-3', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Table – Đề 1 (viết full 20p) & Đề 2 (lập dàn ý + Overview).',
-              how: 'Luyện 2 đề dự đoán Table Q3-2026.' },
-            { id: 't19-4', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 5 Science & Technology – Đề 4 (Two-part, 40p) + Vocab Topic 14 Tech.',
-              how: 'Nạp cụm từ Topic 14 Technology (Từ vựng bản xứ Writing) rồi viết trọn bài Topic 5 Đề 4.' },
-            { id: 't19-5', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Hoàn tất Nhóm 3 Event (3.3 – 3.5) + luyện Part 3 chuyên sâu với AI Speaking Tutor.',
-              how: 'Hoàn thành trọn bộ Nhóm 3 Event trong Bộ đề dự đoán Q3-2026.' }
+              how: 'Làm Full Reading 60p Cam 18 Test 3, đối chiếu Hướng dẫn giải đề Reading Cambridge.' }
           ]
         },
         {
           index: 19, dayLabel: 'Ngày 20 / 30', shortLabel: 'N20', date: '2026-12-13', weekday: 0, week: 3,
           phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
-          title: 'SIÊU NGÀY VÀNG CN: Dự đoán Process + Health & Lifestyle + Nhóm 4 Activity',
+          title: 'SIÊU NGÀY VÀNG CN: Dự đoán Bar Chart Đề 2 + Topic 5 Science & Tech + Cam 18 T4',
           tasks: [
             { id: 't20-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Process – Đề 1 (viết full 20p) & Đề 2 (phân tích động từ bị động).',
-              how: 'Luyện 2 đề dự đoán Process Q3-2026, kiểm tra kỹ chia động từ bị động & từ nối trình tự.' },
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Bar chart — Đề 2 (Viết hoàn chỉnh bấm giờ 20p + chấm AI).',
+              how: 'Hoàn tất trọn bộ Bar chart dự đoán Q3-2026.' },
             { id: 't20-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 6 Health & Lifestyle – Đề 4 (Problem & Solution, 40p + chấm AI).',
-              how: 'Vận dụng từ vựng Topic 7 Health đã học để viết bài Topic 6 Đề 4.' },
-            { id: 't20-3', skill: 'Speaking', mins: '50p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Hoàn tất trọn bộ Nhóm 4 Activity (4.1 – 4.5) bằng giọng nói cùng AI Speaking Tutor.',
-              how: 'Luyện đủ 5 đề Nhóm 4 Activity (4.1–4.5) trong Bộ đề dự đoán Q3-2026.' },
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 5 Science & Technology — Đề 4 (Two-part, 40p) + Vocab Topic 14 Tech.',
+              how: 'Vận dụng từ vựng Topic 14 Technology (Từ vựng bản xứ Writing) viết trọn bài Topic 5 Đề 4.' },
+            { id: 't20-3', skill: 'Speaking', mins: '40p', resId: 's_ai',
+              goal: 'Speaking: Mini Mock #1 — Thi thử ngẫu nhiên 15p Part 1–2–3 cùng AI Speaking Tutor.',
+              how: 'Yêu cầu AI Speaking Tutor đóng vai giám khảo chấm band và nhận xét độ trôi chảy.' },
             { id: 't20-4', skill: 'Listening', mins: '45p', resId: 'l_cam',
               goal: 'Full Test Cambridge 18 – Test 4 (30p) + chữa transcript.',
               how: 'Hoàn tất bộ Cam 18 Listening với Test 4.' }
@@ -2305,89 +2322,92 @@
         {
           index: 20, dayLabel: 'Ngày 21 / 30', shortLabel: 'N21', date: '2026-12-14', weekday: 1, week: 3,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: 'Ngày bận T2: Sửa bài Process & Health + Chốt Nhóm 5 Place',
+          title: 'Ngày bận T2: Dự đoán Pie Chart Đề 1 + Sửa bài Science & Tech',
           tasks: [
-            { id: 't21-1', skill: 'Writing', mins: '45p', resId: 'w_forecast',
-              goal: 'Sửa bài & viết lại Process Đề 1 + Topic 6 Health (Ngày 20) theo nhận xét 4 tiêu chí AI.',
-              how: 'Nâng cấp từ nối mạch lạc (Coherence & Cohesion) cho bài viết ngày 20.' },
-            { id: 't21-2', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Hoàn tất Nhóm 5 Place (5.1 – 5.4) — luyện miêu tả địa điểm giàu tính từ cùng AI Tutor.',
-              how: 'Luyện trọn 4 đề Nhóm 5 Place (5.1–5.4) trong Bộ đề dự đoán Q3-2026.' },
-            { id: 't21-3', skill: 'Vocab', mins: '25p', resId: 'w_vocab',
+            { id: 't21-1', skill: 'Writing', mins: '50p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Pie chart — Đề 1 (Viết hoàn chỉnh 20p) + sửa bài Topic 5 Science & Tech qua AI.',
+              how: 'Thực chiến Pie chart: Đề 1 trong Bộ đề dự đoán Q3-2026 và nâng cấp 1 đoạn Body bài Topic 5.' },
+            { id: 't21-2', skill: 'Vocab', mins: '30p', resId: 'w_vocab',
               goal: 'Từ vựng bản xứ Writing — Topic 8: Language, Topic 9: Media & Topic 10: Psychology.',
-              how: 'Chọn lọc 5–6 collocations hay nhất từ Topic 8, 9, 10 trong Từ vựng bản xứ Writing.' }
+              how: 'Chọn lọc 5–6 collocations hay nhất từ Topic 8, 9, 10 trong Từ vựng bản xứ Writing.' },
+            { id: 't21-3', skill: 'Speaking', mins: '30p', resId: 's_forecast',
+              goal: 'Speaking: Ôn phản xạ nhanh Part 1 (Topic 1–13) + rà lại 3 khung chuyện Person, Object, Event.',
+              how: 'Luyện nói mượt mà 15p cùng AI Speaking Tutor.' }
           ]
         },
 
-        // --- TUẦN 4 & VỀ ĐÍCH (NGÀY 22 – 30 + TỔNG ÔN + NGHỈ + THI: 15/12 – 26/12/2026) ---
+        // --- TUẦN 4 & VỀ ĐÍCH (NGÀY 22 – 30 + NGHỈ + THI: 15/12 – 26/12/2026) ---
         {
           index: 21, dayLabel: 'Ngày 22 / 30', shortLabel: 'N22', date: '2026-12-15', weekday: 2, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: 'Ngày Vàng T3: Dự đoán Map + Topic 7 Travel + Nhóm 6 Others + Cam 19 T1',
+          title: 'Ngày Vàng T3: Dự đoán Pie Chart Đề 2 + Topic 6 Health & Lifestyle + Cam 19 T1',
           tasks: [
-            { id: 't22-1', skill: 'Writing', mins: '50p', timer: 'task1', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Map – Đề 1 (viết full 20p) & Đề 2 (lập dàn ý + bị động chỉ vị trí).',
-              how: 'Thực chiến 2 đề dự đoán Map Q3-2026, đối chiếu lại Paraphrasing Map.' },
+            { id: 't22-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Pie chart — Đề 2 (Viết hoàn chỉnh bấm giờ 20p + chấm AI).',
+              how: 'Hoàn tất trọn bộ Pie chart dự đoán Q3-2026.' },
             { id: 't22-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 7 Travel & Tourism – Đề 4 (Advantages vs Disadvantages, 40p).',
-              how: 'Đọc nhanh collocations Topic 15 Tourism (Từ vựng bản xứ Writing) rồi viết trọn bài Topic 7 Đề 4.' },
-            { id: 't22-3', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 6 Others (6.1 – 6.4) với AI Speaking Tutor.',
-              how: 'Bắt đầu nhóm cuối cùng (Nhóm 6 Others 6.1–6.4) trong Bộ đề dự đoán Q3-2026.' },
-            { id: 't22-4', skill: 'Reading', mins: '70p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 6 Health & Lifestyle — Đề 4 (Problem & Solution, viết full 40p).',
+              how: 'Áp dụng từ vựng Topic 7 Health đã học viết trọn bài Topic 6 Đề 4.' },
+            { id: 't22-3', skill: 'Reading', mins: '70p', timer: 'fullWriting', resId: 'r_cam',
               goal: 'Full Test Cambridge 19 – Test 1 (60p) + chữa câu sai.',
-              how: 'Bấm giờ 60p làm Full Reading Cam 19 Test 1.' }
+              how: 'Bấm giờ 60p làm Full Reading Cam 19 Test 1.' },
+            { id: 't22-4', skill: 'Speaking', mins: '35p', resId: 's_forecast',
+              goal: 'Speaking: Ôn phản xạ Part 1 (Topic 14–25) + rà lại 3 khung chuyện Activity, Place, Others.',
+              how: 'Luyện trả lời mở rộng với AI Speaking Tutor.' }
           ]
         },
         {
           index: 22, dayLabel: 'Ngày 23 / 30', shortLabel: 'N23', date: '2026-12-16', weekday: 3, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: 'Ngày bận T4: Dự đoán Mixed Chart + Hoàn tất 100% Bộ đề dự đoán Speaking!',
+          title: 'Ngày bận T4: Dự đoán Table Đề 1 + Full Listening Cam 19 Test 1',
           tasks: [
             { id: 't23-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
-              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Mixed Chart – Đề 1 (viết full 20p) + sửa bài Map & Travel.',
-              how: 'Hoàn thành Mixed Chart Đề 1 và sửa lỗi bài viết ngày 22 qua AI.' },
-            { id: 't23-2', skill: 'Speaking', mins: '50p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Hoàn tất 100% Bộ đề dự đoán Speaking: Nhóm 6 Others (6.5 – 6.9) với AI Speaking Tutor!',
-              how: 'Chúc mừng bạn đã đi hết toàn bộ 25 topic Part 1 và 46 đề Part 2&3 dự đoán Q3-2026!' },
-            { id: 't23-3', skill: 'Listening', mins: '35p', resId: 'l_cam',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Table — Đề 1 (Viết hoàn chỉnh bấm giờ 20p + sửa bài Topic 6 Health qua AI).',
+              how: 'Thực chiến Table: Đề 1 trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't23-2', skill: 'Listening', mins: '40p', resId: 'l_cam',
               goal: 'Full Test Cambridge 19 – Test 1 (30p) + đối chiếu transcript.',
-              how: 'Làm Full Listening Cam 19 Test 1.' }
+              how: 'Làm Full Listening Cam 19 Test 1.' },
+            { id: 't23-3', skill: 'Speaking', mins: '30p', timer: 'speakingP2', resId: 's_ai',
+              goal: 'Speaking: Luyện nói lại 3 đề Part 2 bạn thấy khó nhất cùng AI Speaking Tutor.',
+              how: 'Tập trung giữ nhịp độ đều và phát âm rõ âm cuối.' }
           ]
         },
         {
           index: 23, dayLabel: 'Ngày 24 / 30', shortLabel: 'N24', date: '2026-12-17', weekday: 4, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: 'Ngày vừa T5: Bấm giờ Full 60p Writing (Topic 8 Urbanization) + Mini Mock S',
+          title: 'Ngày vừa T5: Dự đoán Table Đề 2 + Topic 7 Travel & Tourism + Mini Mock S #2',
           tasks: [
-            { id: 't24-1', skill: 'Writing', mins: '80p', timer: 'fullWriting', resId: 'w_forecast',
-              goal: 'Thực chiến 60p LIÊN TỤC: Task 1 Mixed Chart Đề 2 + Task 2 Topic 8 Urbanization & Housing Đề 1 → Chấm AI.',
-              how: 'Rèn phân bổ thời gian chuẩn phòng thi: đúng 20 phút dừng Task 1 sang Task 2 (40 phút).' },
-            { id: 't24-2', skill: 'Speaking', mins: '35p', resId: 's_ai',
-              goal: 'Mini Mock Speaking #1: Thi thử Full 15p ngẫu nhiên Part 1–2–3 cùng AI Speaking Tutor.',
-              how: 'Mở AI Speaking Tutor yêu cầu đóng vai giám khảo hỏi ngẫu nhiên Part 1–2–3 và chấm band.' },
-            { id: 't24-3', skill: 'Vocab', mins: '25p', resId: 'w_vocab',
-              goal: 'Từ vựng bản xứ Writing — Topic 11: Art & Topic 12: Agriculture (ngữ liệu + cụm hay).',
-              how: 'Nạp cụm từ học thuật Topic 11 & 12 trong Từ vựng bản xứ Writing.' }
+            { id: 't24-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Table — Đề 2 (Viết hoàn chỉnh bấm giờ 20p + chấm AI).',
+              how: 'Hoàn tất trọn bộ Table dự đoán Q3-2026.' },
+            { id: 't24-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 7 Travel & Tourism — Đề 4 (Advantages vs Disadvantages, 40p) + Vocab Topic 15 Tourism.',
+              how: 'Đọc nhanh collocations Topic 15 Tourism (Từ vựng bản xứ Writing) rồi viết trọn bài Topic 7 Đề 4.' },
+            { id: 't24-3', skill: 'Speaking', mins: '35p', resId: 's_ai',
+              goal: 'Speaking: Mini Mock #2 — Thi thử Full 15p ngẫu nhiên Part 1–2–3 cùng AI Speaking Tutor.',
+              how: 'Rèn phản xạ trả lời các câu hỏi Part 3 mang tính so sánh & dự đoán.' }
           ]
         },
         {
           index: 24, dayLabel: 'Ngày 25 / 30', shortLabel: 'N25', date: '2026-12-18', weekday: 5, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: 'Ngày bận T6 (Giảm tải): Dàn ý Topic 9 & 10 + Ôn nhanh 6 khung Speaking',
+          title: 'Ngày bận T6 (Giảm tải): Dự đoán Mixed Chart Đề 1 + Collocations Art/Agriculture',
           tasks: [
-            { id: 't25-1', skill: 'Writing', mins: '45p', resId: 'w_forecast',
-              goal: 'Lập dàn ý chi tiết + cụm từ tủ cho Topic 9 Family (Đề 1) và Topic 10 Media (Đề 3 Discussion).',
-              how: 'Kết hợp Bộ đề dự đoán Writing Q3-2026 và Kho ý tưởng IELTS Writing để chuẩn bị sẵn ý cho 2 topic cuối.' },
-            { id: 't25-2', skill: 'Speaking', mins: '30p', resId: 's_forecast',
-              goal: 'Ôn phản xạ nhanh Part 1 (Topic 1–13) + rà lại 6 khung chuyện đa năng cho 6 nhóm Part 2.',
-              how: 'Đọc nhẩm các ý chính cho Person, Object, Event, Activity, Place, Others.' }
+            { id: 't25-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Mixed chart — Đề 1 (Viết hoàn chỉnh bấm giờ 20p + chấm AI).',
+              how: 'Thực chiến Mixed chart: Đề 1 trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't25-2', skill: 'Vocab', mins: '25p', resId: 'w_vocab',
+              goal: 'Từ vựng bản xứ Writing — Topic 11: Art & Topic 12: Agriculture (ngữ liệu + cụm hay).',
+              how: 'Nạp cụm từ học thuật Topic 11 & 12 trong Từ vựng bản xứ Writing.' },
+            { id: 't25-3', skill: 'Speaking', mins: '25p', resId: 's_ai',
+              goal: 'Speaking: Luyện hội thoại tự nhiên 15p Part 1 & Part 3 cùng AI Speaking Tutor.',
+              how: 'Giữ nhịp nói trôi chảy, không quá tải.' }
           ]
         },
         {
           index: 25, dayLabel: 'Ngày 26 / 30', shortLabel: 'N26', date: '2026-12-19', weekday: 6, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: '🔥 FULL MOCK TEST #1 (4 KỸ NĂNG CHUẨN PHÒNG THI — CAM 19 TEST 2)',
+          title: '🔥 FULL MOCK TEST #1 (CAM 19 T2 + DỰ ĐOÁN MIXED CHART ĐỀ 2 & TOPIC 8)',
           tasks: [
             { id: 't26-1', skill: 'Listening', mins: '40p', resId: 'l_cam',
               goal: 'MOCK #1: Cambridge 19 – Test 2 (Full Listening 30p) + nhập điểm vào Tab Mock Test.',
@@ -2395,9 +2415,9 @@
             { id: 't26-2', skill: 'Reading', mins: '75p', timer: 'fullWriting', resId: 'r_cam',
               goal: 'MOCK #1: Cambridge 19 – Test 2 (Full Reading 60p) + chữa lỗi sai.',
               how: 'Bấm đồng hồ đúng 60p, không tra từ điển trong lúc làm.' },
-            { id: 't26-3', skill: 'Writing', mins: '90p', timer: 'fullWriting', resId: 'w_forecast',
-              goal: 'MOCK #1 (60p liên tục): Task 1 tự chọn (Dự đoán) + Task 2 Topic 9 Family Đề 1 → Chấm AI & viết lại đoạn yếu.',
-              how: 'Thi thử 60 phút liên tục, sau đó dùng AI chấm và viết lại đoạn thân bài yếu nhất.' },
+            { id: 't26-3', skill: 'Writing', mins: '85p', timer: 'fullWriting', resId: 'w_forecast',
+              goal: 'MOCK #1 (60p liên tục): Bộ đề dự đoán Task 1 Mixed chart Đề 2 (20p) + Task 2 Topic 8 Urbanization Đề 1 (40p) → Chấm AI & hoàn tất 100% 7 dạng Task 1 dự đoán!',
+              how: 'Thi thử 60 phút liên tục, dùng AI chấm 4 tiêu chí và lưu điểm biểu đồ.' },
             { id: 't26-4', skill: 'Speaking', mins: '35p', resId: 's_ai',
               goal: 'MOCK #1 Speaking: Thi thử Full 15p Part 1–2–3 cùng AI Speaking Tutor + nhập điểm biểu đồ.',
               how: 'Bật micro nói liên tục 15 phút với AI Speaking Tutor.' }
@@ -2406,7 +2426,7 @@
         {
           index: 26, dayLabel: 'Ngày 27 / 30', shortLabel: 'N27', date: '2026-12-20', weekday: 0, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: '🔥 FULL MOCK TEST #2 (CAM 19 TEST 3 + TOPIC 10 MEDIA)',
+          title: '🔥 FULL MOCK TEST #2 (CAM 19 T3 + GHÉP CẶP TASK 1 MAP & TOPIC 9 FAMILY)',
           tasks: [
             { id: 't27-1', skill: 'Listening', mins: '45p', resId: 'l_cam',
               goal: 'MOCK #2: Cambridge 19 – Test 3 (Full Listening 30p) + chữa transcript.',
@@ -2415,88 +2435,91 @@
               goal: 'MOCK #2: Cambridge 19 – Test 3 (Full Reading 60p) + chữa nhanh.',
               how: 'Bấm giờ 60 phút Full Reading Cam 19 Test 3.' },
             { id: 't27-3', skill: 'Writing', mins: '85p', timer: 'fullWriting', resId: 'w_forecast',
-              goal: 'MOCK #2 (60p liên tục): Task 1 Map/Process (Dự đoán) + Task 2 Topic 10 Media Đề 3 → Chấm AI.',
-              how: 'Thi thử 60 phút liên tục và lưu kết quả vào Tab Mock Test.' },
+              goal: 'MOCK #2 (Ghép cặp 60p): Ôn lại cấu trúc Map/Process (20p) + Task 2 Topic 9 Family Đề 1 (40p) → Chấm AI & sửa đoạn yếu.',
+              how: 'Rèn chuyển đổi mượt mà giữa Task 1 (20p) và Task 2 (40p) đúng áp lực phòng thi.' },
             { id: 't27-4', skill: 'Speaking', mins: '35p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Ôn Part 1 (Topic 14–25) + luyện nói lại 3 đề Part 2 bạn thấy khó nhất.',
-              how: 'Luyện nói mượt mà cùng AI Speaking Tutor.' }
+              goal: 'Speaking: Luyện lại 4 đề Part 2 thuộc 6 nhóm (Person, Object, Event, Activity, Place, Others) với AI Tutor.',
+              how: 'Củng cố phản xạ mở đầu và kết thúc bài nói 2 phút.' }
           ]
         },
         {
           index: 27, dayLabel: 'Ngày 28 / 30', shortLabel: 'N28', date: '2026-12-21', weekday: 1, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: 'Ngày bận T2: Siết chặt Writing 60p (Topic 8 Cause–Solution) + Mock S #2',
+          title: 'Ngày bận T2: Ghép cặp Task 1 Biểu đồ + Topic 10 Media (60p) + Tổng ôn Paraphrase',
           tasks: [
             { id: 't28-1', skill: 'Writing', mins: '80p', timer: 'fullWriting', resId: 'w_forecast',
-              goal: 'Thực chiến 60p: Task 1 Bar/Table + Task 2 Topic 8 Urbanization Đề 2 (Cause–Solution) → Chấm AI & cập nhật Blacklist.',
+              goal: 'Thực chiến ghép cặp 60p: Task 1 Bar/Line Chart (20p) + Task 2 Topic 10 Media & Communication Đề 3 (40p) → Chấm AI.',
               how: 'Chừa 3 phút cuối rà lỗi thì động từ và số ít/số nhiều.' },
             { id: 't28-2', skill: 'Speaking', mins: '35p', resId: 's_ai',
-              goal: 'MOCK #2 Speaking: Full 15p Part 1–2–3 cùng AI Speaking Tutor, rèn phản xạ câu Part 3 khó.',
-              how: 'Tập dùng các cụm câu giờ tự nhiên (That’s an intriguing question...) khi gặp câu hỏi trừu tượng.' }
+              goal: 'Speaking: Mini Mock #3 — Thi thử Full 15p Part 1–2–3 cùng AI Speaking Tutor.',
+              how: 'Ưu tiên sự tự nhiên, rõ ràng và ngắt nghỉ đúng nhịp.' }
           ]
         },
         {
           index: 28, dayLabel: 'Ngày 29 / 30', shortLabel: 'N29', date: '2026-12-22', weekday: 2, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: '🔥 FULL MOCK TEST #3 (CAMBRIDGE 20 TEST 1 — BỘ ĐỀ MỚI NHẤT!)',
+          title: 'Ngày Vàng T3: Tổng ôn cấu trúc, từ vựng Paraphrase Task 1 + Ghép cặp 60p Cam 20 T1',
           tasks: [
-            { id: 't29-1', skill: 'Listening', mins: '45p', resId: 'l_cam',
-              goal: 'MOCK #3: Cambridge 20 – Test 1 (Full Listening 30p) + chữa transcript.',
+            { id: 't29-1', skill: 'Writing', mins: '85p', timer: 'fullWriting', resId: 'w_paraphrase',
+              goal: 'Tổng ôn toàn bộ Cẩm nang Paraphrasing Task 1 (Map, Process, Chart) + 5 Simon Templates → Viết ghép cặp 60p (Task 1 Table/Pie + Task 2 Topic 8 Urbanization Đề 2).',
+              how: 'Rà lại sổ tay cụm từ biến đổi Map/Process/Chart rồi thực chiến ghép cặp 60p liên tục.' },
+            { id: 't29-2', skill: 'Listening', mins: '45p', resId: 'l_cam',
+              goal: 'Cambridge 20 – Test 1 (Full Listening 30p) + chữa transcript.',
               how: 'Làm bộ đề mới nhất Cambridge 20 Test 1 để bắt nhịp chuẩn độ khó 2026.' },
-            { id: 't29-2', skill: 'Reading', mins: '70p', timer: 'fullWriting', resId: 'r_cam',
-              goal: 'MOCK #3: Cambridge 20 – Test 1 (Full Reading 60p) + chữa paraphrase.',
+            { id: 't29-3', skill: 'Reading', mins: '70p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'Cambridge 20 – Test 1 (Full Reading 60p) + chữa paraphrase.',
               how: 'Bấm giờ 60 phút Full Reading Cam 20 Test 1.' },
-            { id: 't29-3', skill: 'Writing', mins: '85p', timer: 'fullWriting', resId: 'w_forecast',
-              goal: 'MOCK #3 (60p liên tục): Task 1 Line/Pie + Task 2 Topic 6 Health Đề 5 (Two-part) → Chấm AI & nhập điểm biểu đồ.',
-              how: 'Thi thử 60p liên tục và ghi điểm vào Tab Mock Test.' },
-            { id: 't29-4', skill: 'Speaking', mins: '35p', timer: 'speakingP2', resId: 's_forecast',
-              goal: 'Luyện lại 4 câu Part 2 thuộc nhóm bạn cảm thấy thiếu tự tin nhất cùng AI Tutor.',
-              how: 'Giữ tốc độ nói vừa phải, phát âm rõ âm cuối.' }
+            { id: 't29-4', skill: 'Speaking', mins: '35p', resId: 's_ai',
+              goal: 'Speaking: Tổng duyệt 6 khung chuyện đa năng + luyện 15p cùng AI Speaking Tutor.',
+              how: 'Ôn nhẹ nhàng các cụm mở đầu tự nhiên.' }
           ]
         },
         {
           index: 29, dayLabel: 'Ngày 30 / 30', shortLabel: 'N30', date: '2026-12-23', weekday: 3, week: 4,
           phase: 'Chặng 3: Bứt phá & Full Mock Test',
-          title: 'Hoàn tất 30 ngày: Giữ nhịp Cam 20 Test 2 + Tổng ôn 5 Templates & 7 dạng Task 1',
+          title: '🔥 NGÀY 30/30: THI THỬ FULL MOCK TEST 4 KỸ NĂNG (CAM 20 TEST 3 + ĐỀ DỰ ĐOÁN)',
           tasks: [
-            { id: 't30-1', skill: 'Listening', mins: '35p', resId: 'l_cam',
-              goal: 'Giữ nhịp tai: Cambridge 20 – Test 2 (Full Listening 30p) + rà 7 mẹo bẫy Handbook.',
-              how: 'Nghe để giữ sự nhạy bén với giọng đọc bản xứ.' },
-            { id: 't30-2', skill: 'Writing', mins: '50p', resId: 'w_simon',
-              goal: 'Tổng ôn: 5 Essay Templates (Simon) + Cẩm nang Paraphrasing 7 dạng Task 1 + lập dàn ý Topic 2 Environment Đề 2.',
-              how: 'Rà soát toàn bộ mở bài, câu Overview và cụm từ nối tủ của bản thân.' },
-            { id: 't30-3', skill: 'Speaking', mins: '35p', resId: 's_ai',
-              goal: 'MOCK #3 Speaking: Full 15p Part 1–2–3 cùng AI Speaking Tutor — ưu tiên sự tự tin & ngữ điệu.',
-              how: 'Nói tự nhiên như trò chuyện thật.' }
+            { id: 't30-1', skill: 'Listening', mins: '40p', resId: 'l_cam',
+              goal: 'FINAL MOCK TEST: Cambridge 20 – Test 3 (Full Listening 30p) + nhập điểm tổng kết.',
+              how: 'Thi thử nghiêm túc 1 lần duy nhất như phòng thi thật.' },
+            { id: 't30-2', skill: 'Reading', mins: '65p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'FINAL MOCK TEST: Cambridge 20 – Test 3 (Full Reading 60p) + nhập điểm tổng kết.',
+              how: 'Bấm đồng hồ đúng 60 phút và phân bổ thời gian 17p–20p–23p cho 3 passages.' },
+            { id: 't30-3', skill: 'Writing', mins: '75p', timer: 'fullWriting', resId: 'w_forecast',
+              goal: 'FINAL MOCK TEST (60p liên tục): Task 1 Map/Chart (Bộ đề dự đoán) + Task 2 Topic 6 Health Đề 5 → Chấm AI 4 tiêu chí.',
+              how: 'Kiểm soát chặt 20p Task 1 + 40p Task 2 và chừa 3 phút cuối kiểm tra lỗi ngữ pháp.' },
+            { id: 't30-4', skill: 'Speaking', mins: '25p', resId: 's_ai',
+              goal: 'FINAL MOCK TEST Speaking: Full 15p Part 1–2–3 cùng AI Speaking Tutor — hoàn thành 100% lộ trình 30 ngày!',
+              how: 'Tự tin giao tiếp tự nhiên như trò chuyện thật.' }
           ]
         },
         {
-          index: 30, dayLabel: 'Ngày 31 • Tổng ôn', shortLabel: 'Ôn', date: '2026-12-24', weekday: 4, week: 4,
+          index: 30, dayLabel: 'Ngày 31 • Tổng duyệt', shortLabel: 'N31', date: '2026-12-24', weekday: 4, week: 4,
           phase: 'Về đích (24/12 – 26/12)',
-          title: 'Tổng duyệt nhẹ nhàng & Diệt sạch Sổ Blacklist lỗi sai',
+          title: 'Tổng duyệt nhẹ nhàng: Rà Sổ Blacklist lỗi sai & 5 bài Writing mẫu đẹp nhất',
           tasks: [
-            { id: 't31-1', skill: 'Writing', mins: '40p', resId: 'w_paraphrase',
-              goal: 'Đọc lại 5 bài Writing đã được sửa đẹp nhất của bản thân + rà toàn bộ Sổ Blacklist lỗi sai.',
+            { id: 't31-1', skill: 'Writing', mins: '40p', resId: 'w_simon',
+              goal: 'Đọc lại 5 bài Writing đã được AI sửa đẹp nhất của bản thân (đặc biệt bài Map & Opinion) + rà toàn bộ Sổ Blacklist lỗi sai.',
               how: 'Mở Tab Mock Test & Sổ lỗi sai để nhắc bản thân tuyệt đối không mắc lại lỗi cũ.' },
-            { id: 't31-2', skill: 'Speaking', mins: '30p', resId: 's_forecast',
+            { id: 't31-2', skill: 'Speaking', mins: '25p', resId: 's_forecast',
               goal: 'Đọc nhẩm 6 khung chuyện đa năng (Person, Object, Event, Activity, Place, Others) + khởi động miệng 15p với AI.',
-              how: 'Chỉ ôn nhẹ nhàng để giữ phản xạ.' },
-            { id: 't31-3', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_cam',
-              goal: 'Làm nhẹ 1 Passage Reading Cam 20 Test 2 (20p) để giữ cảm giác đọc lướt.',
-              how: 'Không thức khuya cày thêm đề mới.' }
+              how: 'Chỉ ôn nhẹ để giữ độ trôi chảy.' },
+            { id: 't31-3', skill: 'Reading', mins: '25p', timer: 'readingP', resId: 'r_cam',
+              goal: 'Làm nhẹ 1 Passage Reading Cam 20 Test 2 (20p) giữ cảm giác đọc lướt.',
+              how: 'Không cày thêm đề mới vào buổi tối.' }
           ]
         },
         {
           index: 31, dayLabel: 'Ngày 32 • Nghỉ ngơi', shortLabel: 'Nghỉ', date: '2026-12-25', weekday: 5, week: 4,
           phase: 'Về đích (24/12 – 26/12)',
-          title: '🔋 Ngày nạp năng lượng trước kỳ thi — Không nhồi nhét kiến thức mới!',
+          title: '🔋 Nghỉ ngơi nhẹ, rà soát Blacklist lỗi sai & Chuẩn bị giấy tờ trước giờ G!',
           isRestDay: true,
           tasks: [
             { id: 't32-1', skill: 'Speaking', mins: '15p', resId: 's_ai',
-              goal: 'Trò chuyện nhẹ nhàng 10–15p bằng tiếng Anh với AI Tutor cho quen tai, tuyệt đối không học đề mới.',
-              how: 'Thư giãn đầu óc, giữ tinh thần thoải mái nhất.' },
+              goal: 'Trò chuyện nhẹ nhàng 10–15p bằng tiếng Anh với AI Tutor cho quen tai, tuyệt đối không nhồi nhét kiến thức mới.',
+              how: 'Thư giãn tinh thần, giữ sự tự tin thoải mái nhất.' },
             { id: 't32-2', skill: 'Listening', mins: '15p', resId: 'l_handbook',
-              goal: 'Chuẩn bị CCCD/Hộ chiếu bản gốc, kiểm tra phiếu báo dự thi, địa điểm thi, chai nước trong suốt & ngủ trước 22h30!',
+              goal: 'Rà lại 1 lượt Sổ Blacklist lỗi sai, kiểm tra CCCD/Hộ chiếu bản gốc, phiếu báo dự thi, địa điểm thi, chai nước trong suốt & ngủ trước 22h30!',
               how: 'Giấc ngủ sâu 8 tiếng giúp Listening & Reading tỉnh táo tăng 0.5–1.0 band.' }
           ]
         },
@@ -2516,7 +2539,7 @@
               goal: 'Chiến thuật 60p: Task 1 tối đa 20p (bắt buộc có Overview) → Task 2 40p (chừa 3 phút cuối rà lỗi thì & số ít/nhiều).',
               how: 'Viết đúng trọng tâm đề bài, chia đoạn rõ ràng.' },
             { id: 't33-4', skill: 'Speaking', mins: '15p', resId: 's_ai',
-              goal: 'Mỉm cười tự nhiên, trả lời mở rộng ý — quên từ thì paraphrase chứ không im lặng. Chúc Minh Khải đạt Band mơ ước! 🎉',
+              goal: 'Mỉm cười tự nhiên, trả lời mở rộng ý — quên từ thì paraphrase chứ không im lặng. Chúc bạn đạt Band mơ ước! 🎉',
               how: 'Bạn đã bền bỉ suốt 30 ngày qua — hãy tự tin tỏa sáng!' }
           ]
         }
@@ -2525,8 +2548,7 @@
       /* =======================================================================
          4. STATE MANAGEMENT & LOCALSTORAGE
          ======================================================================= */
-      const STORAGE_KEY = 'ielts_30d_tracker_v3';
-
+      const STORAGE_KEY = 'ielts_30d_v3_mapfirst';
       const DEFAULT_STATE = {
         theme: 'light',
         completedTasks: {},
@@ -2730,11 +2752,12 @@
         const isDone = !!state.completedTasks[task.id];
         const res = RESOURCES[task.resId];
         return `
-          <div class="task-item ${isDone ? 'completed' : ''}">
+          <div class="task-item ${task.featured ? 'featured' : ''} ${isDone ? 'completed' : ''}">
             <input type="checkbox" id="chk-${esc(task.id)}" class="task-checkbox" data-action="toggle-task" data-id="${esc(task.id)}" ${isDone ? 'checked' : ''} />
             <div class="task-body">
               <div class="task-meta-row">
                 <div class="task-badges">
+                  ${task.featured ? '<span class="priority-now-badge">🔥 ƯU TIÊN HÔM NAY</span>' : ''}
                   <span class="skill-badge skill-${esc(task.skill)}">${esc(getSkillPriorityLabel(task.skill))}</span>
                   <span class="duration-tag">⏱ ${esc(task.mins)}</span>
                 </div>
