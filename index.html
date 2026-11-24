@@ -1,144 +1,3545 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IELTS 30-Day Sprint | 24.11—23.12.2026</title>
-<style>
-:root{--bg:#0b1020;--panel:#131c31;--panel2:#18243b;--line:#293751;--text:#eef4ff;--muted:#98a9c4;--cyan:#58d7e8;--green:#58d6a1;--yellow:#f4cf68;--pink:#f29bb4;--blue:#8eb8ff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#172747 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-.wrap{max-width:1200px;margin:auto;padding:28px 18px 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.brand{color:var(--cyan);font-weight:800;letter-spacing:.12em;font-size:12px}.date{color:var(--muted);font-size:13px}
-h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:12px 0 10px;letter-spacing:-.04em}.sub{color:var(--muted);max-width:750px;margin:0 0 24px}
-.hero{background:linear-gradient(120deg,#172b49,#15243a 65%,#19394a);border:1px solid #34506b;border-radius:22px;padding:24px;margin:20px 0;box-shadow:0 18px 55px #0003}
-.hero-row{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}.big{font-size:38px;font-weight:850;letter-spacing:-.05em}.big small{font-size:14px;color:var(--muted);font-weight:600;letter-spacing:0}
-.progress{height:10px;background:#0b1527;border-radius:99px;overflow:hidden;margin:16px 0 8px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .25s}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}.stat{background:#101a2d;border:1px solid var(--line);border-radius:14px;padding:13px}.stat b{display:block;font-size:22px}.stat span{color:var(--muted);font-size:12px}
-.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.panel h2{font-size:16px;margin:0 0 12px}.alloc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.alloc div{border-radius:12px;padding:11px;background:var(--panel2);font-size:12px;color:var(--muted)}.alloc strong{display:block;font-size:21px;color:var(--text)}
-.tip{color:var(--muted);font-size:13px}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--muted);font-size:12px}
-.controls{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 14px}.controls input,.controls select{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 12px;font:inherit}.controls input{flex:1;min-width:180px}
-button{background:#1e3652;color:var(--text);border:1px solid #385574;padding:10px 13px;border-radius:10px;font:inherit;cursor:pointer}button:hover{border-color:var(--cyan)}button.secondary{background:transparent;color:var(--muted)}
-.days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.day{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}.day.done{border-color:#34785f}.dayhead{padding:14px 15px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;background:#172238}.dayhead h3{font-size:15px;margin:0}.dayhead small{display:block;color:var(--muted);margin-top:3px}.daybody{padding:13px 15px}.task{padding:10px 0;border-bottom:1px solid #25334a}.task:last-child{border:0}.tasktop{display:flex;gap:8px;align-items:center}.task input{accent-color:var(--green);width:17px;height:17px;flex:none}.skill{font-size:12px;font-weight:800;letter-spacing:.06em}.skill.Listening{color:var(--yellow)}.skill.Speaking{color:var(--pink)}.skill.Writing{color:var(--cyan)}.skill.Reading{color:var(--blue)}.mins{margin-left:auto;color:var(--muted);font-size:11px}.task p{margin:7px 0 0 25px;color:#d5e0f1;font-size:13px}.dayfoot{padding:0 15px 14px}.dayfoot textarea{width:100%;background:#0d1729;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:9px;font:13px inherit;resize:vertical;min-height:48px}.dayfoot label{font-size:11px;color:var(--muted);display:block;margin-bottom:5px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IELTS 30-Day Sprint Tracker — Chinh phục 26/12/2026</title>
+  <style>
+    /* =========================================================================
+       1. DESIGN TOKENS & THEME VARIABLES (ZERO EXTERNAL DEPENDENCIES)
+       ========================================================================= */
+    :root {
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-subtle-2: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --border-strong: #cbd5e1;
 
-.day-nav{display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:#101a2d;border:1px solid var(--line);padding:12px;border-radius:14px;margin:18px 0 12px}
-.day-nav select{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:9px;padding:9px 10px;font:inherit;min-width:210px}
-.day-nav .current{margin-right:auto;color:var(--muted);font-size:13px}
-.resource-box{margin:10px 0 2px 25px;padding:10px 11px;background:#101b2e;border:1px solid #263a56;border-radius:10px}
-.resource-box strong{display:block;font-size:11px;color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
-.resource-box a{display:inline-block;color:#9bcaff;font-size:12px;text-decoration:none;margin:3px 10px 3px 0;border-bottom:1px dashed #587ba6}
-.resource-box a:hover{color:white}
-.mode-label{font-size:12px;color:var(--cyan);font-weight:800;letter-spacing:.06em}
-.phase{color:var(--cyan);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
-footer{color:var(--muted);font-size:12px;margin-top:24px;line-height:1.7}.exam{border-left:3px solid var(--yellow);padding:10px 13px;background:#1e2431;border-radius:0 10px 10px 0;margin-top:12px}
-@media(max-width:800px){.grid{grid-template-columns:1fr}.days{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.alloc{grid-template-columns:repeat(2,1fr)}}
-@media print{body{background:white;color:#111}.hero,.panel,.day{background:white;color:#111;border:1px solid #aaa;box-shadow:none}.sub,.tip,.date,.stat span,.task p,.dayhead small,footer{color:#333}.days{grid-template-columns:1fr 1fr}.controls,button{display:none}}
-</style></head>
-<body><main class="wrap">
-<div class="top"><div class="brand">IELTS SPRINT / PERSONAL STUDY TRACKER</div><div class="date">Bắt đầu 24.11.2026 · Kết thúc lộ trình 23.12.2026</div></div>
-<h1>30 ngày tăng tốc.<br><span style="color:var(--cyan)">Vào phòng thi với sự chủ động.</span></h1>
-<p class="sub">Lộ trình cá nhân hóa theo thời khóa biểu lớp 12 và bộ “Lộ trình tăng tốc 60 ngày”. Tập trung Writing + Speaking; Listening + Reading duy trì bằng bài ngắn và chữa lỗi có mục tiêu.</p>
-<section class="hero">
- <div class="hero-row"><div><div class="phase">Your progress</div><div class="big"><span id="percent">0</span><small>% hoàn thành</small></div><div class="tip"><span id="completed">0</span>/120 nhiệm vụ đã hoàn thành · tự động lưu trên trình duyệt này</div></div><div><span class="pill">🎯 IELTS · 26 DEC 2026</span><br><span class="pill" style="margin-top:8px">30-day sprint</span></div></div>
- <div class="progress"><div class="bar" id="bar"></div></div>
- <div class="stats"><div class="stat"><b id="daysDone">0/30</b><span>Ngày hoàn thành</span></div><div class="stat"><b id="writingDone">0/30</b><span>Writing đã xong</span></div><div class="stat"><b id="speakingDone">0/30</b><span>Speaking đã xong</span></div><div class="stat"><b id="streak">0</b><span>Ngày có hoạt động liên tiếp*</span></div></div>
- <div class="tip">*Tính theo ngày có ít nhất một nhiệm vụ được tick; dữ liệu được lưu bằng localStorage.</div>
-</section>
-<div class="grid">
-<section class="panel"><h2>Phân bổ ưu tiên</h2><div class="alloc"><div><strong>45%</strong>Writing</div><div><strong>30%</strong>Speaking</div><div><strong>15%</strong>Reading</div><div><strong>10%</strong>Listening</div></div><p class="tip">Mỗi ngày có đủ 4 kỹ năng, nhưng không cần dành thời lượng ngang nhau. Nếu quá tải vì lịch trường, giữ Writing hoặc Speaking trước; chuyển bài L/R sang ngày nhẹ hơn.</p></section>
-<section class="panel"><h2>Cách xếp vào thời khóa biểu</h2><p class="tip">• Sáng 7:00–11:30 và các buổi chiều có tiết: không xếp IELTS dài.<br>• Ngày có học thêm buổi tối: chia 2 block ngắn 20–30 phút vào khoảng trống trong ngày; hoàn thành phần còn lại khi rảnh, không cố thức khuya.<br>• Ngày ít tiết / cuối tuần: gom Writing 40–60 phút và Speaking 25–30 phút thành hai block chính.<br>• Chủ nhật có IELTS lúc 18:00: dùng buổi học đó để xin feedback Writing/Speaking, rồi ghi lỗi vào tracker.</p></section>
-</div>
-<div class="exam"><b>Giai đoạn sau lộ trình:</b> 24–25/12 chỉ ôn nhẹ, kiểm tra giấy tờ và ngủ đủ. 26/12 là ngày thi — không nhồi thêm đề mới.</div>
-<section class="day-nav">
- <span class="current" id="modeText">ĐANG XEM · DAY 1</span>
- <button id="prevDay" class="secondary">← Ngày trước</button>
- <select id="daySelect" aria-label="Chọn ngày học"></select>
- <button id="nextDay" class="secondary">Ngày tiếp →</button>
- <button id="todayBtn" class="secondary">Hôm nay</button>
- <button id="viewAll">Xem tất cả ngày</button>
-</section>
-<div class="controls"><input id="search" placeholder="Tìm Map, Opinion, Cambridge 20..."><select id="phase"><option value="">Tất cả giai đoạn</option><option>Nền tảng tăng tốc</option><option>Hoàn thiện kỹ thuật</option><option>Luyện đề & sửa lỗi</option><option>Thi thử & tối ưu</option><option>Taper</option></select><select id="status"><option value="">Tất cả ngày</option><option value="todo">Chưa hoàn thành</option><option value="done">Đã hoàn thành</option></select><button id="expand" class="secondary">Thu gọn nội dung</button><button id="print" class="secondary">In kế hoạch</button><button id="reset" class="secondary">Xóa tiến độ</button></div>
-<div id="days" class="days"></div>
-<footer>Nguyên tắc: làm bài → tự chấm → xác định nguyên nhân sai → ghi lỗi → làm lại. Không chỉ tick hoàn thành khi mới đọc tài liệu. Với Writing, luôn kiểm tra Task Response/Task Achievement, Coherence & Cohesion, Lexical Resource và Grammar Range & Accuracy. Với Speaking, ưu tiên trả lời đúng trọng tâm, phát triển ý tự nhiên, phát âm rõ và giữ mạch nói.</footer>
-</main>
-<script>
-const plan = [{"n": 1, "date": "2026-11-24", "theme": "Baseline + task diagnosis", "phase": "Nền tảng tăng tốc", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Làm Cambridge 18 Test 1 Listening Sections 1–2 (25 phút), chấm và ghi 5 lỗi."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Speaking mock Part 1: Work/studies + hometown; ghi âm 4 phút, tự chấm fluency/pronunciation."}, {"skill": "Writing", "time": "35–60 phút", "task": "Task 1: học cấu trúc Map; viết overview + 2 body cho 1 map (20 phút)."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage Cambridge 17 trong 20 phút; ghi lại paraphrase của 5 câu sai."}]}, {"n": 2, "date": "2026-11-25", "theme": "Task 1 Map", "phase": "Nền tảng tăng tốc", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Listening Cambridge 18 Test 1 Sections 3–4; chữa bằng transcript."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 1: hometown, accommodation, study; trả lời 12 câu, mỗi câu 20–30 giây."}, {"skill": "Writing", "time": "35–60 phút", "task": "Viết full Map (20 phút); kiểm tra vị trí, thay đổi, giới từ và overview."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: True/False/Not Given 15 câu; ghi bằng chứng dòng."}]}, {"n": 3, "date": "2026-11-26", "theme": "Task 2 Opinion", "phase": "Nền tảng tăng tốc", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Nghe chép chính tả 10 phút từ Section 3; sửa spelling/number."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 1: work/studies + daily routine; luyện mở rộng Answer–Reason–Example."}, {"skill": "Writing", "time": "35–60 phút", "task": "Task 2 Opinion: lập dàn ý 2 đề, viết Introduction + Conclusion cho 1 đề."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Matching headings 1 passage; giới hạn 20 phút."}]}, {"n": 4, "date": "2026-11-27", "theme": "Task 1 Process", "phase": "Nền tảng tăng tốc", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 18 Listening Section 2; tập dự đoán loại từ trước khi nghe."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 2 Person: chuẩn bị cue card 1 phút, nói 2 phút, thu âm 2 lần."}, {"skill": "Writing", "time": "35–60 phút", "task": "Học Process: passive voice + sequencing; viết 1 bài đủ 150–180 từ trong 20 phút."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Sentence completion 15 câu; chú ý word limit."}]}, {"n": 5, "date": "2026-11-28", "theme": "Task 2 Discussion", "phase": "Nền tảng tăng tốc", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 18 Listening Section 4; chữa các câu sai và phân loại nguyên nhân."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 3: chủ đề education; trả lời 6 câu theo Opinion–Explain–Example–Contrast."}, {"skill": "Writing", "time": "35–60 phút", "task": "Discussion essay: lập luận 2 phía; viết full essay 40 phút."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Multiple choice 13–15 câu; tìm paraphrase."}]}, {"n": 6, "date": "2026-11-29", "theme": "Task 1 Line graph", "phase": "Nền tảng tăng tốc", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Nghe 1 section Cambridge 19; tập trung signposting và distractors."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 2 Object: cue card + 2 câu Part 3; tập kể theo quá khứ/hiện tại."}, {"skill": "Writing", "time": "35–60 phút", "task": "Line graph: overview, trends, comparisons; viết full bài 20 phút."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Matching information; định vị đoạn bằng từ khóa."}]}, {"n": 7, "date": "2026-11-30", "theme": "Review tuần 1", "phase": "Nền tảng tăng tốc", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Ôn sổ lỗi Listening; làm lại 10 câu từng sai."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Mock Speaking Part 1 + Part 2 (10–12 phút); nghe lại và sửa 5 lỗi."}, {"skill": "Writing", "time": "35–60 phút", "task": "Viết lại Map hoặc Process ngày 2/4 sau feedback; lập checklist lỗi cá nhân."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage timed 20 phút; xem lại mọi đáp án sai."}]}, {"n": 8, "date": "2026-12-01", "theme": "Task 2 Problem–Solution", "phase": "Hoàn thiện kỹ thuật", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 19 Listening Sections 1–2; chấm và phân tích distractors."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 1: technology, mobile phones, internet; luyện câu trả lời tự nhiên."}, {"skill": "Writing", "time": "35–60 phút", "task": "Problem–Solution: phân biệt cause/problem/solution; viết thesis + 2 topic sentences, sau đó full essay."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Summary completion 15 câu; luyện nhận diện từ loại."}]}, {"n": 9, "date": "2026-12-02", "theme": "Task 1 Bar chart", "phase": "Hoàn thiện kỹ thuật", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 19 Listening Sections 3–4; chữa transcript."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 2 Event: kể một sự kiện đáng nhớ; chú ý timeline và cảm xúc."}, {"skill": "Writing", "time": "35–60 phút", "task": "Bar chart: chọn số liệu nổi bật, nhóm dữ liệu; viết bài 20 phút."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Matching features; làm 1 passage có bấm giờ."}]}, {"n": 10, "date": "2026-12-03", "theme": "Task 2 Two-part question", "phase": "Hoàn thiện kỹ thuật", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Dictation 10 phút; tập trung nối âm và từ chức năng."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 3: technology/education; luyện câu hỏi Why/How/To what extent."}, {"skill": "Writing", "time": "35–60 phút", "task": "Two-part question: trả lời trực tiếp cả 2 vế; viết full essay 40 phút."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage 20 phút; phân tích 5 paraphrase."}]}, {"n": 11, "date": "2026-12-04", "theme": "Task 1 Pie + Table", "phase": "Hoàn thiện kỹ thuật", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 19 Listening Test 2 Sections 1–2."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 2 Place: describe a place; thêm chi tiết giác quan và lý do yêu thích."}, {"skill": "Writing", "time": "35–60 phút", "task": "Pie chart + Table: so sánh tỷ lệ/số liệu; viết 1 bài, ưu tiên grouping."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Yes/No/Not Given; phân biệt opinion với fact."}]}, {"n": 12, "date": "2026-12-05", "theme": "Task 2 Advantages/Disadvantages", "phase": "Hoàn thiện kỹ thuật", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 19 Listening Test 2 Sections 3–4."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 3: environment/cities; luyện so sánh hiện tại–quá khứ và dự đoán."}, {"skill": "Writing", "time": "35–60 phút", "task": "Advantages vs disadvantages: xác định outweigh; viết full essay 40 phút."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage timed; mục tiêu hoàn thành trong 20 phút."}]}, {"n": 13, "date": "2026-12-06", "theme": "Task 1 Mixed charts", "phase": "Hoàn thiện kỹ thuật", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Listening mini-test 2 sections bất kỳ; làm trong điều kiện không pause."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 2 Activity: describe an activity; luyện động từ hành động + trình tự."}, {"skill": "Writing", "time": "35–60 phút", "task": "Mixed charts: viết overview kết nối hai biểu đồ; làm 20 phút."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Matching sentence endings + chữa lỗi."}]}, {"n": 14, "date": "2026-12-07", "theme": "Task 2 review 5 dạng", "phase": "Hoàn thiện kỹ thuật", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 19 Listening Test 3 Sections 1–2; lập error log."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Speaking Part 1 rapid-fire 15 câu; không học thuộc, mỗi câu 2–3 câu mở rộng."}, {"skill": "Writing", "time": "35–60 phút", "task": "Lập dàn ý nhanh 5 đề (mỗi dạng 1 đề); chọn 1 đề viết trong 40 phút."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage 20 phút; tổng hợp lỗi T/F/NG."}]}, {"n": 15, "date": "2026-12-08", "theme": "Writing timed set 1", "phase": "Luyện đề & sửa lỗi", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 19 Listening Test 3 Sections 3–4; chữa kỹ 15 phút."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Full Speaking mock Part 1–2–3 (11–14 phút); đánh dấu hesitation và repetition."}, {"skill": "Writing", "time": "35–60 phút", "task": "Writing mock: Task 1 + Task 2 trong 60 phút; lưu bản gốc, chưa sửa ngay."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: nghỉ đề mới; chữa sâu passage gần nhất và ôn từ vựng."}]}, {"n": 16, "date": "2026-12-09", "theme": "Feedback day", "phase": "Luyện đề & sửa lỗi", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Nghe lại các câu sai của test hôm qua; nghe không transcript rồi mới đối chiếu."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Nghe lại mock Speaking; viết lại 8 câu trả lời yếu và thu âm lại."}, {"skill": "Writing", "time": "35–60 phút", "task": "Chấm Writing theo TR/TA, CC, LR, GRA; sửa 1 bài Task 2 và viết lại introduction + body yếu nhất."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage chọn dạng yếu nhất; 20 phút."}]}, {"n": 17, "date": "2026-12-10", "theme": "Speaking fluency + pronunciation", "phase": "Luyện đề & sửa lỗi", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 20 Listening Sections 1–2; mục tiêu chính xác, không cần làm full test."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Luyện pronunciation: word stress, ending sounds, chunking; shadow 10 phút + Part 2 2 lần."}, {"skill": "Writing", "time": "35–60 phút", "task": "Task 1 Map + Process: viết 2 overview và 2 đoạn body ngắn; kiểm tra grammar."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Matching headings + locating evidence, 20 phút."}]}, {"n": 18, "date": "2026-12-11", "theme": "Writing accuracy", "phase": "Luyện đề & sửa lỗi", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 20 Listening Sections 3–4; ghi lại distractors."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 3: society, environment, work; luyện phát triển câu trả lời 35–45 giây."}, {"skill": "Writing", "time": "35–60 phút", "task": "Grammar clinic: articles, S-V agreement, tense, complex sentences; sửa 15 lỗi thật từ bài cũ."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage timed 20 phút; không tra từ khi làm."}]}, {"n": 19, "date": "2026-12-12", "theme": "Speaking topic rotation", "phase": "Luyện đề & sửa lỗi", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Dictation 10 phút từ Cambridge 20; rà spelling."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Luyện 3 cue cards thuộc Person/Object/Event; mỗi đề 1 phút chuẩn bị + 2 phút nói."}, {"skill": "Writing", "time": "35–60 phút", "task": "Task 2: viết 1 bài dạng yếu nhất trong 40 phút; tự gạch chân topic sentence và examples."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Summary + Sentence completion 15 câu."}]}, {"n": 20, "date": "2026-12-13", "theme": "Full mock 1", "phase": "Luyện đề & sửa lỗi", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Full Listening test Cambridge 20 (30 phút + transfer); chấm điểm."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Speaking mock đủ 3 parts; ghi âm liên tục như thi thật."}, {"skill": "Writing", "time": "35–60 phút", "task": "Full Writing mock Task 1 + Task 2 trong 60 phút; không dùng từ điển."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: Full Reading test 60 phút; ghi raw score."}]}, {"n": 21, "date": "2026-12-14", "theme": "Mock review 1", "phase": "Luyện đề & sửa lỗi", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Chữa Listening: nghe lại câu sai, phân loại spelling/distractor/không bắt được âm."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Nghe mock Speaking; chọn 3 lỗi fluency, 3 lỗi grammar, 5 từ phát âm chưa rõ."}, {"skill": "Writing", "time": "35–60 phút", "task": "Chữa Writing theo 4 tiêu chí; viết lại 1 Task 1 và 1 body paragraph Task 2."}, {"skill": "Reading", "time": "15–25 phút", "task": "Chữa Reading: xác định dạng sai nhiều nhất và bằng chứng đáp án."}]}, {"n": 22, "date": "2026-12-15", "theme": "Task 1 polishing", "phase": "Thi thử & tối ưu", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 20 Listening Sections 1–2; tập trung form/numbers."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 1: 20 câu hỏi ngẫu nhiên; tránh câu trả lời học thuộc."}, {"skill": "Writing", "time": "35–60 phút", "task": "Viết 2 Task 1 liên tiếp: một chart + một map/process (20 phút mỗi bài)."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage timed 20 phút; kiểm soát phân bổ thời gian."}]}, {"n": 23, "date": "2026-12-16", "theme": "Task 2 polishing", "phase": "Thi thử & tối ưu", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Cambridge 20 Listening Sections 3–4; tập trung multiple choice/matching."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 2 + Part 3: 2 đề dự đoán nhóm Others/Activity; tự bấm giờ."}, {"skill": "Writing", "time": "35–60 phút", "task": "Viết 2 dàn ý Task 2 khác dạng; viết full bài cho đề khó nhất (40 phút)."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: làm lại 2 dạng yếu nhất, 20–25 câu."}]}, {"n": 24, "date": "2026-12-17", "theme": "Full mock 2", "phase": "Thi thử & tối ưu", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Full Listening test Cambridge 20 Test khác chưa làm; chấm ngay."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Full Speaking mock; yêu cầu câu trả lời tự nhiên, không dừng để sửa giữa chừng."}, {"skill": "Writing", "time": "35–60 phút", "task": "Full Writing test 60 phút; ưu tiên hoàn thành đủ hai task và kiểm tra 3 phút cuối."}, {"skill": "Reading", "time": "15–25 phút", "task": "Full Reading test 60 phút; mô phỏng điều kiện thi."}]}, {"n": 25, "date": "2026-12-18", "theme": "Mock review 2", "phase": "Thi thử & tối ưu", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Chữa Listening bằng transcript; tạo list 10 lỗi lặp lại."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Nghe lại Speaking; luyện lại Part 2 yếu nhất và 5 câu Part 3."}, {"skill": "Writing", "time": "35–60 phút", "task": "Chấm Writing; viết lại bài có nhiều lỗi nhất, không chép bài mẫu."}, {"skill": "Reading", "time": "15–25 phút", "task": "Chữa Reading; ghi 10 paraphrase quan trọng."}]}, {"n": 26, "date": "2026-12-19", "theme": "Final speaking + writing", "phase": "Thi thử & tối ưu", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Listening 1 section nhẹ; tập trung độ chính xác, không làm full test."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Mock Speaking cuối cùng; luyện mở đầu Part 1, giữ mạch Part 2, phát triển Part 3."}, {"skill": "Writing", "time": "35–60 phút", "task": "Task 1 + Task 2: lập dàn ý nhanh; viết 1 bài Task 2 cuối cùng và rà checklist."}, {"skill": "Reading", "time": "15–25 phút", "task": "Reading: 1 passage nhẹ, tập định vị thông tin."}]}, {"n": 27, "date": "2026-12-20", "theme": "Consolidation", "phase": "Thi thử & tối ưu", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Nghe lại 2 sections từng sai nhiều; không nhồi đề mới."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Ôn topic vocabulary đã dùng được; 2 cue cards tự chọn, mỗi đề 2 phút."}, {"skill": "Writing", "time": "35–60 phút", "task": "Ôn template linh hoạt 5 dạng Task 2 + 7 dạng Task 1; xem sổ lỗi, không học thuộc bài mẫu."}, {"skill": "Reading", "time": "15–25 phút", "task": "Ôn sổ paraphrase + chiến thuật từng dạng; làm 10 câu chọn lọc."}]}, {"n": 28, "date": "2026-12-21", "theme": "Light practice", "phase": "Taper", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Nghe podcast/section quen thuộc 15–20 phút, giữ nhịp nghe."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Part 1 nhẹ 8 câu + 1 cue card; dừng nếu mệt, ưu tiên sự tự nhiên."}, {"skill": "Writing", "time": "35–60 phút", "task": "Đọc checklist Task 1/2; chỉ sửa 5 lỗi cá nhân hay gặp, không viết full essay."}, {"skill": "Reading", "time": "15–25 phút", "task": "Đọc lại error log; không làm full passage."}]}, {"n": 29, "date": "2026-12-22", "theme": "Final review", "phase": "Taper", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Nghe 10–15 phút nội dung quen thuộc; không chấm điểm."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Ôn cấu trúc 3 parts, phát âm tên riêng/số; nói nhẹ 5–8 phút."}, {"skill": "Writing", "time": "35–60 phút", "task": "Xem lại cấu trúc, linking, overview, thesis; chuẩn bị giấy tờ và xác nhận lịch thi."}, {"skill": "Reading", "time": "15–25 phút", "task": "Ôn chiến thuật quản lý 60 phút; nghỉ ngơi và ngủ đủ."}]}, {"n": 30, "date": "2026-12-23", "theme": "Day 30 – taper & confidence", "phase": "Taper", "tasks": [{"skill": "Listening", "time": "15–30 phút", "task": "Không làm full test; nghe 1 section quen thuộc 10–15 phút, xem lại các lỗi Listening cũ."}, {"skill": "Speaking", "time": "20–30 phút", "task": "Nói Part 1 nhẹ 5 câu + 1 cue card quen thuộc; tập bình tĩnh, không cố nhồi idioms."}, {"skill": "Writing", "time": "35–60 phút", "task": "Đọc checklist Task 1/2 và 4 tiêu chí chấm; chỉ xem lại 1 bài đã sửa, không viết bài mới."}, {"skill": "Reading", "time": "15–25 phút", "task": "Ôn chiến thuật từng dạng và sổ paraphrase 15 phút; chuẩn bị giấy tờ, xác nhận giờ/địa điểm thi và ngủ sớm."}]}];
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-soft: #eef2ff;
+      --primary-text: #3730a3;
 
-const KEY="ielts30_sprint_2026_v1";
-let state=JSON.parse(localStorage.getItem(KEY)||'{"checks":{},"notes":{}}');
-let selectedDay=1, showAll=false, collapsed=false;
-const $=id=>document.getElementById(id);
-const resources={
- Listening:[
-  ["Listening handbook","https://drive.google.com/drive/u/0/folders/1RSVXP88kn8AOaRK39r_kPkZbYrZdmVkU"],
-  ["Cambridge 8–20","https://drive.google.com/drive/folders/1F8A6s2F2qhPEqQer2Vn5Vlvw5iWFRhvh?usp=drive_link"],
-  ["Cambridge 8–20 (folder 2)","https://drive.google.com/drive/folders/1l1ScdZ5QF96WG_5u4ag72dMQDcCfRRxz?usp=drive_link"],
-  ["Nghe chép chính tả Cambridge 8–20","https://drive.google.com/file/d/1stzm1jb9UzfilRHRlZPkcGxtZeDPHMzt/view?usp=sharing"]
- ],
- Reading:[
-  ["30 ngày thành thạo từ vựng Cambridge Reading","https://drive.google.com/file/d/19Spt_Ih__DMHN4IWL2XwwvBC-aIRpCHU/view?usp=sharing"],
-  ["Bộ đề Cambridge 8–20","https://drive.google.com/drive/folders/1F8A6s2F2qhPEqQer2Vn5Vlvw5iWFRhvh?usp=drive_link"],
-  ["Hướng dẫn giải đề Reading Cambridge – tài liệu 1","https://drive.google.com/file/d/1tsGNNb7DG0zeMpTTYKARwgyL00gWhycz/view?usp=sharing"],
-  ["Hướng dẫn giải đề Reading Cambridge – tài liệu 2","https://drive.google.com/file/d/10lBx_cvIL0rk_XeoNnshxxmlLcGypSuc/view?usp=sharing"]
- ],
- Writing:[
-  ["Task 1 – Improve your IELTS Writing Skills","https://drive.google.com/drive/u/1/folders/1UBvA_TwkYLMGy6Hfzu5HMG9IMqe0Dxk-"],
-  ["Task 1 – Cẩm nang Paraphrasing","https://drive.google.com/drive/u/2/folders/1dIp2yjQO-RlvR4TuPSJP5jME6HtAtDo5"],
-  ["Task 2 – Essay templates (Simon)","https://drive.google.com/drive/u/1/folders/15iajcV09JHN_F41hCxCu2rdH-wlXkw_c"],
-  ["Kho ý tưởng IELTS Writing","https://drive.google.com/file/d/1Y5LBrS1G-8PKhfzmwTgo0hzHpTE5yJ4W/view?usp=sharing"],
-  ["30 Ngày Chuyên Sâu IELTS Writing","https://drive.google.com/file/d/1bKx8dgNkHGyQ2Zu5ElsinflPOofxwq36/view?usp=sharing"],
-  ["Bộ đề dự đoán IELTS Writing & Speaking quý III–2026","https://drive.google.com/file/d/1gBLo2WM39vzlCwYRZeFjAEM3rf2W3L_2/view?usp=sharing"]
- ],
- Speaking:[
-  ["Natural English for IELTS Speaking","https://drive.google.com/file/d/1dnAOl3xW4xJFeNmnwc36ubccmzB9fCZi/view?usp=drive_link"],
-  ["Từ vựng bản xứ Speaking & Writing","https://drive.google.com/file/d/16kzGWXsgEb6sUbFowrnF_-CCdpjabvfz/view?usp=sharing"],
-  ["Bộ đề dự đoán IELTS Speaking & Writing quý III–2026","https://drive.google.com/file/d/1gBLo2WM39vzlCwYRZeFjAEM3rf2W3L_2/view?usp=sharing"],
-  ["AI Chatbot – IELTS Speaking Tutor","https://chatgpt.com/g/g-6969a3f18aa8819188239a73fae73541-ielts-speaking-tutor-by-ielts-xuan-phi"]
- ]
-};
-function save(){localStorage.setItem(KEY,JSON.stringify(state));renderStats()}
-function dayDone(d){return d.tasks.every((t,i)=>!!state.checks[d.n+"-"+i])}
-function renderStats(){
- let total=0,done=0,wd=0,sd=0,days=0;
- plan.forEach(d=>{d.tasks.forEach((t,i)=>{total++;if(state.checks[d.n+"-"+i]){done++;if(t.skill==="Writing")wd++;if(t.skill==="Speaking")sd++}});if(dayDone(d))days++});
- $("percent").textContent=Math.round(done/total*100);$("completed").textContent=done;$("bar").style.width=(done/total*100)+"%";$("daysDone").textContent=days+"/30";$("writingDone").textContent=wd+"/30";$("speakingDone").textContent=sd+"/30";
- let streak=0;for(let i=plan.length-1;i>=0;i--){if(plan[i].tasks.some((t,j)=>state.checks[plan[i].n+"-"+j]))streak++;else break}
- $("streak").textContent=streak;
-}
-function fillDaySelect(){
- $("daySelect").innerHTML=plan.map(d=>`<option value="${d.n}">Day ${d.n} · ${d.date} · ${d.theme}</option>`).join("");
- $("daySelect").value=selectedDay;
-}
-function resourceHTML(skill){
- const items=resources[skill]||[];
- return `<div class="resource-box"><strong>Học ở đâu? · Tài liệu trong PDF</strong>${items.map(x=>`<a href="${x[1]}" target="_blank" rel="noopener">${x[0]} ↗</a>`).join("")}</div>`;
-}
-function render(){
- const q=$("search").value.toLowerCase(),ph=$("phase").value,st=$("status").value;
- $("days").innerHTML="";
- const visible=plan.filter(d=>(showAll||d.n===selectedDay)&&(!ph||d.phase===ph)&&(!st||(st==="done"?dayDone(d):!dayDone(d)))&&(!q||(d.theme+" "+d.tasks.map(t=>t.task).join(" ")).toLowerCase().includes(q)));
- $("modeText").textContent=showAll?"ĐANG XEM · TẤT CẢ 30 NGÀY":`ĐANG XEM · DAY ${selectedDay}`;
- $("viewAll").textContent=showAll?"Chỉ xem ngày đã chọn":"Xem tất cả ngày";
- $("daySelect").disabled=showAll;
- $("prevDay").disabled=showAll||selectedDay===1;$("nextDay").disabled=showAll||selectedDay===30;
- visible.forEach(d=>{
-  const el=document.createElement("article");el.className="day"+(dayDone(d)?" done":"");
-  const head=document.createElement("div");head.className="dayhead";head.innerHTML=`<div><div class="phase">DAY ${d.n} · ${d.phase}</div><h3>${d.theme}</h3><small>${new Date(d.date+"T00:00:00").toLocaleDateString("vi-VN",{weekday:"long",day:"2-digit",month:"2-digit",year:"numeric"})}</small></div><span class="pill">${d.tasks.filter((t,i)=>state.checks[d.n+"-"+i]).length}/4</span>`;
-  const body=document.createElement("div");body.className="daybody";
-  d.tasks.forEach((t,i)=>{const row=document.createElement("div");row.className="task";const id=d.n+"-"+i;row.innerHTML=`<div class="tasktop"><input type="checkbox" ${state.checks[id]?"checked":""} aria-label="Hoàn thành ${t.skill}"><span class="skill ${t.skill}">${t.skill.toUpperCase()}</span><span class="mins">${t.time}</span></div><p>${t.task}</p>${resourceHTML(t.skill)}`;row.querySelector("input").addEventListener("change",e=>{state.checks[id]=e.target.checked;save();render()});body.appendChild(row)});
-  const foot=document.createElement("div");foot.className="dayfoot";const lab=document.createElement("label");lab.textContent="GHI CHÚ / LỖI CẦN SỬA";const ta=document.createElement("textarea");ta.placeholder="Ví dụ: thiếu overview, lặp từ, mất dấu số nhiều...";ta.value=state.notes[d.n]||"";ta.addEventListener("input",()=>{state.notes[d.n]=ta.value;save()});foot.append(lab,ta);el.append(head,body,foot);$("days").appendChild(el);
- });
- if(!visible.length)$("days").innerHTML='<div class="panel">Không tìm thấy ngày phù hợp. Hãy bỏ bớt bộ lọc hoặc chuyển sang “Xem tất cả ngày”.</div>';
- document.querySelectorAll(".daybody,.dayfoot").forEach(x=>x.style.display=collapsed?"none":"");
- $("expand").textContent=collapsed?"Mở nội dung":"Thu gọn nội dung";
- renderStats();
-}
-$("daySelect").addEventListener("change",e=>{selectedDay=Number(e.target.value);showAll=false;render()});
-$("prevDay").addEventListener("click",()=>{if(selectedDay>1){selectedDay--;fillDaySelect();render()}});
-$("nextDay").addEventListener("click",()=>{if(selectedDay<30){selectedDay++;fillDaySelect();render()}});
-$("todayBtn").addEventListener("click",()=>{selectedDay=1;showAll=false;fillDaySelect();render()});
-$("viewAll").addEventListener("click",()=>{showAll=!showAll;render()});
-["search","phase","status"].forEach(id=>$(id).addEventListener("input",render));
-$("reset").addEventListener("click",()=>{if(confirm("Xóa toàn bộ tiến độ và ghi chú đã lưu?")){state={checks:{},notes:{}};save();render()}});
-$("print").addEventListener("click",()=>window.print());
-$("expand").addEventListener("click",()=>{collapsed=!collapsed;render()});
-fillDaySelect();render();
+      --writing: #e11d48;
+      --writing-soft: #fff1f2;
+      --writing-border: #fecdd3;
+      --writing-text: #9f1239;
 
-</script></body></html>
+      --speaking: #7c3aed;
+      --speaking-soft: #f5f3ff;
+      --speaking-border: #ddd6fe;
+      --speaking-text: #5b21b6;
+
+      --listening: #0284c7;
+      --listening-soft: #f0f9ff;
+      --listening-border: #bae6fd;
+      --listening-text: #075985;
+
+      --reading: #059669;
+      --reading-soft: #ecfdf5;
+      --reading-border: #a7f3d0;
+      --reading-text: #065f46;
+
+      --vocab: #d97706;
+      --vocab-soft: #fffbeb;
+      --vocab-border: #fde68a;
+      --vocab-text: #92400e;
+
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 6px 20px -6px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 16px 36px -8px rgba(15, 23, 42, 0.16);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+    }
+
+    html.dark {
+      --bg-page: #090d16;
+      --bg-surface: #111827;
+      --bg-subtle: #1e293b;
+      --bg-subtle-2: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: #1e293b;
+      --border-strong: #334155;
+
+      --primary: #6366f1;
+      --primary-hover: #818cf8;
+      --primary-soft: rgba(99, 102, 241, 0.16);
+      --primary-text: #c7d2fe;
+
+      --writing: #fb7185;
+      --writing-soft: rgba(244, 63, 94, 0.14);
+      --writing-border: rgba(244, 63, 94, 0.32);
+      --writing-text: #fda4af;
+
+      --speaking: #a78bfa;
+      --speaking-soft: rgba(139, 92, 246, 0.14);
+      --speaking-border: rgba(139, 92, 246, 0.32);
+      --speaking-text: #ddd6fe;
+
+      --listening: #38bdf8;
+      --listening-soft: rgba(14, 165, 233, 0.14);
+      --listening-border: rgba(14, 165, 233, 0.32);
+      --listening-text: #bae6fd;
+
+      --reading: #34d399;
+      --reading-soft: rgba(16, 185, 129, 0.14);
+      --reading-border: rgba(16, 185, 129, 0.32);
+      --reading-text: #a7f3d0;
+
+      --vocab: #fbbf24;
+      --vocab-soft: rgba(245, 158, 11, 0.14);
+      --vocab-border: rgba(245, 158, 11, 0.32);
+      --vocab-text: #fde68a;
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 8px 24px -6px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 20px 44px -8px rgba(0, 0, 0, 0.65);
+    }
+
+    /* =========================================================================
+       2. RESET & BASE TYPOGRAPHY
+       ========================================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      min-height: 100vh;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      overflow-x: hidden;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* =========================================================================
+       3. LAYOUT & STICKY HEADER
+       ========================================================================= */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      padding: 12px 0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed, #e11d48);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .brand-title-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .exam-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--writing-soft);
+      color: var(--writing-text);
+      border: 1px solid var(--writing-border);
+    }
+
+    .brand-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .countdown-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 14px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    html.dark .countdown-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+    }
+
+    .cd-unit {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .cd-unit.sec {
+      background: #e11d48;
+    }
+
+    .overall-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      padding: 6px 12px;
+      border-radius: 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .mini-bar-wrap {
+      width: 74px;
+      height: 6px;
+      background: var(--border-strong);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .mini-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #4f46e5, #10b981);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 11px;
+      border-radius: 11px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+    }
+
+    .icon-btn:hover {
+      background: var(--bg-subtle-2);
+      color: var(--text-primary);
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .nav-tab {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: transparent;
+      transition: all 0.15s ease;
+    }
+
+    .nav-tab:hover {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+    }
+
+    .nav-tab.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(79, 70, 229, 0.25);
+    }
+
+    /* =========================================================================
+       4. MAIN CONTENT & CARDS
+       ========================================================================= */
+    .main-wrap {
+      padding: 20px 0 96px;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .stack-md {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stack-lg {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* 4 Skill KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .kpi-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .kpi-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .kpi-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .kpi-pct {
+      font-size: 0.95rem;
+      font-weight: 900;
+    }
+
+    .kpi-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .kpi-sub {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .kpi-bar {
+      height: 6px;
+      background: var(--bg-subtle);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .kpi-bar > div {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    /* =========================================================================
+       5. PROMINENT MODE SWITCHER BAR ("CHỈ XEM HÔM NAY" VS "XEM TẤT CẢ 30 NGÀY")
+       ========================================================================= */
+    .mode-bar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .mode-toggle-group {
+      display: inline-flex;
+      background: var(--bg-subtle);
+      padding: 4px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      gap: 4px;
+    }
+
+    .mode-btn {
+      padding: 9px 16px;
+      border-radius: 11px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mode-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .mode-btn.active {
+      background: linear-gradient(135deg, #4f46e5, #6d28d9);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);
+    }
+
+    .day-nav-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-pill-btn {
+      padding: 8px 12px;
+      border-radius: 11px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      transition: all 0.15s ease;
+    }
+
+    .nav-pill-btn:hover:not(:disabled) {
+      background: var(--bg-subtle-2);
+    }
+
+    .nav-pill-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .nav-pill-btn.today-btn {
+      background: var(--reading-soft);
+      border-color: var(--reading-border);
+      color: var(--reading-text);
+    }
+
+    .day-select {
+      padding: 8px 12px;
+      border-radius: 11px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      min-width: 215px;
+    }
+
+    /* =========================================================================
+       6. TODAY FOCUS VIEW HERO, SCHEDULE BANNER & TASK ITEMS
+       ========================================================================= */
+    .today-hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .pill-today {
+      background: #059669;
+      color: #ffffff;
+    }
+
+    .pill-phase {
+      background: var(--primary-soft);
+      color: var(--primary-text);
+    }
+
+    .pill-super {
+      background: linear-gradient(135deg, #e11d48, #ea580c);
+      color: #ffffff;
+    }
+
+    .pill-golden {
+      background: var(--vocab-soft);
+      color: var(--vocab-text);
+      border: 1px solid var(--vocab-border);
+    }
+
+    .pill-medium {
+      background: var(--listening-soft);
+      color: var(--listening-text);
+      border: 1px solid var(--listening-border);
+    }
+
+    .pill-busy {
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-strong);
+    }
+
+    .hero-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-focus {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
+    .hero-progress-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 14px 16px;
+      min-width: 240px;
+      flex-shrink: 0;
+    }
+
+    .hero-progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .hero-progress-track {
+      height: 9px;
+      background: var(--border-strong);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .hero-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #4f46e5, #10b981);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .complete-day-btn {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: #059669;
+      color: #ffffff;
+      transition: opacity 0.15s ease;
+    }
+
+    .complete-day-btn.done {
+      background: var(--bg-subtle-2);
+      color: var(--text-primary);
+    }
+
+    /* Schedule Banner inside Focus View */
+    .sched-banner-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .sched-banner-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+    }
+
+    .golden-slot-tag {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 11px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .sched-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .sched-slots-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .slot-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 11px 14px;
+    }
+
+    .slot-box.free {
+      background: var(--reading-soft);
+      border-color: var(--reading-border);
+    }
+
+    .slot-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .slot-box.free .slot-label {
+      color: var(--reading-text);
+    }
+
+    .slot-val {
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    .slot-box.free .slot-val {
+      color: var(--reading-text);
+      font-weight: 800;
+    }
+
+    .sched-advice {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Task Card */
+    .task-item {
+      border: 1px solid var(--border-color);
+      background: var(--bg-subtle);
+      border-radius: 16px;
+      padding: 15px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: all 0.15s ease;
+    }
+
+    .task-item.completed {
+      background: var(--reading-soft);
+      border-color: var(--reading-border);
+    }
+
+    .task-checkbox {
+      width: 21px;
+      height: 21px;
+      margin-top: 2px;
+      accent-color: #059669;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .task-body {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .task-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .task-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+    }
+
+    .skill-Writing { background: var(--writing-soft); color: var(--writing-text); border-color: var(--writing-border); }
+    .skill-Speaking { background: var(--speaking-soft); color: var(--speaking-text); border-color: var(--speaking-border); }
+    .skill-Listening { background: var(--listening-soft); color: var(--listening-text); border-color: var(--listening-border); }
+    .skill-Reading { background: var(--reading-soft); color: var(--reading-text); border-color: var(--reading-border); }
+    .skill-Vocab { background: var(--vocab-soft); color: var(--vocab-text); border-color: var(--vocab-border); }
+
+    .duration-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .timer-trigger-chip {
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: var(--primary-soft);
+      color: var(--primary-text);
+      border: 1px solid var(--border-color);
+    }
+
+    .timer-trigger-chip:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .task-goal {
+      font-size: 0.94rem;
+      font-weight: 700;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .task-item.completed .task-goal {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    /* Where to learn PDF box inside every task */
+    .where-box {
+      border-radius: 12px;
+      padding: 11px 13px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .where-info {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .where-title {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--text-secondary);
+    }
+
+    .where-title span {
+      color: var(--text-primary);
+    }
+
+    .where-how {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.45;
+    }
+
+    .open-pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 13px;
+      border-radius: 10px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #ffffff;
+      background: var(--primary);
+      flex-shrink: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    .open-pdf-btn:hover {
+      opacity: 0.9;
+    }
+
+    .open-pdf-btn.bg-Writing { background: #e11d48; }
+    .open-pdf-btn.bg-Speaking { background: #7c3aed; }
+    .open-pdf-btn.bg-Listening { background: #0284c7; }
+    .open-pdf-btn.bg-Reading { background: #059669; }
+    .open-pdf-btn.bg-Vocab { background: #d97706; }
+
+    /* Daily Notes */
+    .notes-area {
+      margin-top: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--text-secondary);
+    }
+
+    .note-textarea {
+      width: 100%;
+      min-height: 82px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-subtle);
+      font-size: 0.85rem;
+      resize: vertical;
+    }
+
+    .note-textarea:focus {
+      outline: 2px solid var(--primary);
+      border-color: transparent;
+    }
+
+    /* =========================================================================
+       7. ALL 30 DAYS VIEW: HEATMAP, FILTERS & DAY CARDS
+       ========================================================================= */
+    .heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(11, 1fr);
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .heatmap-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .heatmap-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .hm-cell {
+      padding: 7px 4px;
+      border-radius: 11px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: transform 0.12s ease;
+    }
+
+    .hm-cell:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .hm-cell.partial {
+      background: var(--vocab-soft);
+      border-color: var(--vocab-border);
+      color: var(--vocab-text);
+    }
+
+    .hm-cell.done {
+      background: #059669;
+      border-color: #047857;
+      color: #ffffff;
+    }
+
+    .hm-cell.exam {
+      background: linear-gradient(135deg, #e11d48, #ea580c);
+      border-color: #be123c;
+      color: #ffffff;
+    }
+
+    .hm-cell.today-ring {
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .chip-btn {
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .chip-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .search-input {
+      padding: 8px 13px;
+      border-radius: 11px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-subtle);
+      font-size: 0.82rem;
+      min-width: 230px;
+    }
+
+    .all-day-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .all-day-card.done {
+      border-color: var(--reading-border);
+    }
+
+    .all-day-head {
+      padding: 15px 18px;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .day-squircle {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      color: var(--primary-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .all-day-card.done .day-squircle {
+      background: #059669;
+      color: #ffffff;
+    }
+
+    .all-day-body {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* =========================================================================
+       8. TIMETABLE, RESOURCES, MOCK TESTS & BLACKLIST
+       ========================================================================= */
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table.sched-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      font-size: 0.82rem;
+    }
+
+    .sched-table th {
+      text-align: left;
+      padding: 11px 12px;
+      border-bottom: 2px solid var(--border-color);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .sched-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: middle;
+    }
+
+    .sched-table tr.current-day {
+      background: var(--primary-soft);
+    }
+
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .res-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .res-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 960px) {
+      .two-col-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .form-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 520px) {
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .form-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: var(--text-secondary);
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 8px 11px;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-subtle);
+      font-size: 0.84rem;
+    }
+
+    .primary-btn {
+      padding: 10px 16px;
+      border-radius: 11px;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .primary-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .danger-btn {
+      padding: 10px 16px;
+      border-radius: 11px;
+      background: #e11d48;
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      width: 100%;
+    }
+
+    /* =========================================================================
+       9. FLOATING EXAM TIMER & TOAST NOTIFICATIONS
+       ========================================================================= */
+    .timer-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      padding: 12px 18px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #4f46e5, #6d28d9);
+      color: #ffffff;
+      font-size: 0.84rem;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.38);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timer-panel {
+      position: fixed;
+      right: 18px;
+      bottom: 74px;
+      z-index: 65;
+      width: calc(100vw - 36px);
+      max-width: 340px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin: 12px 0;
+    }
+
+    .preset-btn {
+      padding: 7px 6px;
+      border-radius: 10px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .preset-btn.active {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary-text);
+    }
+
+    .timer-clock {
+      text-align: center;
+      padding: 14px 10px;
+      border-radius: 16px;
+      background: var(--bg-subtle);
+      margin-bottom: 12px;
+    }
+
+    .timer-digits {
+      font-size: 2.3rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .toast-stack {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .toast {
+      padding: 11px 16px;
+      border-radius: 13px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      animation: fadeIn 0.2s ease;
+    }
+
+    .toast.success { background: #059669; }
+    .toast.warning { background: #d97706; }
+    .toast.error { background: #e11d48; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Stack -->
+  <div id="toast-stack" class="toast-stack"></div>
+
+  <!-- Floating Exam Timer Panel -->
+  <div id="timer-panel" class="timer-panel hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+      <div>
+        <div style="font-size:0.9rem;font-weight:800;">⏱ Đồng hồ bấm giờ thi thật</div>
+        <div id="timer-preset-label" style="font-size:0.74rem;color:var(--text-muted);">Writing Task 1 (20 phút)</div>
+      </div>
+      <div style="display:flex;gap:4px;">
+        <button type="button" data-action="toggle-timer-sound" id="timer-sound-btn" class="icon-btn" title="Bật/Tắt chuông">🔔</button>
+        <button type="button" data-action="close-timer" class="icon-btn" title="Đóng">✕</button>
+      </div>
+    </div>
+
+    <div class="preset-grid">
+      <button type="button" data-action="select-preset" data-preset="task1" class="preset-btn active">Task 1<br><span style="color:var(--text-muted)">20 phút</span></button>
+      <button type="button" data-action="select-preset" data-preset="task2" class="preset-btn">Task 2<br><span style="color:var(--text-muted)">40 phút</span></button>
+      <button type="button" data-action="select-preset" data-preset="fullWriting" class="preset-btn">Full W/R<br><span style="color:var(--text-muted)">60 phút</span></button>
+      <button type="button" data-action="select-preset" data-preset="readingP" class="preset-btn">1 Passage<br><span style="color:var(--text-muted)">20 phút</span></button>
+      <button type="button" data-action="select-preset" data-preset="speakingP2" class="preset-btn">Speak P2<br><span style="color:var(--text-muted)">1p → 2p</span></button>
+      <button type="button" data-action="select-preset" data-preset="pomodoro" class="preset-btn">Pomodoro<br><span style="color:var(--text-muted)">25 phút</span></button>
+    </div>
+
+    <div class="timer-clock">
+      <div id="timer-phase-tag" class="hidden" style="font-size:0.7rem;font-weight:800;color:#d97706;margin-bottom:4px;">CHUẨN BỊ 1 PHÚT</div>
+      <div id="timer-digits" class="timer-digits tabular">20:00</div>
+      <div id="timer-status" style="font-size:0.74rem;color:var(--text-muted);">Sẵn sàng bấm giờ</div>
+    </div>
+
+    <div style="display:flex;gap:8px;">
+      <button type="button" data-action="start-pause-timer" id="timer-start-btn" class="primary-btn" style="flex:1;">▶ Bắt đầu</button>
+      <button type="button" data-action="reset-timer" class="nav-pill-btn">Đặt lại</button>
+    </div>
+  </div>
+
+  <!-- Floating Timer Button -->
+  <button type="button" data-action="toggle-timer-panel" class="timer-fab">
+    <span>⏱</span>
+    <span id="timer-fab-label" class="tabular">Bấm giờ thi</span>
+  </button>
+
+  <!-- ==================== STICKY HEADER ==================== -->
+  <header class="app-header">
+    <div class="container header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <div class="brand-logo">30D</div>
+          <div>
+            <div class="brand-title-row">
+              <h1 class="brand-title">IELTS 30-Day Sprint Tracker</h1>
+              <span class="exam-badge">Thi: 26/12/2026</span>
+            </div>
+            <div class="brand-sub">Lớp 12 tăng tốc • Ưu tiên Writing #1 &amp; Speaking #2 • Duy trì L/R</div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <!-- Live Countdown to 26/12/2026 -->
+          <div class="countdown-box tabular" title="Đếm ngược tới 08:00 sáng 26/12/2026">
+            <span>Còn:</span>
+            <span class="cd-unit"><span id="cd-d">--</span>ng</span>
+            <span class="cd-unit"><span id="cd-h">--</span>g</span>
+            <span class="cd-unit"><span id="cd-m">--</span>p</span>
+            <span class="cd-unit sec"><span id="cd-s">--</span>s</span>
+          </div>
+
+          <!-- Overall Progress -->
+          <div class="overall-pill tabular">
+            <span>Tiến độ:</span>
+            <div class="mini-bar-wrap"><div id="overall-bar" class="mini-bar-fill"></div></div>
+            <span id="overall-text">0% (0/0)</span>
+          </div>
+
+          <!-- Export / Import / Theme -->
+          <button type="button" data-action="export-json" class="icon-btn" title="Tải file backup tiến độ">⬇ Xuất JSON</button>
+          <label class="icon-btn" style="cursor:pointer;" title="Khôi phục tiến độ từ file JSON">
+            ⬆ Nhập JSON
+            <input type="file" data-action="import-json" accept=".json" class="hidden" />
+          </label>
+          <button type="button" data-action="toggle-theme" id="theme-btn" class="icon-btn" title="Đổi giao diện Sáng/Tối">🌙 Tối</button>
+        </div>
+      </div>
+
+      <!-- 4 Main Tabs -->
+      <nav class="nav-tabs" aria-label="Điều hướng chính">
+        <button type="button" data-action="switch-tab" data-tab="roadmap" class="nav-tab active">📅 Lộ trình &amp; Hôm nay</button>
+        <button type="button" data-action="switch-tab" data-tab="schedule" class="nav-tab">🏫 Lịch học 12 &amp; Giờ vàng</button>
+        <button type="button" data-action="switch-tab" data-tab="resources" class="nav-tab">📚 Kho tài liệu PDF Xuân Phi</button>
+        <button type="button" data-action="switch-tab" data-tab="mocktests" class="nav-tab">📊 Mock Test &amp; Sổ lỗi sai</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="container main-wrap">
+
+    <!-- ===================================================================
+         TAB 1: LỘ TRÌNH & HÔM NAY (TODAY ONLY DEFAULT + TOGGLE ALL 30 DAYS)
+         =================================================================== -->
+    <section id="panel-roadmap" class="tab-panel stack-lg">
+
+      <!-- 4 Skill Progress Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-tag skill-Writing">Ưu tiên #1 • Yếu</span>
+            <span id="kpi-w-pct" class="kpi-pct tabular" style="color:var(--writing);">0%</span>
+          </div>
+          <div class="kpi-name">Writing</div>
+          <div id="kpi-w-sub" class="kpi-sub tabular">0 / 0 nhiệm vụ</div>
+          <div class="kpi-bar"><div id="kpi-w-bar" style="background:linear-gradient(90deg,#e11d48,#f97316);"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-tag skill-Speaking">Ưu tiên #2 • Hơi yếu</span>
+            <span id="kpi-s-pct" class="kpi-pct tabular" style="color:var(--speaking);">0%</span>
+          </div>
+          <div class="kpi-name">Speaking</div>
+          <div id="kpi-s-sub" class="kpi-sub tabular">0 / 0 nhiệm vụ</div>
+          <div class="kpi-bar"><div id="kpi-s-bar" style="background:linear-gradient(90deg,#7c3aed,#a855f7);"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-tag skill-Listening">Duy trì • Ổn</span>
+            <span id="kpi-l-pct" class="kpi-pct tabular" style="color:var(--listening);">0%</span>
+          </div>
+          <div class="kpi-name">Listening</div>
+          <div id="kpi-l-sub" class="kpi-sub tabular">0 / 0 nhiệm vụ</div>
+          <div class="kpi-bar"><div id="kpi-l-bar" style="background:linear-gradient(90deg,#0284c7,#38bdf8);"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-tag skill-Reading">Duy trì • Ổn</span>
+            <span id="kpi-r-pct" class="kpi-pct tabular" style="color:var(--reading);">0%</span>
+          </div>
+          <div class="kpi-name">Reading</div>
+          <div id="kpi-r-sub" class="kpi-sub tabular">0 / 0 nhiệm vụ</div>
+          <div class="kpi-bar"><div id="kpi-r-bar" style="background:linear-gradient(90deg,#059669,#34d399);"></div></div>
+        </div>
+      </div>
+
+      <!-- System Date Notice (only shown if device date is outside 24/11 - 26/12/2026) -->
+      <div id="outside-date-banner" class="hidden card" style="padding:12px 16px;background:var(--vocab-soft);border-color:var(--vocab-border);color:var(--vocab-text);font-size:0.8rem;font-weight:700;"></div>
+
+      <!-- PROMINENT MODE SWITCH BAR -->
+      <div class="mode-bar">
+        <div class="mode-toggle-group" role="group" aria-label="Chế độ xem lộ trình">
+          <button type="button" data-action="set-view-mode" data-mode="today" id="btn-mode-today" class="mode-btn active">
+            📅 Chỉ xem Hôm nay
+          </button>
+          <button type="button" data-action="set-view-mode" data-mode="all" id="btn-mode-all" class="mode-btn">
+            📋 Xem tất cả 30 ngày
+          </button>
+        </div>
+
+        <div id="today-nav-controls" class="day-nav-controls">
+          <button type="button" data-action="prev-day" id="btn-prev-day" class="nav-pill-btn">← Ngày trước</button>
+          <button type="button" data-action="jump-today" class="nav-pill-btn today-btn">🎯 Về Hôm nay</button>
+          <button type="button" data-action="next-day" id="btn-next-day" class="nav-pill-btn">Ngày sau →</button>
+          <select id="day-dropdown" data-action="select-day" class="day-select" aria-label="Xem nhanh ngày khác"></select>
+        </div>
+      </div>
+
+      <!-- VIEW 1: TODAY ONLY FOCUS MODE (DEFAULT) -->
+      <div id="view-today-focus" class="stack-lg"></div>
+
+      <!-- VIEW 2: ALL 30 DAYS OVERVIEW MODE -->
+      <div id="view-all-days" class="hidden stack-lg">
+        <!-- Mini 33-Day Heatmap Calendar -->
+        <div class="card">
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;">
+            <div>
+              <h2 style="font-size:1rem;font-weight:800;">Bản đồ 30 ngày tăng tốc + Về đích (24/11 → 26/12/2026)</h2>
+              <p style="font-size:0.78rem;color:var(--text-muted);">Nhấp vào bất kỳ ngày nào để mở chế độ tập trung riêng ngày đó</p>
+            </div>
+            <div style="display:flex;gap:12px;font-size:0.74rem;font-weight:700;color:var(--text-muted);">
+              <span>⬜ Chưa làm</span>
+              <span>🟨 Đang làm</span>
+              <span>🟩 Hoàn thành 100%</span>
+              <span>🟥 Ngày thi</span>
+            </div>
+          </div>
+          <div id="heatmap-grid" class="heatmap-grid"></div>
+        </div>
+
+        <!-- Filters -->
+        <div class="card filter-bar">
+          <div class="filter-row">
+            <div class="chip-group">
+              <span class="filter-label">Tuần:</span>
+              <button type="button" data-action="filter-week" data-week="all" class="chip-btn active">Tất cả</button>
+              <button type="button" data-action="filter-week" data-week="1" class="chip-btn">Tuần 1 (N1–7)</button>
+              <button type="button" data-action="filter-week" data-week="2" class="chip-btn">Tuần 2 (N8–14)</button>
+              <button type="button" data-action="filter-week" data-week="3" class="chip-btn">Tuần 3 (N15–21)</button>
+              <button type="button" data-action="filter-week" data-week="4" class="chip-btn">Tuần 4 &amp; Thi (N22–26/12)</button>
+            </div>
+            <input type="text" data-action="search-roadmap" id="search-input" class="search-input" placeholder="Tìm nhanh: Map, Process, Cam 18, Opinion..." />
+          </div>
+
+          <div class="filter-row" style="padding-top:10px;border-top:1px solid var(--border-color);">
+            <div class="chip-group">
+              <span class="filter-label">Kỹ năng:</span>
+              <button type="button" data-action="filter-skill" data-skill="all" class="chip-btn active">Tất cả</button>
+              <button type="button" data-action="filter-skill" data-skill="Writing" class="chip-btn">Writing</button>
+              <button type="button" data-action="filter-skill" data-skill="Speaking" class="chip-btn">Speaking</button>
+              <button type="button" data-action="filter-skill" data-skill="Listening" class="chip-btn">Listening</button>
+              <button type="button" data-action="filter-skill" data-skill="Reading" class="chip-btn">Reading</button>
+              <button type="button" data-action="filter-skill" data-skill="Vocab" class="chip-btn">Vocab</button>
+            </div>
+            <label style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;cursor:pointer;">
+              <input type="checkbox" data-action="filter-unfinished" id="chk-unfinished" style="width:16px;height:16px;accent-color:var(--primary);" />
+              <span>Chỉ hiện việc chưa xong</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- All Day Cards List -->
+        <div id="all-days-list" class="stack-md"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 2: LỊCH HỌC 12 & GIỜ VÀNG IELTS
+         =================================================================== -->
+    <section id="panel-schedule" class="tab-panel hidden stack-lg">
+      <div class="card">
+        <h2 style="font-size:1.1rem;font-weight:800;">Thời khóa biểu lớp 12 &amp; Khung giờ vàng tự học IELTS</h2>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">
+          Đã đồng bộ chính xác từ bảng lịch học trên trường, học thêm (TA-MP, Toán, Lý, AV01, lớp IELTS tối T7/CN) và giờ EM 21h30 hàng ngày.
+        </p>
+        <div class="table-wrap" style="margin-top:16px;">
+          <table class="sched-table">
+            <thead>
+              <tr>
+                <th>Thứ</th>
+                <th>Mức độ</th>
+                <th>Sáng (7h00 – 11h30)</th>
+                <th>Chiều (12h45 – 17h15)</th>
+                <th>Tối (17h30 – 22h00)</th>
+                <th>Giờ vàng tự học IELTS</th>
+              </tr>
+            </thead>
+            <tbody id="schedule-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 3: KHO TÀI LIỆU PDF XUÂN PHI (14 NGUỒN CHÍNH THỨC)
+         =================================================================== -->
+    <section id="panel-resources" class="tab-panel hidden stack-lg">
+      <div class="card" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#ffffff;border:none;">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;">
+          <div style="max-width:680px;">
+            <span style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;background:rgba(255,255,255,0.18);padding:4px 10px;border-radius:999px;">
+              Trọn bộ 14 tài liệu từ PDF Lộ trình tăng tốc 60 ngày — IELTS Xuân Phi
+            </span>
+            <h2 style="font-size:1.25rem;font-weight:900;margin-top:8px;">Học ở đâu &amp; Cách học tinh gọn cho 30 ngày</h2>
+            <p style="font-size:0.84rem;opacity:0.92;margin-top:4px;">
+              Mỗi nhiệm vụ hàng ngày đều đã gắn sẵn link tới đúng tài liệu dưới đây. Bạn cũng có thể bấm mở nhanh từng tài liệu hoặc dán link Drive cá nhân nếu cần.
+            </p>
+          </div>
+          <a href="https://chatgpt.com/g/g-6969a3f18aa8819188239a73fae73541-ielts-speaking-tutor-by-ielts-xuan-phi" target="_blank" rel="noopener noreferrer"
+             style="background:#ffffff;color:#5b21b6;padding:11px 16px;border-radius:14px;font-size:0.82rem;font-weight:800;box-shadow:var(--shadow-md);">
+            🎙️ Mở AI Speaking Tutor ↗
+          </a>
+        </div>
+      </div>
+
+      <div id="resources-directory" class="stack-lg"></div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 4: MOCK TEST & SỔ LỖI SAI (BLACKLIST)
+         =================================================================== -->
+    <section id="panel-mocktests" class="tab-panel hidden">
+      <div class="two-col-grid">
+        <!-- Left: Score Chart + Form + History -->
+        <div class="stack-lg">
+          <div class="card">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;">
+              <div>
+                <h2 style="font-size:1rem;font-weight:800;">Biểu đồ điểm Mock Test (Cam 18–20)</h2>
+                <p style="font-size:0.76rem;color:var(--text-muted);">Tự động tính Overall làm tròn 0.5 chuẩn IELTS</p>
+              </div>
+              <div style="display:flex;gap:10px;font-size:0.72rem;font-weight:800;">
+                <span style="color:#0284c7;">● L</span>
+                <span style="color:#059669;">● R</span>
+                <span style="color:#e11d48;">● W</span>
+                <span style="color:#7c3aed;">● S</span>
+                <span>● Overall</span>
+              </div>
+            </div>
+            <div id="mock-chart-box" class="table-wrap"></div>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:0.98rem;font-weight:800;margin-bottom:12px;">Nhập điểm bài luyện đề / Mock Test mới</h3>
+            <form id="mock-form" class="stack-md">
+              <div class="form-grid-2">
+                <div>
+                  <label class="field-label" for="mt-name">Tên bài test</label>
+                  <input type="text" id="mt-name" class="text-input" required placeholder="VD: Cam 18 - Test 1 / Mock #1" />
+                </div>
+                <div>
+                  <label class="field-label" for="mt-date">Ngày làm</label>
+                  <input type="date" id="mt-date" class="text-input" required value="2026-11-28" />
+                </div>
+              </div>
+              <div class="form-grid-4">
+                <div>
+                  <label class="field-label" for="mt-l" style="color:var(--listening);">Listening</label>
+                  <input type="number" id="mt-l" class="text-input" step="0.5" min="0" max="9" placeholder="7.0" />
+                </div>
+                <div>
+                  <label class="field-label" for="mt-r" style="color:var(--reading);">Reading</label>
+                  <input type="number" id="mt-r" class="text-input" step="0.5" min="0" max="9" placeholder="7.0" />
+                </div>
+                <div>
+                  <label class="field-label" for="mt-w" style="color:var(--writing);">Writing</label>
+                  <input type="number" id="mt-w" class="text-input" step="0.5" min="0" max="9" placeholder="6.0" />
+                </div>
+                <div>
+                  <label class="field-label" for="mt-s" style="color:var(--speaking);">Speaking</label>
+                  <input type="number" id="mt-s" class="text-input" step="0.5" min="0" max="9" placeholder="6.5" />
+                </div>
+              </div>
+              <div>
+                <label class="field-label" for="mt-note">Rút kinh nghiệm nhanh</label>
+                <input type="text" id="mt-note" class="text-input" placeholder="VD: Writing kịp giờ 60p, Listening bẫy Section 3..." />
+              </div>
+              <div>
+                <button type="submit" class="primary-btn">+ Lưu kết quả bài test</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:0.98rem;font-weight:800;margin-bottom:12px;">Lịch sử bảng điểm</h3>
+            <div id="mock-history-list" class="stack-md"></div>
+          </div>
+        </div>
+
+        <!-- Right: Error Blacklist -->
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <h2 style="font-size:1rem;font-weight:800;">Sổ Blacklist lỗi sai cần diệt</h2>
+            <span id="bl-counter" class="pill skill-Writing">0 lỗi</span>
+          </div>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:14px;">
+            Ghi lại mọi lỗi ngữ pháp, từ vựng và bẫy đề từ feedback AI / chữa đề để rà soát trước giờ thi.
+          </p>
+
+          <form id="blacklist-form" class="stack-md" style="padding-bottom:14px;border-bottom:1px solid var(--border-color);margin-bottom:14px;">
+            <div style="display:grid;grid-template-columns:115px 1fr;gap:8px;">
+              <select id="bl-skill" class="text-input" style="font-weight:700;">
+                <option value="Writing">Writing</option>
+                <option value="Speaking">Speaking</option>
+                <option value="Listening">Listening</option>
+                <option value="Reading">Reading</option>
+              </select>
+              <input type="text" id="bl-mistake" class="text-input" required placeholder="Lỗi hay mắc..." />
+            </div>
+            <input type="text" id="bl-fix" class="text-input" placeholder="Cách sửa / Mẹo nhớ nhanh..." />
+            <button type="submit" class="danger-btn">+ Thêm vào Blacklist</button>
+          </form>
+
+          <div id="blacklist-items" class="stack-md"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== APPLICATION SCRIPT ==================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* =======================================================================
+         1. WEEKLY 12TH-GRADE SCHOOL & EXTRA-CLASS SCHEDULE (0=CN .. 6=T7)
+         ======================================================================= */
+      const WEEKLY_SCHEDULE = {
+        1: {
+          dayName: 'Thứ 2',
+          badgeClass: 'pill-busy',
+          statusText: 'Ngày bận',
+          morning: 'SHDC, Văn, Tin, Hóa (x2)',
+          afternoon: 'Toán (x2), Tin (x2)',
+          evening: '17h30–19h: TA-MP • 21h30: EM',
+          goldenWindow: '19h15 – 21h15 (1.5 – 2h IELTS)',
+          strategy: 'Lịch trường & TA-MP dày — ưu tiên khung 19h15–21h15 học khung Writing, sửa bài AI & luyện Speaking.'
+        },
+        2: {
+          dayName: 'Thứ 3',
+          badgeClass: 'pill-golden',
+          statusText: 'NGÀY VÀNG',
+          morning: 'AV, Sinh, Sử, Toán, Lý',
+          afternoon: 'TRỐNG HOÀN TOÀN (12h45 – 17h15)!',
+          evening: '19h–20h30: Toán • 21h30: EM',
+          goldenWindow: 'Chiều 14h00–17h30 & Tối 17h30–18h45 (3.5 – 4h)',
+          strategy: 'CHIỀU TRỐNG HOÀN TOÀN! Thời điểm vàng để viết Essay bấm giờ, luyện Paraphrasing sâu và cày đề lớn.'
+        },
+        3: {
+          dayName: 'Thứ 4',
+          badgeClass: 'pill-busy',
+          statusText: 'Ngày bận',
+          morning: 'Toán, QP, Lý, Tin, Sinh',
+          afternoon: '13h35–15h10: Văn (x2) • 15h30: I',
+          evening: '17h30–19h: TA-MP • 21h30: EM',
+          goldenWindow: '19h15 – 21h15 (1.5 – 2h IELTS)',
+          strategy: 'Sau khi tan TA-MP lúc 19h, tận dụng trọn vẹn 2 tiếng để viết 1 Task bấm giờ & phản xạ Speaking với AI.'
+        },
+        4: {
+          dayName: 'Thứ 5',
+          badgeClass: 'pill-medium',
+          statusText: 'Ngày vừa',
+          morning: 'Lý, TD, Toán (x2), HĐTN',
+          afternoon: 'Trống 12h45–15h10 • 15h40–17h15: AV01 (x2)',
+          evening: '19h–20h30: TA-MP • 21h30: EM',
+          goldenWindow: 'Chiều 13h30–15h30 & Tối 17h30–18h45 (2.5h)',
+          strategy: 'Chia 2 ca: Ca chiều 13h30–15h30 giải Writing/Reading bấm giờ, ca đầu tối 17h30–18h45 luyện Speaking & Vocab.'
+        },
+        5: {
+          dayName: 'Thứ 6',
+          badgeClass: 'pill-busy',
+          statusText: 'Ngày bận (Giảm tải)',
+          morning: 'Hóa, TD, AV (x2), SHL',
+          afternoon: 'Lý (x2), Văn (x2)',
+          evening: '19h–20h30: TA-MP • 21h30: EM',
+          goldenWindow: '17h15–18h50 & 20h30–21h15 (1.5 – 2h)',
+          strategy: 'Học kín sáng chiều — không nhồi đề dài, tập trung sửa bài Writing bằng AI, luyện Speaking ngắn & Collocations.'
+        },
+        6: {
+          dayName: 'Thứ 7',
+          badgeClass: 'pill-super',
+          statusText: 'NGÀY SIÊU VÀNG',
+          morning: '9h50–10h40: TA-MP • 11h–12h30: Lý',
+          afternoon: 'TRỐNG HOÀN TOÀN!',
+          evening: '19h30–21h00: Lớp IELTS • 21h30: EM',
+          goldenWindow: 'Sáng 7h30–9h30 & Chiều 14h00–18h00 (4 – 5h)',
+          strategy: 'NGÀY SIÊU VÀNG! Đẩy mạnh Full Test Listening + Reading Cam 18–20, luyện Writing 60p và đi học lớp IELTS 19h30.'
+        },
+        0: {
+          dayName: 'Chủ Nhật',
+          badgeClass: 'pill-super',
+          statusText: 'NGÀY SIÊU VÀNG',
+          morning: '8h30–10h00: Lý',
+          afternoon: '13h00–14h30: Toán',
+          evening: '18h00–19h30: Lớp IELTS • 21h30: EM',
+          goldenWindow: 'Chiều 14h45–17h45 & Tối 19h30–21h15 (4 – 5h)',
+          strategy: 'NGÀY SIÊU VÀNG! Thời gian lý tưởng để làm Full Mock Test 4 kỹ năng, chữa transcript kỹ & tổng kết tuần.'
+        }
+      };
+
+      const SCHEDULE_ORDER = [1, 2, 3, 4, 5, 6, 0];
+
+      /* =======================================================================
+         2. ALL 14 OFFICIAL RESOURCES FROM IELTS XUÂN PHI 60-DAY PDF
+         ======================================================================= */
+      const RESOURCES = {
+        l_handbook: {
+          id: 'l_handbook',
+          skill: 'Listening',
+          name: 'Listening Handbook (7 mẹo bẫy & lỗi sai)',
+          desc: '4.1 Changing opinion, 4.2 Take note, 4.3 Multiple choice, 4.4 Matching, 4.5 Map, 4.6 Giọng đọc, 4.7 Lỗi sai ngớ ngẩn',
+          url: 'https://drive.google.com/drive/u/0/folders/1RSVXP88kn8AOaRK39r_kPkZbYrZdmVkU'
+        },
+        l_cam: {
+          id: 'l_cam',
+          skill: 'Listening',
+          name: 'Bộ đề Cambridge 8–20 (Listening Audio + PDF)',
+          desc: 'Tập trung luyện Section 3&4 Cam 16–17 và Full Test Cam 18–20',
+          url: 'https://drive.google.com/drive/folders/1F8A6s2F2qhPEqQer2Vn5Vlvw5iWFRhvh?usp=drive_link'
+        },
+        l_dictation: {
+          id: 'l_dictation',
+          skill: 'Listening',
+          name: 'Nghe chép chính tả Cambridge 8–20',
+          desc: 'Rèn nghe chi tiết âm cuối, số nhiều & chính tả cho dạng điền từ vào chỗ trống',
+          url: 'https://drive.google.com/file/d/1stzm1jb9UzfilRHRIZPkcGxtZeDPHMzt/view?usp=sharing'
+        },
+        r_vocab: {
+          id: 'r_vocab',
+          skill: 'Reading',
+          name: '30 ngày thành thạo từ vựng Cambridge Reading',
+          desc: 'Hệ thống từ vựng học thuật xuất hiện lặp lại liên tục trong đề Cambridge',
+          url: 'https://drive.google.com/file/d/19Spt_Ih_DMHN4IWL2XwwvBC-aIRpCHU/view?usp=sharing'
+        },
+        r_cam: {
+          id: 'r_cam',
+          skill: 'Reading',
+          name: 'Bộ đề Cambridge 8–20 (Reading)',
+          desc: 'Luyện bấm giờ 20 phút/passage với Cam 17 và Full Test 60p Cam 18–20',
+          url: 'https://drive.google.com/drive/folders/1F8A6s2F2qhPEqQer2Vn5Vlvw5iWFRhvh?usp=drive_link'
+        },
+        r_guide: {
+          id: 'r_guide',
+          skill: 'Reading',
+          name: 'Hướng dẫn giải đề Reading Cambridge',
+          desc: 'Giải thích vị trí đáp án, từ khóa đồng nghĩa và cách đề paraphrase',
+          url: 'https://drive.google.com/file/d/1tsGNNb7DG0zeMpTTYKARwgyL00gWhycz/view?usp=sharing'
+        },
+        w_improve: {
+          id: 'w_improve',
+          skill: 'Writing',
+          name: 'Task 1: Improve your IELTS Writing Skills (Unit 1–10)',
+          desc: 'Trends, Comparing, Passive/Process, Proportions, Map Locations, Predictions, Varying Vocab',
+          url: 'https://drive.google.com/drive/u/1/folders/1UBvA_TwkYLMGy6Hfzu5HMG9IMqe0Dxk-'
+        },
+        w_paraphrase: {
+          id: 'w_paraphrase',
+          skill: 'Writing',
+          name: 'Cẩm nang Paraphrasing Task 1',
+          desc: 'Chart Section 1–19, Process Section 1–6, Map Section 1–12',
+          url: 'https://drive.google.com/drive/u/2/folders/1dIp2yjOO-RlvR4TuPSJP5jME6HtAtDo5'
+        },
+        w_simon: {
+          id: 'w_simon',
+          skill: 'Writing',
+          name: 'Task 2 – Essay Templates (Simon)',
+          desc: '5 dạng chuẩn: Opinion, Discussion, Problem/Cause–Solution, Two-part, Advantages vs Disadvantages',
+          url: 'https://drive.google.com/drive/u/1/folders/15iajcV09JHN_F41hCxCu2rdH-wlXkw_c'
+        },
+        w_ideas: {
+          id: 'w_ideas',
+          skill: 'Writing',
+          name: 'Kho ý tưởng IELTS Writing',
+          desc: 'Luận điểm mẫu theo chủ đề: Business, Education, Entertainment, Health, Psychology, Space',
+          url: 'https://drive.google.com/file/d/1Y5LBrS1G-8PKhfzmwTgo0hzHpTE5yJ4W/view?usp=sharing'
+        },
+        w_30days: {
+          id: 'w_30days',
+          skill: 'Writing',
+          name: '30 Ngày Chuyên Sâu IELTS Writing',
+          desc: 'Ngân hàng đề luyện thực chiến theo từng dạng biểu đồ Task 1 & 5 dạng Task 2',
+          url: 'https://drive.google.com/file/d/1bKx8dgNkHGyO2Zu5ElsinflPOofxwq36/view?usp=sharing'
+        },
+        w_vocab: {
+          id: 'w_vocab',
+          skill: 'Vocab',
+          name: 'Từ vựng bản xứ Speaking & Writing (Phần Writing — 15 chủ đề)',
+          desc: 'Học collocations theo ngữ cảnh (Ngữ liệu + Exercises + Viết đoạn văn)',
+          url: 'https://drive.google.com/file/d/16kzGWXsgEb6sUbFowrnF-CCdpjabvfz/view?usp=sharing'
+        },
+        w_forecast: {
+          id: 'w_forecast',
+          skill: 'Writing',
+          name: 'Bộ đề dự đoán IELTS Speaking & Writing quý III–2026 (Phần Writing)',
+          desc: 'Task 2: 10 topics trọng tâm • Task 1: 7 dạng biểu đồ × 2 đề dự đoán sát phòng thi',
+          url: 'https://drive.google.com/file/d/1gBLo2WM39vzlCwYRZeFjAEM3rf2W3L_2/view?usp=sharing'
+        },
+        s_natural: {
+          id: 's_natural',
+          skill: 'Speaking',
+          name: 'Natural English for IELTS Speaking',
+          desc: '30 topics Part 1 nền tảng giúp mở rộng câu trả lời tự nhiên',
+          url: 'https://drive.google.com/file/d/1dnAOl3xW4xJFeNmnwc36ubccmzB9fCZi/view?usp=drive_link'
+        },
+        s_vocab: {
+          id: 's_vocab',
+          skill: 'Speaking',
+          name: 'Từ vựng bản xứ Speaking & Writing (Phần Speaking — 25 chủ đề)',
+          desc: 'Cụm từ & idioms tự nhiên như người bản xứ cho các chủ đề đời sống',
+          url: 'https://drive.google.com/file/d/16kzGWXsgEb6sUbFowrnF-CCdpjabvfz/view?usp=sharing'
+        },
+        s_forecast: {
+          id: 's_forecast',
+          skill: 'Speaking',
+          name: 'Bộ đề dự đoán IELTS Speaking quý III–2026',
+          desc: '25 topic Part 1 + 46 đề Part 2 & 3 chia 6 nhóm: Person, Object, Event, Activity, Place, Others',
+          url: 'https://drive.google.com/file/d/1gBLo2WM39vzlCwYRZeFjAEM3rf2W3L_2/view?usp=sharing'
+        },
+        s_ai: {
+          id: 's_ai',
+          skill: 'Speaking',
+          name: 'AI Chatbot: IELTS Speaking Tutor — By IELTS Xuân Phi',
+          desc: 'Luyện nói trực tiếp bằng giọng nói theo cấu trúc Part 1–2–3, nhận feedback band điểm tức thì',
+          url: 'https://chatgpt.com/g/g-6969a3f18aa8819188239a73fae73541-ielts-speaking-tutor-by-ielts-xuan-phi'
+        }
+      };
+
+      const SKILL_STRATEGY_GROUPS = [
+        {
+          skill: 'Writing',
+          title: 'WRITING — Ưu tiên #1 (Kỹ năng yếu cần kéo mạnh nhất)',
+          how: 'Task 1: Học tinh gọn 10 Unit trong Improve your IELTS Writing Skills, luyện paraphrase với Cẩm nang Paraphrasing Task 1 (Chart/Process/Map) và viết thực chiến 7 dạng biểu đồ. Task 2: Thuộc lòng 5 dạng bài theo Essay Templates (Simon), lấy luận điểm từ Kho ý tưởng, thực hành trong 30 Ngày Chuyên Sâu và Bộ đề dự đoán Q3-2026 (10 topics). BẮT BUỘC ở các buổi "Sửa bài & viết lại": dùng Grammarly hoặc ChatGPT chấm nhận xét theo 4 tiêu chí (TA/TR, CC, LR, GRA) rồi tự viết lại đoạn yếu!',
+          resIds: ['w_improve', 'w_paraphrase', 'w_simon', 'w_ideas', 'w_30days', 'w_vocab', 'w_forecast']
+        },
+        {
+          skill: 'Speaking',
+          title: 'SPEAKING — Ưu tiên #2 (Hơi yếu — cần bật phản xạ & tự nhiên)',
+          how: 'Khởi động nhanh Part 1 với Natural English for IELTS Speaking và 25 chủ đề Speaking trong Từ vựng bản xứ. Sau đó chuyển thẳng sang Bộ đề dự đoán Q3-2026: 25 topic Part 1 và 46 đề Part 2 & 3 được GỘP THÀNH 6 NHÓM CHÍNH (Person, Object, Event, Activity, Place, Others) để 1 câu chuyện xử lý nhiều đề. Khi tập nói, dùng AI Chatbot IELTS Speaking Tutor bằng giọng nói để nhận feedback về ý tưởng, từ vựng và độ trôi chảy.',
+          resIds: ['s_ai', 's_forecast', 's_vocab', 's_natural']
+        },
+        {
+          skill: 'Listening',
+          title: 'LISTENING — Đã ổn (Rà bẫy Handbook & bứt band Cam 16–20)',
+          how: 'Rà nhanh 7 mẹo bẫy cốt lõi trong Listening Handbook trong 3 ngày đầu. Bỏ qua Section 1&2 cơ bản để tăng tốc thẳng vào Section 3&4 Cam 16–17 và Full Test Cam 18–20 vào các Ngày Vàng. Chữa đề bằng cách nghe lại đoạn sai + đối chiếu transcript, xen kẽ Nghe chép chính tả để giữ độ nhạy điền từ.',
+          resIds: ['l_handbook', 'l_cam', 'l_dictation']
+        },
+        {
+          skill: 'Reading',
+          title: 'READING — Đã ổn (Giữ tốc độ 20p/passage & săn bẫy Paraphrase)',
+          how: 'Bỏ qua giai đoạn làm quen dạng câu hỏi lẻ vì bạn đã vững nền — bấm giờ 20 phút/passage với Cambridge 17 rồi cày Full Test Cam 18–20 (60 phút) vào các Ngày Vàng. Khi sai, dùng Hướng dẫn giải đề Reading Cambridge để phân tích cách đề paraphrase, kết hợp 30 ngày thành thạo từ vựng Cambridge Reading.',
+          resIds: ['r_cam', 'r_guide', 'r_vocab']
+        }
+      ];
+
+      /* =======================================================================
+         3. COMPLETE 33-DAY ROADMAP (DAY 1 = 2026-11-24 .. EXAM = 2026-12-26)
+         ======================================================================= */
+      const ROADMAP = [
+        // --- TUẦN 1 (NGÀY 1 – 7: 24/11 – 30/11/2026) ---
+        {
+          index: 0, dayLabel: 'Ngày 1 / 30', shortLabel: 'N1', date: '2026-11-24', weekday: 2, week: 1,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'Ngày Vàng T3: Mở màn Task 1 Trends + Task 2 Opinion + Rà bẫy Listening',
+          tasks: [
+            { id: 't1-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_improve',
+              goal: 'Task 1: Học Unit 1 & 2 (Describing trends, Comparing data) + Cẩm nang Paraphrasing Task 1 (Chart: Sec 1–4) → viết 1 đoạn Overview & Body mẫu.',
+              how: 'Mở Improve your IELTS Writing Skills (Unit 1–2) nắm động từ/danh từ chỉ xu hướng, kết hợp Paraphrasing Task 1 (Chart Sec 1–4) để biến đổi đề bài.' },
+            { id: 't1-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_simon',
+              goal: 'Task 2: Học Dạng 1 — Opinion (Partly & Completely Agree/Disagree) theo Simon Templates + đọc Kho ý tưởng Business.',
+              how: 'Xem cấu trúc Intro–Body–Conclusion Dạng 1 trong Essay Templates (Simon), sau đó lấy ý từ Kho ý tưởng IELTS Writing (Topic Business) lập dàn ý 1 đề.' },
+            { id: 't1-3', skill: 'Speaking', mins: '40p', resId: 's_natural',
+              goal: 'Speaking Part 1: Luyện phản xạ Topic 1–10 (Work/Studies, Hometown, Sports, Photos...) & test giọng nói với AI Speaking Tutor.',
+              how: 'Đọc cụm từ gợi ý trong Natural English for IELTS Speaking (Topic 1–10) rồi mở AI Speaking Tutor trả lời thành tiếng.' },
+            { id: 't1-4', skill: 'Listening', mins: '35p', resId: 'l_handbook',
+              goal: 'Listening: Rà nhanh mục 4.1–4.4 Listening Handbook (Changing opinion, Take note, Multiple choice, Matching) + luyện Cam 16 Test 1 Sec 3&4.',
+              how: 'Đọc mẹo tránh bẫy đổi ý & nối thông tin trong Listening Handbook, áp dụng ngay vào Cam 16 Test 1 Section 3&4.' }
+          ]
+        },
+        {
+          index: 1, dayLabel: 'Ngày 2 / 30', shortLabel: 'N2', date: '2026-11-25', weekday: 3, week: 1,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'Ngày bận T4: Thực chiến 1 bài Line Graph + 1 bài Opinion bấm giờ',
+          tasks: [
+            { id: 't2-1', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_paraphrase',
+              goal: 'Task 1: Học Paraphrasing Chart (Sec 5–10) → Viết bấm giờ 20 phút trọn vẹn 1 đề Line Graph.',
+              how: 'Đọc nhanh Chart Sec 5–10 trong Cẩm nang Paraphrasing, chọn 1 đề Line Graph trong 30 Ngày Chuyên Sâu và bấm đồng hồ đúng 20 phút.' },
+            { id: 't2-2', skill: 'Writing', mins: '50p', timer: 'task2', resId: 'w_ideas',
+              goal: 'Task 2: Đọc Kho ý tưởng Topic Education → Viết bấm giờ 40 phút 1 bài Opinion hoàn chỉnh.',
+              how: 'Nạp 3 luận điểm Topic Education từ Kho ý tưởng IELTS Writing, áp dụng khung Simon Dạng 1 viết trọn bài trong 40 phút.' },
+            { id: 't2-3', skill: 'Speaking', mins: '25p', resId: 's_vocab',
+              goal: 'Speaking: Học Từ vựng bản xứ (Topic 1–5: Daily Routine, Family, Friends, Hometown, Food) + luyện cùng AI Tutor.',
+              how: 'Gạch chân 3–4 cụm bản xứ mỗi topic trong Từ vựng bản xứ (Phần Speaking) và đặt câu trả lời trực tiếp với AI.' }
+          ]
+        },
+        {
+          index: 2, dayLabel: 'Ngày 3 / 30', shortLabel: 'N3', date: '2026-11-26', weekday: 4, week: 1,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'Ngày vừa T5: Sửa bài AI + Listening Handbook 4.5–4.7 + Reading Cam 17',
+          tasks: [
+            { id: 't3-1', skill: 'Writing', mins: '45p', resId: 'w_30days',
+              goal: 'Sửa bài Line Graph & Opinion (Ngày 2) bằng ChatGPT/Grammarly theo 4 tiêu chí, viết lại 1 đoạn Body yếu nhất.',
+              how: 'Dán bài viết ngày 2 vào AI yêu cầu chấm TA/TR, CC, LR, GRA chi tiết; ghi lỗi hay sai vào Tab Sổ lỗi sai.' },
+            { id: 't3-2', skill: 'Speaking', mins: '35p', resId: 's_vocab',
+              goal: 'Speaking: Học Từ vựng bản xứ (Topic 6–10: Free time, Studies, Work, Sports, Shopping) + luyện P1 với AI.',
+              how: 'Học collocations tự nhiên trong Từ vựng bản xứ Speaking Topic 6–10 và luyện phản xạ 2–3 câu/câu hỏi với AI Tutor.' },
+            { id: 't3-3', skill: 'Listening', mins: '35p', resId: 'l_handbook',
+              goal: 'Listening: Rà nốt mục 4.5–4.7 Listening Handbook (Map, Giọng đọc, Lỗi sai ngớ ngẩn) + luyện Cam 16 Test 2 Sec 3&4.',
+              how: 'Hoàn tất 7 mẹo bẫy trong Listening Handbook và thực hành ngay Cam 16 Test 2 Sec 3&4.' },
+            { id: 't3-4', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_cam',
+              goal: 'Reading: Bấm giờ 20 phút làm Cam 17 – Test 1 (Passage 1) + đối chiếu Hướng dẫn giải đề.',
+              how: 'Làm nghiêm túc 20 phút trong Cam 17 Test 1 P1, sau đó tra Hướng dẫn giải đề Reading Cambridge để xem cách paraphrase.' }
+          ]
+        },
+        {
+          index: 3, dayLabel: 'Ngày 4 / 30', shortLabel: 'N4', date: '2026-11-27', weekday: 5, week: 1,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'Ngày bận T6 (Giảm tải): Collocations Education + Speaking Topic 11–15',
+          tasks: [
+            { id: 't4-1', skill: 'Vocab', mins: '30p', resId: 'w_vocab',
+              goal: 'Từ vựng bản xứ Writing — Topic 1: Studies (Education) (đọc ngữ liệu + làm Exercises + viết 1 đoạn ngắn).',
+              how: 'Mở Từ vựng bản xứ (Phần Writing – Topic 1 Studies), học cụm từ in đậm theo ngữ cảnh và viết 4–5 câu ứng dụng.' },
+            { id: 't4-2', skill: 'Speaking', mins: '35p', resId: 's_vocab',
+              goal: 'Speaking: Học Từ vựng bản xứ (Topic 11–15: Weather, Films, Mobile Phones, Keeping Fit, Travel).',
+              how: 'Đọc to các cụm từ tự nhiên trong Từ vựng bản xứ Speaking Topic 11–15 và luyện nói 10 phút với AI Tutor.' },
+            { id: 't4-3', skill: 'Listening', mins: '25p', resId: 'l_dictation',
+              goal: 'Nghe chép chính tả: Cam 12 – Test 1 Section 2 (luyện bắt âm cuối & từ nối).',
+              how: 'Mở file Nghe chép chính tả Cambridge 8–20 (Cam 12 Test 1 Sec 2), nghe từng câu và chép chính xác 100%.' }
+          ]
+        },
+        {
+          index: 4, dayLabel: 'Ngày 5 / 30', shortLabel: 'N5', date: '2026-11-28', weekday: 6, week: 1,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'SIÊU NGÀY VÀNG T7: Bar Chart + Task 2 Discussion + Cam 17 Reading/Listening',
+          tasks: [
+            { id: 't5-1', skill: 'Writing', mins: '60p', timer: 'task1', resId: 'w_paraphrase',
+              goal: 'Task 1: Học Unit 4 (Proportions) + Paraphrasing Chart (Sec 11–19) → Viết bấm giờ 20p 1 bài Bar Chart.',
+              how: 'Xem cách miêu tả tỷ trọng ở Unit 4 Improve Writing + Chart Sec 11–19 Paraphrasing, sau đó viết 1 bài Bar Chart (30 Ngày Chuyên Sâu).' },
+            { id: 't5-2', skill: 'Writing', mins: '65p', timer: 'task2', resId: 'w_simon',
+              goal: 'Task 2: Học Dạng 2 — Discussion (Simon Template) → Viết bấm giờ 40p 1 đề Discussion + chấm AI.',
+              how: 'Nắm bố cục bàn luận 2 chiều trong Simon Templates Dạng 2, viết full bài trong 40p và nhờ ChatGPT chấm feedback.' },
+            { id: 't5-3', skill: 'Speaking', mins: '45p', resId: 's_vocab',
+              goal: 'Speaking: Học Từ vựng bản xứ (Topic 16–20: Streets/Bikes, Art, Money, Languages, Festivals) + luyện AI.',
+              how: 'Học collocations Topic 16–20 trong Từ vựng bản xứ Speaking và thực hành hội thoại với AI Speaking Tutor.' },
+            { id: 't5-4', skill: 'Reading', mins: '55p', timer: 'readingP', resId: 'r_guide',
+              goal: 'Reading: Bấm giờ 20p/bài làm Cam 17 – Test 1 (Passage 2 & 3) + phân tích câu sai.',
+              how: 'Làm liên tiếp Passage 2 & 3 Cam 17 Test 1, tra Hướng dẫn giải đề Reading Cambridge để ghi chú bẫy True/False/Not Given.' },
+            { id: 't5-5', skill: 'Listening', mins: '35p', resId: 'l_cam',
+              goal: 'Listening: Luyện Cam 16 – Test 3 & 4 (Section 3 & 4) + rà lại transcript câu sai.',
+              how: 'Nghe 1 lần duy nhất Cam 16 Test 3&4 Sec 3&4, gạch chân từ đồng nghĩa trong transcript.' }
+          ]
+        },
+        {
+          index: 5, dayLabel: 'Ngày 6 / 30', shortLabel: 'N6', date: '2026-11-29', weekday: 0, week: 1,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'SIÊU NGÀY VÀNG CN: Chinh phục Task 1 Process + Problem–Solution + Cam 17',
+          tasks: [
+            { id: 't6-1', skill: 'Writing', mins: '60p', timer: 'task1', resId: 'w_improve',
+              goal: 'Task 1: Học Unit 3 (The passive & Sequencing) + Paraphrasing Process (Sec 1–6) → Viết 20p 1 bài Process.',
+              how: 'Học cấu trúc bị động & từ nối trình tự (Unit 3 Improve Writing + Paraphrasing Process Sec 1–6), viết 1 đề Process trong 30 Ngày Chuyên Sâu.' },
+            { id: 't6-2', skill: 'Writing', mins: '65p', timer: 'task2', resId: 'w_simon',
+              goal: 'Task 2: Học Dạng 3 — Problem & Solution / Cause – Solution (Simon Template) → Viết 40p 1 đề Cause–Solution.',
+              how: 'Đọc mẫu Dạng 3 Simon Templates + Kho ý tưởng (Topic Health), viết full bài trong 40p.' },
+            { id: 't6-3', skill: 'Speaking', mins: '40p', resId: 's_vocab',
+              goal: 'Speaking: Hoàn tất Từ vựng bản xứ (Topic 21–25: Memory, News, History, Nature, Science) + AI Tutor.',
+              how: 'Hoàn thành nốt 5 chủ đề cuối trong Từ vựng bản xứ Speaking và luyện nói trôi chảy với AI Chatbot.' },
+            { id: 't6-4', skill: 'Reading', mins: '55p', timer: 'readingP', resId: 'r_cam',
+              goal: 'Reading: Bấm giờ 20p/bài làm Cam 17 – Test 2 (Passage 1 & 2) + chữa chi tiết.',
+              how: 'Bấm giờ 20 phút mỗi passage Cam 17 Test 2 P1–P2, đối chiếu Hướng dẫn giải đề Reading Cambridge.' }
+          ]
+        },
+        {
+          index: 6, dayLabel: 'Ngày 7 / 30', shortLabel: 'N7', date: '2026-11-30', weekday: 1, week: 1,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'Ngày bận T2: Sửa bài Process & Cause–Solution + Mở màn Bộ đề dự đoán P1',
+          tasks: [
+            { id: 't7-1', skill: 'Writing', mins: '45p', resId: 'w_30days',
+              goal: 'Sửa bài Process & Cause–Solution (Ngày 6) theo feedback AI 4 tiêu chí + viết lại 1 đoạn Body.',
+              how: 'Dán 2 bài viết ngày 6 vào ChatGPT yêu cầu sửa lỗi bị động/ngữ pháp và nâng cấp từ vựng học thuật.' },
+            { id: 't7-2', skill: 'Speaking', mins: '40p', resId: 's_forecast',
+              goal: 'Chuyển sang Bộ đề dự đoán Speaking quý III–2026: Luyện Part 1 (Topic 1–10) bằng giọng nói với AI Tutor.',
+              how: 'Mở Bộ đề dự đoán Speaking Q3-2026 (Part 1 Topic 1–10), bật micro nói trực tiếp với AI Speaking Tutor.' },
+            { id: 't7-3', skill: 'Vocab', mins: '25p', resId: 'r_vocab',
+              goal: 'Từ vựng Reading: Ôn Day 1–10 trong 30 ngày thành thạo từ vựng Cambridge Reading.',
+              how: 'Rà nhanh các từ vựng học thuật hay gặp trong 30 ngày thành thạo từ vựng Cambridge Reading.' }
+          ]
+        },
+
+        // --- TUẦN 2 (NGÀY 8 – 14: 01/12 – 07/12/2026) ---
+        {
+          index: 7, dayLabel: 'Ngày 8 / 30', shortLabel: 'N8', date: '2026-12-01', weekday: 2, week: 2,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'Ngày Vàng T3: Đột phá Task 1 Map + Two-part Question + Dự đoán P1',
+          tasks: [
+            { id: 't8-1', skill: 'Writing', mins: '65p', timer: 'task1', resId: 'w_paraphrase',
+              goal: 'Task 1 Map: Học Unit 5 (Locations & Changes) + Paraphrasing Map (Sec 1–12) → Viết bấm giờ 20p 1 bài Map.',
+              how: 'Học giới từ chỉ vị trí & động từ biến đổi đô thị (Unit 5 Improve Writing + Paraphrasing Map Sec 1–12), sau đó viết 1 bài Map trong 30 Ngày Chuyên Sâu.' },
+            { id: 't8-2', skill: 'Writing', mins: '60p', timer: 'task2', resId: 'w_simon',
+              goal: 'Task 2: Học Dạng 4 — Two-part Question (Simon Template) → Viết bấm giờ 40p 1 đề Two-part.',
+              how: 'Xem cách trả lời cân bằng 2 câu hỏi trong Simon Templates Dạng 4 + Kho ý tưởng (Entertainment), viết full 40p.' },
+            { id: 't8-3', skill: 'Speaking', mins: '45p', resId: 's_forecast',
+              goal: 'Bộ đề dự đoán Speaking Q3-2026: Luyện Part 1 (Topic 11–18) với AI Speaking Tutor.',
+              how: 'Luyện phản xạ 8 chủ đề Part 1 tiếp theo trong Bộ đề dự đoán Q3-2026 cùng AI Tutor.' },
+            { id: 't8-4', skill: 'Listening', mins: '35p', resId: 'l_cam',
+              goal: 'Listening: Luyện Cam 17 – Test 1 & 2 (Section 3 & 4) + đối chiếu transcript.',
+              how: 'Tập trung bắt từ khóa paraphrase ở Section 3&4 Cam 17 Test 1&2.' }
+          ]
+        },
+        {
+          index: 8, dayLabel: 'Ngày 9 / 30', shortLabel: 'N9', date: '2026-12-02', weekday: 3, week: 2,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'Ngày bận T4: Task 1 Pie Chart + Task 2 Advantages/Disadvantages',
+          tasks: [
+            { id: 't9-1', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_30days',
+              goal: 'Task 1: Ôn Unit 7 (Adverbs to evaluate data) → Viết bấm giờ 20p 1 đề Pie Chart.',
+              how: 'Xem Unit 7 Improve Writing rồi chọn 1 đề Pie Chart trong 30 Ngày Chuyên Sâu viết trọn vẹn trong 20 phút.' },
+            { id: 't9-2', skill: 'Writing', mins: '45p', resId: 'w_simon',
+              goal: 'Task 2: Học Dạng 5 — Advantages vs Disadvantages (Outweigh & Neutral) theo Simon Templates + lập dàn ý.',
+              how: 'Nắm chắc sự khác biệt giữa "Outweigh" (có nêu quan điểm) và "What are the advantages/disadvantages" (trung lập) trong Simon Templates.' },
+            { id: 't9-3', skill: 'Speaking', mins: '30p', resId: 's_forecast',
+              goal: 'Hoàn tất Bộ đề dự đoán Speaking Part 1 (Topic 19–25) với AI Speaking Tutor.',
+              how: 'Hoàn thành nốt Topic 19–25 Part 1 trong Bộ đề dự đoán Q3-2026.' }
+          ]
+        },
+        {
+          index: 9, dayLabel: 'Ngày 10 / 30', shortLabel: 'N10', date: '2026-12-03', weekday: 4, week: 2,
+          phase: 'Chặng 1: Nền tảng tăng tốc',
+          title: 'Ngày vừa T5: Task 1 Table + Viết Adv–Disadv + Mở màn Part 2 Person',
+          tasks: [
+            { id: 't10-1', skill: 'Writing', mins: '35p', timer: 'task1', resId: 'w_30days',
+              goal: 'Task 1: Ôn Unit 8–9 (Predictions & Varying vocab) → Viết bấm giờ 20p 1 đề Table.',
+              how: 'Đọc Unit 8–9 Improve Writing, sau đó viết 1 bài Table trong 30 Ngày Chuyên Sâu đúng 20 phút.' },
+            { id: 't10-2', skill: 'Writing', mins: '50p', timer: 'task2', resId: 'w_ideas',
+              goal: 'Task 2: Viết bấm giờ 40p 1 bài Advantages vs Disadvantages (Outweigh) + đọc Kho ý tưởng Psychology & Space.',
+              how: 'Áp dụng Simon Templates Dạng 5 viết trọn bài trong 40 phút.' },
+            { id: 't10-3', skill: 'Speaking', mins: '35p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Bộ đề dự đoán Part 2 & 3 — Nhóm 1 Person (1.1 + 1.2): chuẩn bị 1p & nói 2p với AI Tutor.',
+              how: 'Mở Bộ đề dự đoán Speaking Q3-2026 Nhóm 1 Person, bấm đồng hồ 1p note ý chính + 2p nói liên tục.' },
+            { id: 't10-4', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_cam',
+              goal: 'Reading: Bấm giờ 20p làm Cam 17 – Test 2 (Passage 3) + xem Hướng dẫn giải đề.',
+              how: 'Luyện Passage 3 khó nhất của Cam 17 Test 2 và tra Hướng dẫn giải đề Reading Cambridge.' }
+          ]
+        },
+        {
+          index: 10, dayLabel: 'Ngày 11 / 30', shortLabel: 'N11', date: '2026-12-04', weekday: 5, week: 2,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'Ngày bận T6 (Giảm tải): Sửa bài AI + Collocations Environment/Economy',
+          tasks: [
+            { id: 't11-1', skill: 'Writing', mins: '40p', resId: 'w_30days',
+              goal: 'Sửa bài Map, Pie, Table & Adv–Disadv bằng ChatGPT theo 4 tiêu chí + ghi lỗi vào Blacklist.',
+              how: 'Kiểm tra lỗi lặp từ và chia thì ở các bài Task 1 & Task 2 vừa viết; viết lại 1 đoạn Overview chuẩn.' },
+            { id: 't11-2', skill: 'Vocab', mins: '30p', resId: 'w_vocab',
+              goal: 'Từ vựng bản xứ Writing — Topic 2: Environment & Topic 3: Economy (học collocations + viết 1 đoạn).',
+              how: 'Đọc ngữ liệu và làm bài tập Topic 2 & 3 trong Từ vựng bản xứ (Phần Writing).' },
+            { id: 't11-3', skill: 'Listening', mins: '25p', resId: 'l_dictation',
+              goal: 'Nghe chép chính tả: Cam 12 – Test 2 Section 2.',
+              how: 'Luyện nghe chi tiết trong file Nghe chép chính tả Cambridge 8–20.' }
+          ]
+        },
+        {
+          index: 11, dayLabel: 'Ngày 12 / 30', shortLabel: 'N12', date: '2026-12-05', weekday: 6, week: 2,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'SIÊU NGÀY VÀNG T7: Full Test Cam 18 Test 1 + Dự đoán Education + Person',
+          tasks: [
+            { id: 't12-1', skill: 'Listening', mins: '45p', resId: 'l_cam',
+              goal: 'Full Test Cambridge 18 – Test 1 (30p) + Nghe lại đối chiếu transcript chữa câu sai.',
+              how: 'Làm trọn vẹn 40 câu Cam 18 Test 1 như thi thật, nhập điểm vào Tab Mock Test.' },
+            { id: 't12-2', skill: 'Reading', mins: '75p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'Full Test Cambridge 18 – Test 1 (60p) + Phân tích câu sai & bảng từ đồng nghĩa.',
+              how: 'Bấm giờ 60 phút làm đủ 3 passages Cam 18 Test 1, chữa bằng Hướng dẫn giải đề Reading Cambridge.' },
+            { id: 't12-3', skill: 'Writing', mins: '40p', timer: 'task1', resId: 'w_30days',
+              goal: 'Task 1: Ôn Unit 10 (Linking with "with") → Viết bấm giờ 20p 1 bài Mixed Chart.',
+              how: 'Kết hợp 2 biểu đồ trong 1 bài Mixed Chart (30 Ngày Chuyên Sâu), chia 2 đoạn Body rõ ràng.' },
+            { id: 't12-4', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Chuyển sang Bộ đề dự đoán Writing Q3-2026: Topic 1 Education – Đề 1 (Opinion, viết full 40p).',
+              how: 'Mở Bộ đề dự đoán Writing Q3-2026 Topic 1 Education, vận dụng collocations Topic 1 đã học để viết full 40p.' },
+            { id: 't12-5', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 1 Person (1.3 – 1.6) luyện gộp ý tưởng với AI Tutor.',
+              how: 'Dùng chung 1–2 hình mẫu nhân vật để trả lời linh hoạt cả 4 đề 1.3–1.6 và câu hỏi Part 3.' }
+          ]
+        },
+        {
+          index: 12, dayLabel: 'Ngày 13 / 30', shortLabel: 'N13', date: '2026-12-06', weekday: 0, week: 2,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'SIÊU NGÀY VÀNG CN: Dự đoán Line Chart + Environment + Full Cam 18 T2',
+          tasks: [
+            { id: 't13-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Line Chart – Đề 1 (viết full 20p) & Đề 2 (lập dàn ý + Overview).',
+              how: 'Luyện sát bộ đề dự đoán Line Chart Q3-2026 để nắm trọn các mẫu số liệu dự đoán.' },
+            { id: 't13-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 2 Environment & Nature – Đề 1 (Problem & Solution, viết 40p).',
+              how: 'Kết hợp từ vựng Topic 2 Environment đã học để viết bài Problem & Solution trong 40 phút.' },
+            { id: 't13-3', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 1 Person (1.7 – 1.10) luyện trôi chảy với AI Tutor.',
+              how: 'Tập nói 2 phút không ngắt quãng và trả lời mở rộng Part 3 cùng AI Speaking Tutor.' },
+            { id: 't13-4', skill: 'Listening', mins: '45p', resId: 'l_cam',
+              goal: 'Full Test Cambridge 18 – Test 2 (30p) + chữa transcript câu sai.',
+              how: 'Làm Full Listening Cam 18 Test 2 và nghe lại những đoạn bị lỡ thông tin.' }
+          ]
+        },
+        {
+          index: 13, dayLabel: 'Ngày 14 / 30', shortLabel: 'N14', date: '2026-12-07', weekday: 1, week: 2,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'Ngày bận T2: Sửa bài Dự đoán + Chốt Nhóm 1 Person + Reading Cam 18 T2',
+          tasks: [
+            { id: 't14-1', skill: 'Writing', mins: '45p', resId: 'w_forecast',
+              goal: 'Sửa bài & viết lại Line Chart Đề 1 + Topic 2 Environment (Ngày 13) theo feedback AI 4 tiêu chí.',
+              how: 'Dán bài viết ngày 13 vào AI chấm điểm, tự viết lại đoạn Overview và 1 đoạn Body nâng cấp từ vựng.' },
+            { id: 't14-2', skill: 'Speaking', mins: '40p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Hoàn tất Nhóm 1 Person (1.11 – 1.13) + chốt 2 câu chuyện đa năng tả người.',
+              how: 'Luyện nốt 3 đề cuối Nhóm 1 Person với AI Speaking Tutor.' },
+            { id: 't14-3', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_guide',
+              goal: 'Reading: Bấm giờ 20p làm Cam 18 – Test 2 (Passage 3) + chữa paraphrase.',
+              how: 'Luyện áp lực thời gian 20 phút cho Passage 3 Cam 18 Test 2.' }
+          ]
+        },
+
+        // --- TUẦN 3 (NGÀY 15 – 21: 08/12 – 14/12/2026) ---
+        {
+          index: 14, dayLabel: 'Ngày 15 / 30', shortLabel: 'N15', date: '2026-12-08', weekday: 2, week: 3,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'Ngày Vàng T3: Dự đoán Bar Chart + Topic 3 Government + Nhóm 2 Object',
+          tasks: [
+            { id: 't15-1', skill: 'Writing', mins: '50p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Bar Chart – Đề 1 (viết full 20p) & Đề 2 (lập dàn ý + Overview).',
+              how: 'Thực chiến 2 đề dự đoán Bar Chart Q3-2026, chú trọng nhóm đối tượng so sánh cao nhất/thấp nhất.' },
+            { id: 't15-2', skill: 'Writing', mins: '60p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 3 Government & Society – Đề 3 (Discussion, viết full 40p + chấm AI).',
+              how: 'Viết bài Discussion Topic 3 Government trong 40p và nhờ ChatGPT chấm feedback.' },
+            { id: 't15-3', skill: 'Speaking', mins: '50p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 2 Object (2.1 – 2.4) luyện nói 2p + Part 3 với AI Tutor.',
+              how: 'Chuyển sang nhóm miêu tả đồ vật/sản phẩm (2.1–2.4) trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't15-4', skill: 'Vocab', mins: '35p', resId: 'w_vocab',
+              goal: 'Từ vựng bản xứ Writing — Topic 4: Culture & Topic 5: Entertainment (Collocations + viết đoạn).',
+              how: 'Học cụm từ bản xứ Topic 4 & 5 trong Từ vựng bản xứ (Phần Writing).' }
+          ]
+        },
+        {
+          index: 15, dayLabel: 'Ngày 16 / 30', shortLabel: 'N16', date: '2026-12-09', weekday: 3, week: 3,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'Ngày bận T4: Dự đoán Pie Chart + Nhóm 2 Object (2.5–2.7)',
+          tasks: [
+            { id: 't16-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Pie Chart – Đề 1 (viết 20p) & Đề 2 (dàn ý) + sửa bài Topic 3.',
+              how: 'Làm Pie Chart Đề 1–2 trong Bộ đề dự đoán và sửa lỗi bài Topic 3 Government ngày 15.' },
+            { id: 't16-2', skill: 'Speaking', mins: '40p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 2 Object (2.5 – 2.7) với AI Speaking Tutor.',
+              how: 'Luyện nói trôi chảy 3 đề Object 2.5–2.7 và trả lời câu hỏi Part 3.' },
+            { id: 't16-3', skill: 'Listening', mins: '25p', resId: 'l_dictation',
+              goal: 'Nghe chép chính tả: Cam 12 – Test 3 Section 3.',
+              how: 'Luyện nghe hội thoại học thuật 2–3 người trong file Nghe chép chính tả.' }
+          ]
+        },
+        {
+          index: 16, dayLabel: 'Ngày 17 / 30', shortLabel: 'N17', date: '2026-12-10', weekday: 4, week: 3,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'Ngày vừa T5: Dự đoán Topic 4 Work + Chốt Nhóm 2 Object + Cam 17 T3',
+          tasks: [
+            { id: 't17-1', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 4 Work & Employment – Đề 3 (Opinion, bấm giờ 40p) + Vocab Topic 13 Work.',
+              how: 'Đọc nhanh collocations Topic 13 Work trong Từ vựng bản xứ Writing rồi viết trọn bài Topic 4 Đề 3.' },
+            { id: 't17-2', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Hoàn tất Nhóm 2 Object (2.8 – 2.10) + chốt 2 khung miêu tả đồ vật đa năng.',
+              how: 'Luyện nốt 2.8–2.10 cùng AI Speaking Tutor.' },
+            { id: 't17-3', skill: 'Reading', mins: '45p', timer: 'readingP', resId: 'r_cam',
+              goal: 'Reading: Bấm giờ 20p/bài làm Cam 17 – Test 3 (Passage 2 & 3) + chữa paraphrase.',
+              how: 'Làm Cam 17 Test 3 P2–P3 và tra Hướng dẫn giải đề Reading Cambridge.' }
+          ]
+        },
+        {
+          index: 17, dayLabel: 'Ngày 18 / 30', shortLabel: 'N18', date: '2026-12-11', weekday: 5, week: 3,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'Ngày bận T6 (Giảm tải): Sửa bài Work + Mở màn Nhóm 3 Event',
+          tasks: [
+            { id: 't18-1', skill: 'Writing', mins: '35p', resId: 'w_forecast',
+              goal: 'Sửa bài & viết lại Topic 4 Work (Ngày 17) theo feedback AI 4 tiêu chí.',
+              how: 'Dùng AI chấm & nâng cấp từ vựng chủ đề việc làm, cập nhật lỗi vào Sổ lỗi sai.' },
+            { id: 't18-2', skill: 'Speaking', mins: '30p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 3 Event (3.1 – 3.2) tập kể chuyện quá khứ với AI Tutor.',
+              how: 'Chú ý dùng đúng thì quá khứ đơn/tiếp diễn khi kể sự kiện ở Nhóm 3 Event (3.1–3.2).' },
+            { id: 't18-3', skill: 'Vocab', mins: '25p', resId: 'w_vocab',
+              goal: 'Từ vựng bản xứ Writing — Topic 6: History & Topic 7: Health (chọn lọc collocations đắt).',
+              how: 'Đọc ngữ liệu Topic 6 & 7 trong Từ vựng bản xứ (Phần Writing).' }
+          ]
+        },
+        {
+          index: 18, dayLabel: 'Ngày 19 / 30', shortLabel: 'N19', date: '2026-12-12', weekday: 6, week: 3,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'SIÊU NGÀY VÀNG T7: Full Test Cam 18 T3 + Dự đoán Table + Science & Tech',
+          tasks: [
+            { id: 't19-1', skill: 'Listening', mins: '45p', resId: 'l_cam',
+              goal: 'Full Test Cambridge 18 – Test 3 (30p) + Nghe lại chữa transcript.',
+              how: 'Làm Full Listening Cam 18 Test 3 và ghi nhận điểm vào Tab Mock Test.' },
+            { id: 't19-2', skill: 'Reading', mins: '75p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'Full Test Cambridge 18 – Test 3 (60p) + Phân tích câu sai & paraphrase.',
+              how: 'Làm Full Reading 60p Cam 18 Test 3, đối chiếu Hướng dẫn giải đề Reading Cambridge.' },
+            { id: 't19-3', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Table – Đề 1 (viết full 20p) & Đề 2 (lập dàn ý + Overview).',
+              how: 'Luyện 2 đề dự đoán Table Q3-2026.' },
+            { id: 't19-4', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 5 Science & Technology – Đề 4 (Two-part, 40p) + Vocab Topic 14 Tech.',
+              how: 'Nạp cụm từ Topic 14 Technology (Từ vựng bản xứ Writing) rồi viết trọn bài Topic 5 Đề 4.' },
+            { id: 't19-5', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Hoàn tất Nhóm 3 Event (3.3 – 3.5) + luyện Part 3 chuyên sâu với AI Speaking Tutor.',
+              how: 'Hoàn thành trọn bộ Nhóm 3 Event trong Bộ đề dự đoán Q3-2026.' }
+          ]
+        },
+        {
+          index: 19, dayLabel: 'Ngày 20 / 30', shortLabel: 'N20', date: '2026-12-13', weekday: 0, week: 3,
+          phase: 'Chặng 2: Tăng tốc & Bộ đề dự đoán',
+          title: 'SIÊU NGÀY VÀNG CN: Dự đoán Process + Health & Lifestyle + Nhóm 4 Activity',
+          tasks: [
+            { id: 't20-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Process – Đề 1 (viết full 20p) & Đề 2 (phân tích động từ bị động).',
+              how: 'Luyện 2 đề dự đoán Process Q3-2026, kiểm tra kỹ chia động từ bị động & từ nối trình tự.' },
+            { id: 't20-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 6 Health & Lifestyle – Đề 4 (Problem & Solution, 40p + chấm AI).',
+              how: 'Vận dụng từ vựng Topic 7 Health đã học để viết bài Topic 6 Đề 4.' },
+            { id: 't20-3', skill: 'Speaking', mins: '50p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Hoàn tất trọn bộ Nhóm 4 Activity (4.1 – 4.5) bằng giọng nói cùng AI Speaking Tutor.',
+              how: 'Luyện đủ 5 đề Nhóm 4 Activity (4.1–4.5) trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't20-4', skill: 'Listening', mins: '45p', resId: 'l_cam',
+              goal: 'Full Test Cambridge 18 – Test 4 (30p) + chữa transcript.',
+              how: 'Hoàn tất bộ Cam 18 Listening với Test 4.' }
+          ]
+        },
+        {
+          index: 20, dayLabel: 'Ngày 21 / 30', shortLabel: 'N21', date: '2026-12-14', weekday: 1, week: 3,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: 'Ngày bận T2: Sửa bài Process & Health + Chốt Nhóm 5 Place',
+          tasks: [
+            { id: 't21-1', skill: 'Writing', mins: '45p', resId: 'w_forecast',
+              goal: 'Sửa bài & viết lại Process Đề 1 + Topic 6 Health (Ngày 20) theo nhận xét 4 tiêu chí AI.',
+              how: 'Nâng cấp từ nối mạch lạc (Coherence & Cohesion) cho bài viết ngày 20.' },
+            { id: 't21-2', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Hoàn tất Nhóm 5 Place (5.1 – 5.4) — luyện miêu tả địa điểm giàu tính từ cùng AI Tutor.',
+              how: 'Luyện trọn 4 đề Nhóm 5 Place (5.1–5.4) trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't21-3', skill: 'Vocab', mins: '25p', resId: 'w_vocab',
+              goal: 'Từ vựng bản xứ Writing — Topic 8: Language, Topic 9: Media & Topic 10: Psychology.',
+              how: 'Chọn lọc 5–6 collocations hay nhất từ Topic 8, 9, 10 trong Từ vựng bản xứ Writing.' }
+          ]
+        },
+
+        // --- TUẦN 4 & VỀ ĐÍCH (NGÀY 22 – 30 + TỔNG ÔN + NGHỈ + THI: 15/12 – 26/12/2026) ---
+        {
+          index: 21, dayLabel: 'Ngày 22 / 30', shortLabel: 'N22', date: '2026-12-15', weekday: 2, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: 'Ngày Vàng T3: Dự đoán Map + Topic 7 Travel + Nhóm 6 Others + Cam 19 T1',
+          tasks: [
+            { id: 't22-1', skill: 'Writing', mins: '50p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Map – Đề 1 (viết full 20p) & Đề 2 (lập dàn ý + bị động chỉ vị trí).',
+              how: 'Thực chiến 2 đề dự đoán Map Q3-2026, đối chiếu lại Paraphrasing Map.' },
+            { id: 't22-2', skill: 'Writing', mins: '55p', timer: 'task2', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Topic 7 Travel & Tourism – Đề 4 (Advantages vs Disadvantages, 40p).',
+              how: 'Đọc nhanh collocations Topic 15 Tourism (Từ vựng bản xứ Writing) rồi viết trọn bài Topic 7 Đề 4.' },
+            { id: 't22-3', skill: 'Speaking', mins: '45p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Bộ đề dự đoán Speaking Part 2 & 3 — Nhóm 6 Others (6.1 – 6.4) với AI Speaking Tutor.',
+              how: 'Bắt đầu nhóm cuối cùng (Nhóm 6 Others 6.1–6.4) trong Bộ đề dự đoán Q3-2026.' },
+            { id: 't22-4', skill: 'Reading', mins: '70p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'Full Test Cambridge 19 – Test 1 (60p) + chữa câu sai.',
+              how: 'Bấm giờ 60p làm Full Reading Cam 19 Test 1.' }
+          ]
+        },
+        {
+          index: 22, dayLabel: 'Ngày 23 / 30', shortLabel: 'N23', date: '2026-12-16', weekday: 3, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: 'Ngày bận T4: Dự đoán Mixed Chart + Hoàn tất 100% Bộ đề dự đoán Speaking!',
+          tasks: [
+            { id: 't23-1', skill: 'Writing', mins: '45p', timer: 'task1', resId: 'w_forecast',
+              goal: 'Bộ đề dự đoán Writing Q3-2026: Task 1 Mixed Chart – Đề 1 (viết full 20p) + sửa bài Map & Travel.',
+              how: 'Hoàn thành Mixed Chart Đề 1 và sửa lỗi bài viết ngày 22 qua AI.' },
+            { id: 't23-2', skill: 'Speaking', mins: '50p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Hoàn tất 100% Bộ đề dự đoán Speaking: Nhóm 6 Others (6.5 – 6.9) với AI Speaking Tutor!',
+              how: 'Chúc mừng bạn đã đi hết toàn bộ 25 topic Part 1 và 46 đề Part 2&3 dự đoán Q3-2026!' },
+            { id: 't23-3', skill: 'Listening', mins: '35p', resId: 'l_cam',
+              goal: 'Full Test Cambridge 19 – Test 1 (30p) + đối chiếu transcript.',
+              how: 'Làm Full Listening Cam 19 Test 1.' }
+          ]
+        },
+        {
+          index: 23, dayLabel: 'Ngày 24 / 30', shortLabel: 'N24', date: '2026-12-17', weekday: 4, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: 'Ngày vừa T5: Bấm giờ Full 60p Writing (Topic 8 Urbanization) + Mini Mock S',
+          tasks: [
+            { id: 't24-1', skill: 'Writing', mins: '80p', timer: 'fullWriting', resId: 'w_forecast',
+              goal: 'Thực chiến 60p LIÊN TỤC: Task 1 Mixed Chart Đề 2 + Task 2 Topic 8 Urbanization & Housing Đề 1 → Chấm AI.',
+              how: 'Rèn phân bổ thời gian chuẩn phòng thi: đúng 20 phút dừng Task 1 sang Task 2 (40 phút).' },
+            { id: 't24-2', skill: 'Speaking', mins: '35p', resId: 's_ai',
+              goal: 'Mini Mock Speaking #1: Thi thử Full 15p ngẫu nhiên Part 1–2–3 cùng AI Speaking Tutor.',
+              how: 'Mở AI Speaking Tutor yêu cầu đóng vai giám khảo hỏi ngẫu nhiên Part 1–2–3 và chấm band.' },
+            { id: 't24-3', skill: 'Vocab', mins: '25p', resId: 'w_vocab',
+              goal: 'Từ vựng bản xứ Writing — Topic 11: Art & Topic 12: Agriculture (ngữ liệu + cụm hay).',
+              how: 'Nạp cụm từ học thuật Topic 11 & 12 trong Từ vựng bản xứ Writing.' }
+          ]
+        },
+        {
+          index: 24, dayLabel: 'Ngày 25 / 30', shortLabel: 'N25', date: '2026-12-18', weekday: 5, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: 'Ngày bận T6 (Giảm tải): Dàn ý Topic 9 & 10 + Ôn nhanh 6 khung Speaking',
+          tasks: [
+            { id: 't25-1', skill: 'Writing', mins: '45p', resId: 'w_forecast',
+              goal: 'Lập dàn ý chi tiết + cụm từ tủ cho Topic 9 Family (Đề 1) và Topic 10 Media (Đề 3 Discussion).',
+              how: 'Kết hợp Bộ đề dự đoán Writing Q3-2026 và Kho ý tưởng IELTS Writing để chuẩn bị sẵn ý cho 2 topic cuối.' },
+            { id: 't25-2', skill: 'Speaking', mins: '30p', resId: 's_forecast',
+              goal: 'Ôn phản xạ nhanh Part 1 (Topic 1–13) + rà lại 6 khung chuyện đa năng cho 6 nhóm Part 2.',
+              how: 'Đọc nhẩm các ý chính cho Person, Object, Event, Activity, Place, Others.' }
+          ]
+        },
+        {
+          index: 25, dayLabel: 'Ngày 26 / 30', shortLabel: 'N26', date: '2026-12-19', weekday: 6, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: '🔥 FULL MOCK TEST #1 (4 KỸ NĂNG CHUẨN PHÒNG THI — CAM 19 TEST 2)',
+          tasks: [
+            { id: 't26-1', skill: 'Listening', mins: '40p', resId: 'l_cam',
+              goal: 'MOCK #1: Cambridge 19 – Test 2 (Full Listening 30p) + nhập điểm vào Tab Mock Test.',
+              how: 'Làm nghiêm túc 1 lần duy nhất như thi thật, sau đó nghe lại câu sai.' },
+            { id: 't26-2', skill: 'Reading', mins: '75p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'MOCK #1: Cambridge 19 – Test 2 (Full Reading 60p) + chữa lỗi sai.',
+              how: 'Bấm đồng hồ đúng 60p, không tra từ điển trong lúc làm.' },
+            { id: 't26-3', skill: 'Writing', mins: '90p', timer: 'fullWriting', resId: 'w_forecast',
+              goal: 'MOCK #1 (60p liên tục): Task 1 tự chọn (Dự đoán) + Task 2 Topic 9 Family Đề 1 → Chấm AI & viết lại đoạn yếu.',
+              how: 'Thi thử 60 phút liên tục, sau đó dùng AI chấm và viết lại đoạn thân bài yếu nhất.' },
+            { id: 't26-4', skill: 'Speaking', mins: '35p', resId: 's_ai',
+              goal: 'MOCK #1 Speaking: Thi thử Full 15p Part 1–2–3 cùng AI Speaking Tutor + nhập điểm biểu đồ.',
+              how: 'Bật micro nói liên tục 15 phút với AI Speaking Tutor.' }
+          ]
+        },
+        {
+          index: 26, dayLabel: 'Ngày 27 / 30', shortLabel: 'N27', date: '2026-12-20', weekday: 0, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: '🔥 FULL MOCK TEST #2 (CAM 19 TEST 3 + TOPIC 10 MEDIA)',
+          tasks: [
+            { id: 't27-1', skill: 'Listening', mins: '45p', resId: 'l_cam',
+              goal: 'MOCK #2: Cambridge 19 – Test 3 (Full Listening 30p) + chữa transcript.',
+              how: 'Làm Full Listening Cam 19 Test 3.' },
+            { id: 't27-2', skill: 'Reading', mins: '70p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'MOCK #2: Cambridge 19 – Test 3 (Full Reading 60p) + chữa nhanh.',
+              how: 'Bấm giờ 60 phút Full Reading Cam 19 Test 3.' },
+            { id: 't27-3', skill: 'Writing', mins: '85p', timer: 'fullWriting', resId: 'w_forecast',
+              goal: 'MOCK #2 (60p liên tục): Task 1 Map/Process (Dự đoán) + Task 2 Topic 10 Media Đề 3 → Chấm AI.',
+              how: 'Thi thử 60 phút liên tục và lưu kết quả vào Tab Mock Test.' },
+            { id: 't27-4', skill: 'Speaking', mins: '35p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Ôn Part 1 (Topic 14–25) + luyện nói lại 3 đề Part 2 bạn thấy khó nhất.',
+              how: 'Luyện nói mượt mà cùng AI Speaking Tutor.' }
+          ]
+        },
+        {
+          index: 27, dayLabel: 'Ngày 28 / 30', shortLabel: 'N28', date: '2026-12-21', weekday: 1, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: 'Ngày bận T2: Siết chặt Writing 60p (Topic 8 Cause–Solution) + Mock S #2',
+          tasks: [
+            { id: 't28-1', skill: 'Writing', mins: '80p', timer: 'fullWriting', resId: 'w_forecast',
+              goal: 'Thực chiến 60p: Task 1 Bar/Table + Task 2 Topic 8 Urbanization Đề 2 (Cause–Solution) → Chấm AI & cập nhật Blacklist.',
+              how: 'Chừa 3 phút cuối rà lỗi thì động từ và số ít/số nhiều.' },
+            { id: 't28-2', skill: 'Speaking', mins: '35p', resId: 's_ai',
+              goal: 'MOCK #2 Speaking: Full 15p Part 1–2–3 cùng AI Speaking Tutor, rèn phản xạ câu Part 3 khó.',
+              how: 'Tập dùng các cụm câu giờ tự nhiên (That’s an intriguing question...) khi gặp câu hỏi trừu tượng.' }
+          ]
+        },
+        {
+          index: 28, dayLabel: 'Ngày 29 / 30', shortLabel: 'N29', date: '2026-12-22', weekday: 2, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: '🔥 FULL MOCK TEST #3 (CAMBRIDGE 20 TEST 1 — BỘ ĐỀ MỚI NHẤT!)',
+          tasks: [
+            { id: 't29-1', skill: 'Listening', mins: '45p', resId: 'l_cam',
+              goal: 'MOCK #3: Cambridge 20 – Test 1 (Full Listening 30p) + chữa transcript.',
+              how: 'Làm bộ đề mới nhất Cambridge 20 Test 1 để bắt nhịp chuẩn độ khó 2026.' },
+            { id: 't29-2', skill: 'Reading', mins: '70p', timer: 'fullWriting', resId: 'r_cam',
+              goal: 'MOCK #3: Cambridge 20 – Test 1 (Full Reading 60p) + chữa paraphrase.',
+              how: 'Bấm giờ 60 phút Full Reading Cam 20 Test 1.' },
+            { id: 't29-3', skill: 'Writing', mins: '85p', timer: 'fullWriting', resId: 'w_forecast',
+              goal: 'MOCK #3 (60p liên tục): Task 1 Line/Pie + Task 2 Topic 6 Health Đề 5 (Two-part) → Chấm AI & nhập điểm biểu đồ.',
+              how: 'Thi thử 60p liên tục và ghi điểm vào Tab Mock Test.' },
+            { id: 't29-4', skill: 'Speaking', mins: '35p', timer: 'speakingP2', resId: 's_forecast',
+              goal: 'Luyện lại 4 câu Part 2 thuộc nhóm bạn cảm thấy thiếu tự tin nhất cùng AI Tutor.',
+              how: 'Giữ tốc độ nói vừa phải, phát âm rõ âm cuối.' }
+          ]
+        },
+        {
+          index: 29, dayLabel: 'Ngày 30 / 30', shortLabel: 'N30', date: '2026-12-23', weekday: 3, week: 4,
+          phase: 'Chặng 3: Bứt phá & Full Mock Test',
+          title: 'Hoàn tất 30 ngày: Giữ nhịp Cam 20 Test 2 + Tổng ôn 5 Templates & 7 dạng Task 1',
+          tasks: [
+            { id: 't30-1', skill: 'Listening', mins: '35p', resId: 'l_cam',
+              goal: 'Giữ nhịp tai: Cambridge 20 – Test 2 (Full Listening 30p) + rà 7 mẹo bẫy Handbook.',
+              how: 'Nghe để giữ sự nhạy bén với giọng đọc bản xứ.' },
+            { id: 't30-2', skill: 'Writing', mins: '50p', resId: 'w_simon',
+              goal: 'Tổng ôn: 5 Essay Templates (Simon) + Cẩm nang Paraphrasing 7 dạng Task 1 + lập dàn ý Topic 2 Environment Đề 2.',
+              how: 'Rà soát toàn bộ mở bài, câu Overview và cụm từ nối tủ của bản thân.' },
+            { id: 't30-3', skill: 'Speaking', mins: '35p', resId: 's_ai',
+              goal: 'MOCK #3 Speaking: Full 15p Part 1–2–3 cùng AI Speaking Tutor — ưu tiên sự tự tin & ngữ điệu.',
+              how: 'Nói tự nhiên như trò chuyện thật.' }
+          ]
+        },
+        {
+          index: 30, dayLabel: 'Ngày 31 • Tổng ôn', shortLabel: 'Ôn', date: '2026-12-24', weekday: 4, week: 4,
+          phase: 'Về đích (24/12 – 26/12)',
+          title: 'Tổng duyệt nhẹ nhàng & Diệt sạch Sổ Blacklist lỗi sai',
+          tasks: [
+            { id: 't31-1', skill: 'Writing', mins: '40p', resId: 'w_paraphrase',
+              goal: 'Đọc lại 5 bài Writing đã được sửa đẹp nhất của bản thân + rà toàn bộ Sổ Blacklist lỗi sai.',
+              how: 'Mở Tab Mock Test & Sổ lỗi sai để nhắc bản thân tuyệt đối không mắc lại lỗi cũ.' },
+            { id: 't31-2', skill: 'Speaking', mins: '30p', resId: 's_forecast',
+              goal: 'Đọc nhẩm 6 khung chuyện đa năng (Person, Object, Event, Activity, Place, Others) + khởi động miệng 15p với AI.',
+              how: 'Chỉ ôn nhẹ nhàng để giữ phản xạ.' },
+            { id: 't31-3', skill: 'Reading', mins: '30p', timer: 'readingP', resId: 'r_cam',
+              goal: 'Làm nhẹ 1 Passage Reading Cam 20 Test 2 (20p) để giữ cảm giác đọc lướt.',
+              how: 'Không thức khuya cày thêm đề mới.' }
+          ]
+        },
+        {
+          index: 31, dayLabel: 'Ngày 32 • Nghỉ ngơi', shortLabel: 'Nghỉ', date: '2026-12-25', weekday: 5, week: 4,
+          phase: 'Về đích (24/12 – 26/12)',
+          title: '🔋 Ngày nạp năng lượng trước kỳ thi — Không nhồi nhét kiến thức mới!',
+          isRestDay: true,
+          tasks: [
+            { id: 't32-1', skill: 'Speaking', mins: '15p', resId: 's_ai',
+              goal: 'Trò chuyện nhẹ nhàng 10–15p bằng tiếng Anh với AI Tutor cho quen tai, tuyệt đối không học đề mới.',
+              how: 'Thư giãn đầu óc, giữ tinh thần thoải mái nhất.' },
+            { id: 't32-2', skill: 'Listening', mins: '15p', resId: 'l_handbook',
+              goal: 'Chuẩn bị CCCD/Hộ chiếu bản gốc, kiểm tra phiếu báo dự thi, địa điểm thi, chai nước trong suốt & ngủ trước 22h30!',
+              how: 'Giấc ngủ sâu 8 tiếng giúp Listening & Reading tỉnh táo tăng 0.5–1.0 band.' }
+          ]
+        },
+        {
+          index: 32, dayLabel: 'NGÀY THI CHÍNH THỨC', shortLabel: 'THI★', date: '2026-12-26', weekday: 6, week: 4,
+          phase: 'Về đích (24/12 – 26/12)',
+          title: '🏆 CHINH PHỤC KỲ THI IELTS (26/12/2026) — Bình tĩnh, tự tin, bùng nổ!',
+          isExamDay: true,
+          tasks: [
+            { id: 't33-1', skill: 'Listening', mins: '30p', resId: 'l_cam',
+              goal: 'Sáng sớm ăn nhẹ đủ chất, nghe 5 phút audio tiếng Anh làm nóng tai. Vào phòng thi đọc trước câu hỏi & cảnh giác bẫy đổi ý.',
+              how: 'Tập trung tối đa từng section, lỡ câu nào bỏ qua ngay để bắt kịp câu sau.' },
+            { id: 't33-2', skill: 'Reading', mins: '60p', resId: 'r_guide',
+              goal: 'Chiến thuật 60p: Passage 1 (15–17p) → Passage 2 (20p) → Passage 3 (23p), kiểm tra kỹ giới hạn số từ.',
+              how: 'Không sa lầy quá 2 phút cho một câu khó.' },
+            { id: 't33-3', skill: 'Writing', mins: '60p', resId: 'w_simon',
+              goal: 'Chiến thuật 60p: Task 1 tối đa 20p (bắt buộc có Overview) → Task 2 40p (chừa 3 phút cuối rà lỗi thì & số ít/nhiều).',
+              how: 'Viết đúng trọng tâm đề bài, chia đoạn rõ ràng.' },
+            { id: 't33-4', skill: 'Speaking', mins: '15p', resId: 's_ai',
+              goal: 'Mỉm cười tự nhiên, trả lời mở rộng ý — quên từ thì paraphrase chứ không im lặng. Chúc Minh Khải đạt Band mơ ước! 🎉',
+              how: 'Bạn đã bền bỉ suốt 30 ngày qua — hãy tự tin tỏa sáng!' }
+          ]
+        }
+      ];
+
+      /* =======================================================================
+         4. STATE MANAGEMENT & LOCALSTORAGE
+         ======================================================================= */
+      const STORAGE_KEY = 'ielts_30d_tracker_v3';
+
+      const DEFAULT_STATE = {
+        theme: 'light',
+        completedTasks: {},
+        dayNotes: {},
+        mockTests: [
+          {
+            id: 'mt-baseline',
+            name: 'Mốc đầu vào (24/11)',
+            date: '2026-11-24',
+            l: 7.0, r: 7.0, w: 5.5, s: 6.0,
+            note: 'L/R ổn định — Mục tiêu 30 ngày kéo Writing lên 6.5+ & Speaking lên 6.5–7.0'
+          }
+        ],
+        blacklist: [
+          { id: 'bl-1', skill: 'Writing', mistake: 'Task 1 quên viết đoạn Overview hoặc đưa số liệu cụ thể vào Overview', fix: 'Viết Overview ngay sau Intro, tóm tắt 2 xu hướng/đặc điểm nổi bật nhất, KHÔNG ghi số liệu.', resolved: false },
+          { id: 'bl-2', skill: 'Writing', mistake: 'Sai thì động từ & thiếu s/es ở danh từ số nhiều / ngôi 3 số ít', fix: 'Luôn chừa 3 phút cuối bài kiểm tra riêng Thì và Subject-Verb Agreement.', resolved: false },
+          { id: 'bl-3', skill: 'Speaking', mistake: 'Ngập ngừng "ờm/à" hoặc trả lời quá ngắn ở Part 1 & Part 3', fix: 'Dùng công thức Answer → Reason → Example + cụm mở đầu tự nhiên (Well, to be honest...).', resolved: false },
+          { id: 'bl-4', skill: 'Listening', mistake: 'Dính bẫy đổi ý (Changing opinion) ở Section 1 & 3', fix: 'Cảnh giác cao độ khi nghe: actually, wait, oh sorry, I thought... but...', resolved: false }
+        ]
+      };
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return JSON.parse(JSON.stringify(DEFAULT_STATE));
+          const parsed = JSON.parse(raw);
+          return {
+            ...JSON.parse(JSON.stringify(DEFAULT_STATE)),
+            ...parsed,
+            completedTasks: parsed.completedTasks || {},
+            dayNotes: parsed.dayNotes || {},
+            mockTests: Array.isArray(parsed.mockTests) ? parsed.mockTests : DEFAULT_STATE.mockTests,
+            blacklist: Array.isArray(parsed.blacklist) ? parsed.blacklist : DEFAULT_STATE.blacklist
+          };
+        } catch (err) {
+          return JSON.parse(JSON.stringify(DEFAULT_STATE));
+        }
+      }
+
+      let state = loadState();
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (err) {
+          showToast('Không thể lưu dữ liệu vào bộ nhớ trình duyệt!', 'error');
+        }
+      }
+
+      /* =======================================================================
+         5. DATE DETECTION & HELPERS
+         ======================================================================= */
+      function getLocalYYYYMMDD(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+      }
+
+      function detectToday() {
+        const nowStr = getLocalYYYYMMDD(new Date());
+        const exactIndex = ROADMAP.findIndex(item => item.date === nowStr);
+        if (exactIndex !== -1) {
+          return { index: exactIndex, dateStr: nowStr, isExact: true };
+        }
+        // Default to 2026-11-24 (Ngày 1 - Thứ 3) if outside 2026-11-24..2026-12-26
+        return { index: 0, dateStr: nowStr, isExact: false };
+      }
+
+      const TODAY = detectToday();
+
+      const ui = {
+        activeTab: 'roadmap',
+        viewMode: 'today', // DEFAULT: 'today' (Chỉ xem Hôm nay) | 'all' (Xem tất cả 30 ngày)
+        selectedDayIndex: TODAY.index,
+        weekFilter: 'all',
+        skillFilter: 'all',
+        onlyUnfinished: false,
+        searchQuery: ''
+      };
+
+      function esc(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function fmtDateVN(yyyyMMdd) {
+        const [y, m, d] = yyyyMMdd.split('-');
+        return `${d}/${m}/${y}`;
+      }
+
+      function fmtShortVN(yyyyMMdd) {
+        const [, m, d] = yyyyMMdd.split('-');
+        return `${d}/${m}`;
+      }
+
+      function showToast(msg, type = 'info') {
+        const stack = document.getElementById('toast-stack');
+        const el = document.createElement('div');
+        el.className = `toast ${type}`;
+        el.textContent = msg;
+        stack.appendChild(el);
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transition = 'opacity 0.25s ease';
+          setTimeout(() => el.remove(), 260);
+        }, 2500);
+      }
+
+      function getSkillPriorityLabel(skill) {
+        return {
+          Writing: 'Writing • Ưu tiên #1',
+          Speaking: 'Speaking • Ưu tiên #2',
+          Listening: 'Listening • Duy trì',
+          Reading: 'Reading • Duy trì',
+          Vocab: 'Vocab • Từ vựng bản xứ'
+        }[skill] || skill;
+      }
+
+      /* =======================================================================
+         6. LIVE COUNTDOWN TO 08:00 AM 26/12/2026 (+07:00)
+         ======================================================================= */
+      const EXAM_MS = new Date('2026-12-26T08:00:00+07:00').getTime();
+
+      function updateCountdown() {
+        const diff = EXAM_MS - Date.now();
+        if (diff <= 0) {
+          document.getElementById('cd-d').textContent = '00';
+          document.getElementById('cd-h').textContent = '00';
+          document.getElementById('cd-m').textContent = '00';
+          document.getElementById('cd-s').textContent = '00';
+          return;
+        }
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+        document.getElementById('cd-d').textContent = String(d).padStart(2, '0');
+        document.getElementById('cd-h').textContent = String(h).padStart(2, '0');
+        document.getElementById('cd-m').textContent = String(m).padStart(2, '0');
+        document.getElementById('cd-s').textContent = String(s).padStart(2, '0');
+      }
+
+      /* =======================================================================
+         7. UPDATE PROGRESS STATS (OVERALL & 4 SKILLS)
+         ======================================================================= */
+      function updateStats() {
+        let total = 0, done = 0;
+        const map = {
+          Writing: { total: 0, done: 0, prefix: 'w' },
+          Speaking: { total: 0, done: 0, prefix: 's' },
+          Listening: { total: 0, done: 0, prefix: 'l' },
+          Reading: { total: 0, done: 0, prefix: 'r' }
+        };
+
+        ROADMAP.forEach(day => {
+          day.tasks.forEach(task => {
+            total++;
+            const isDone = !!state.completedTasks[task.id];
+            if (isDone) done++;
+            if (map[task.skill]) {
+              map[task.skill].total++;
+              if (isDone) map[task.skill].done++;
+            }
+          });
+        });
+
+        const pct = total ? Math.round((done / total) * 100) : 0;
+        document.getElementById('overall-bar').style.width = `${pct}%`;
+        document.getElementById('overall-text').textContent = `${pct}% (${done}/${total})`;
+
+        Object.keys(map).forEach(sk => {
+          const item = map[sk];
+          const p = item.total ? Math.round((item.done / item.total) * 100) : 0;
+          document.getElementById(`kpi-${item.prefix}-pct`).textContent = `${p}%`;
+          document.getElementById(`kpi-${item.prefix}-sub`).textContent = `${item.done} / ${item.total} nhiệm vụ`;
+          document.getElementById(`kpi-${item.prefix}-bar`).style.width = `${p}%`;
+        });
+      }
+
+      /* =======================================================================
+         8. RENDER TODAY ONLY FOCUS VIEW (DEFAULT VIEW)
+         ======================================================================= */
+      function populateDaySelect() {
+        const sel = document.getElementById('day-dropdown');
+        sel.innerHTML = ROADMAP.map(day => {
+          const sched = WEEKLY_SCHEDULE[day.weekday];
+          const doneCount = day.tasks.filter(t => !!state.completedTasks[t.id]).length;
+          const tick = doneCount === day.tasks.length ? '✓ ' : '';
+          const todayMark = (day.index === TODAY.index && TODAY.isExact) ? ' (Hôm nay)' : '';
+          return `<option value="${day.index}">${tick}${day.dayLabel} • ${sched.dayName}, ${fmtShortVN(day.date)}${todayMark}</option>`;
+        }).join('');
+        sel.value = String(ui.selectedDayIndex);
+      }
+
+      function renderTaskCard(task) {
+        const isDone = !!state.completedTasks[task.id];
+        const res = RESOURCES[task.resId];
+        return `
+          <div class="task-item ${isDone ? 'completed' : ''}">
+            <input type="checkbox" id="chk-${esc(task.id)}" class="task-checkbox" data-action="toggle-task" data-id="${esc(task.id)}" ${isDone ? 'checked' : ''} />
+            <div class="task-body">
+              <div class="task-meta-row">
+                <div class="task-badges">
+                  <span class="skill-badge skill-${esc(task.skill)}">${esc(getSkillPriorityLabel(task.skill))}</span>
+                  <span class="duration-tag">⏱ ${esc(task.mins)}</span>
+                </div>
+                ${task.timer ? `<button type="button" data-action="open-preset" data-preset="${esc(task.timer)}" class="timer-trigger-chip">⏱ Bấm giờ</button>` : ''}
+              </div>
+
+              <label for="chk-${esc(task.id)}" class="task-goal">${esc(task.goal)}</label>
+
+              ${res ? `
+                <div class="where-box">
+                  <div class="where-info">
+                    <div class="where-title">📚 Học ở đâu (PDF Xuân Phi): <span>${esc(res.name)}</span></div>
+                    <div class="where-how"><strong>Cách học:</strong> ${esc(task.how)}</div>
+                  </div>
+                  <a href="${esc(res.url)}" target="_blank" rel="noopener noreferrer" class="open-pdf-btn bg-${esc(task.skill)}">
+                    Mở tài liệu ↗
+                  </a>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }
+
+      function renderTodayFocusView() {
+        const container = document.getElementById('view-today-focus');
+        const day = ROADMAP[ui.selectedDayIndex] || ROADMAP[0];
+        const sched = WEEKLY_SCHEDULE[day.weekday];
+        const total = day.tasks.length;
+        const done = day.tasks.filter(t => !!state.completedTasks[t.id]).length;
+        const pct = total ? Math.round((done / total) * 100) : 0;
+        const allDone = total > 0 && done === total;
+        const isToday = day.index === TODAY.index && TODAY.isExact;
+        const noteVal = state.dayNotes[day.index] || '';
+
+        document.getElementById('btn-prev-day').disabled = ui.selectedDayIndex <= 0;
+        document.getElementById('btn-next-day').disabled = ui.selectedDayIndex >= ROADMAP.length - 1;
+        populateDaySelect();
+
+        const freeAfternoon = sched.afternoon.includes('TRỐNG');
+
+        container.innerHTML = `
+          <!-- 1. Hero Header Card -->
+          <div class="card">
+            <div class="today-hero">
+              <div style="flex:1;min-width:250px;">
+                <div class="badge-row">
+                  ${isToday ? '<span class="pill pill-today">🎯 HÔM NAY</span>' : ''}
+                  <span class="pill pill-phase">${esc(day.phase)}</span>
+                  <span class="pill ${day.isExamDay ? 'pill-super' : esc(sched.badgeClass)}">
+                    ${day.isExamDay ? '🏆 NGÀY THI IELTS' : esc(sched.statusText)}
+                  </span>
+                </div>
+                <h2 class="hero-title">${isToday ? 'HÔM NAY • ' : ''}${esc(sched.dayName)}, ${fmtDateVN(day.date)} • ${esc(day.dayLabel)}</h2>
+                <div class="hero-focus">${esc(day.title)}</div>
+              </div>
+
+              <div class="hero-progress-box">
+                <div class="hero-progress-header tabular">
+                  <span>Tiến độ ngày này</span>
+                  <span>${done}/${total} (${pct}%)</span>
+                </div>
+                <div class="hero-progress-track">
+                  <div class="hero-progress-fill" style="width:${pct}%;"></div>
+                </div>
+                <button type="button" data-action="toggle-whole-day" data-day="${day.index}" class="complete-day-btn ${allDone ? 'done' : ''}">
+                  ${allDone ? '↺ Bỏ đánh dấu cả ngày' : '✓ Hoàn thành tất cả việc hôm nay'}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Today's 12th-Grade Schedule & Golden Study Window Banner -->
+          <div class="card">
+            <div class="sched-banner-top">
+              <div class="sched-banner-title">🏫 Lịch học lớp 12 hôm nay (${esc(sched.dayName)}) &amp; Giờ vàng IELTS</div>
+              <div class="golden-slot-tag">⚡ ${day.isExamDay ? '08h00 Thi IELTS chính thức!' : day.isRestDay ? 'Nghỉ ngơi thư giãn' : esc(sched.goldenWindow)}</div>
+            </div>
+
+            <div class="sched-slots-grid">
+              <div class="slot-box">
+                <div class="slot-label">Sáng (7h00 – 11h30)</div>
+                <div class="slot-val">${esc(sched.morning)}</div>
+              </div>
+              <div class="slot-box ${freeAfternoon ? 'free' : ''}">
+                <div class="slot-label">Chiều (12h45 – 17h15)</div>
+                <div class="slot-val">${esc(sched.afternoon)}</div>
+              </div>
+              <div class="slot-box">
+                <div class="slot-label">Tối (17h30 – 22h00)</div>
+                <div class="slot-val">${esc(sched.evening)}</div>
+              </div>
+            </div>
+
+            <div class="sched-advice">
+              <strong>💡 Chiến lược hôm nay:</strong> ${day.isExamDay ? 'Giữ tâm lý vững vàng, đọc kỹ yêu cầu đề bài và tự tin thể hiện hết năng lực!' : day.isRestDay ? 'Nghỉ ngơi hoàn toàn buổi tối, chuẩn bị giấy tờ và đi ngủ sớm trước 22h30.' : esc(sched.strategy)}
+            </div>
+          </div>
+
+          <!-- 3. ONLY Today's Tasks + Reflection Notes -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+              <h3 style="font-size:1.05rem;font-weight:800;">✅ Danh sách nhiệm vụ cần làm (${total} mục)</h3>
+              <span style="font-size:0.74rem;color:var(--text-muted);font-weight:600;">Tự động lưu khi tick</span>
+            </div>
+
+            <div class="stack-md">
+              ${day.tasks.map(t => renderTaskCard(t)).join('')}
+            </div>
+
+            <div class="notes-area">
+              <div class="notes-header">
+                <label for="day-note-box">📝 Ghi chú từ vựng mới / Feedback AI / Điểm đề của ${esc(day.dayLabel)} (${fmtShortVN(day.date)})</label>
+                <span id="note-saved-hint" style="color:var(--reading);">Tự động lưu</span>
+              </div>
+              <textarea id="day-note-box" data-action="save-day-note" data-day="${day.index}" class="note-textarea"
+                placeholder="Ghi lại từ vựng hay, nhận xét sửa bài Writing/Speaking hoặc số câu đúng Listening/Reading hôm nay...">${esc(noteVal)}</textarea>
+            </div>
+          </div>
+        `;
+      }
+
+      /* =======================================================================
+         9. RENDER ALL 30 DAYS OVERVIEW MODE
+         ======================================================================= */
+      function renderHeatmap() {
+        const grid = document.getElementById('heatmap-grid');
+        grid.innerHTML = ROADMAP.map(day => {
+          const total = day.tasks.length;
+          const done = day.tasks.filter(t => !!state.completedTasks[t.id]).length;
+          let cls = 'hm-cell';
+          if (day.isExamDay) cls += ' exam';
+          else if (done === total && total > 0) cls += ' done';
+          else if (done > 0) cls += ' partial';
+          if (day.index === TODAY.index && TODAY.isExact) cls += ' today-ring';
+
+          return `
+            <button type="button" data-action="focus-day" data-day="${day.index}" class="${cls}" title="${day.dayLabel} (${fmtDateVN(day.date)}): ${done}/${total}">
+              <strong style="font-size:0.74rem;">${esc(day.shortLabel)}</strong>
+              <span style="font-size:0.65rem;opacity:0.88;">${fmtShortVN(day.date)}</span>
+              <span style="font-size:0.62rem;font-weight:800;">${done}/${total}</span>
+            </button>
+          `;
+        }).join('');
+      }
+
+      function renderAllDaysView() {
+        renderHeatmap();
+        const listEl = document.getElementById('all-days-list');
+        const q = ui.searchQuery.trim().toLowerCase();
+        let html = '';
+        let matchCount = 0;
+
+        ROADMAP.forEach(day => {
+          if (ui.weekFilter !== 'all' && String(day.week) !== String(ui.weekFilter)) return;
+
+          const filteredTasks = day.tasks.filter(task => {
+            if (ui.skillFilter !== 'all' && task.skill !== ui.skillFilter) return false;
+            if (ui.onlyUnfinished && state.completedTasks[task.id]) return false;
+            if (q) {
+              const resName = RESOURCES[task.resId] ? RESOURCES[task.resId].name : '';
+              const hay = `${day.dayLabel} ${day.title} ${task.skill} ${task.goal} ${task.how} ${resName}`.toLowerCase();
+              if (!hay.includes(q)) return false;
+            }
+            return true;
+          });
+
+          if (!filteredTasks.length) return;
+          matchCount++;
+
+          const sched = WEEKLY_SCHEDULE[day.weekday];
+          const total = day.tasks.length;
+          const done = day.tasks.filter(t => !!state.completedTasks[t.id]).length;
+          const allDone = total > 0 && done === total;
+          const isToday = day.index === TODAY.index && TODAY.isExact;
+
+          html += `
+            <article class="all-day-card ${allDone ? 'done' : ''}">
+              <div class="all-day-head">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div class="day-squircle">
+                    <span style="font-size:0.62rem;opacity:0.85;">${fmtShortVN(day.date)}</span>
+                    <span style="font-size:0.85rem;">${esc(day.shortLabel)}</span>
+                  </div>
+                  <div>
+                    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;">
+                      <strong style="font-size:0.95rem;">${esc(day.dayLabel)} • ${esc(sched.dayName)}, ${fmtDateVN(day.date)}</strong>
+                      ${isToday ? '<span class="pill pill-today">HÔM NAY</span>' : ''}
+                      <span class="pill ${day.isExamDay ? 'pill-super' : esc(sched.badgeClass)}">${day.isExamDay ? 'NGÀY THI' : esc(sched.statusText)}</span>
+                    </div>
+                    <div style="font-size:0.78rem;color:var(--text-muted);margin-top:3px;">
+                      <strong>Giờ vàng:</strong> ${day.isExamDay ? '08h00 Thi IELTS' : esc(sched.goldenWindow)} • ${esc(day.title)}
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span class="tabular" style="font-size:0.8rem;font-weight:800;">${done}/${total}</span>
+                  <button type="button" data-action="focus-day" data-day="${day.index}" class="nav-pill-btn" style="background:var(--primary-soft);color:var(--primary-text);border-color:transparent;">
+                    🔍 Tập trung ngày này
+                  </button>
+                </div>
+              </div>
+
+              <div class="all-day-body">
+                ${filteredTasks.map(t => renderTaskCard(t)).join('')}
+              </div>
+            </article>
+          `;
+        });
+
+        if (matchCount === 0) {
+          html = `<div class="card" style="text-align:center;padding:36px;color:var(--text-muted);">Không tìm thấy nhiệm vụ nào phù hợp với bộ lọc hiện tại.</div>`;
+        }
+
+        listEl.innerHTML = html;
+      }
+
+      /* =======================================================================
+         10. TAB 2 & TAB 3 RENDERERS (TIMETABLE & 14 RESOURCES DIRECTORY)
+         ======================================================================= */
+      function renderScheduleTab() {
+        const tbody = document.getElementById('schedule-table-body');
+        const currentWeekday = ROADMAP[TODAY.index].weekday;
+
+        tbody.innerHTML = SCHEDULE_ORDER.map(dayNum => {
+          const s = WEEKLY_SCHEDULE[dayNum];
+          const isCur = dayNum === currentWeekday;
+          return `
+            <tr class="${isCur ? 'current-day' : ''}">
+              <td style="font-weight:800;white-space:nowrap;">
+                ${esc(s.dayName)} ${isCur ? '<span class="pill pill-phase" style="margin-left:4px;">Hôm nay</span>' : ''}
+              </td>
+              <td><span class="pill ${esc(s.badgeClass)}">${esc(s.statusText)}</span></td>
+              <td>${esc(s.morning)}</td>
+              <td style="${s.afternoon.includes('TRỐNG') ? 'color:var(--reading);font-weight:800;' : ''}">${esc(s.afternoon)}</td>
+              <td>${esc(s.evening)}</td>
+              <td><span class="golden-slot-tag" style="display:inline-block;">${esc(s.goldenWindow)}</span></td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      function renderResourcesTab() {
+        const dir = document.getElementById('resources-directory');
+        dir.innerHTML = SKILL_STRATEGY_GROUPS.map(group => `
+          <div class="card">
+            <span class="skill-badge skill-${esc(group.skill)}">${esc(group.skill)}</span>
+            <h3 style="font-size:1.05rem;font-weight:800;margin-top:8px;">${esc(group.title)}</h3>
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:6px;line-height:1.55;">
+              <strong>Cách học theo PDF Xuân Phi:</strong> ${esc(group.how)}
+            </p>
+            <div class="res-grid">
+              ${group.resIds.map(id => {
+                const r = RESOURCES[id];
+                return `
+                  <div class="res-card">
+                    <div>
+                      <div style="font-size:0.86rem;font-weight:800;">${esc(r.name)}</div>
+                      <div style="font-size:0.76rem;color:var(--text-muted);margin-top:4px;">${esc(r.desc)}</div>
+                    </div>
+                    <div style="display:flex;justify-content:flex-end;">
+                      <a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer" class="open-pdf-btn bg-${esc(r.skill)}">
+                        Mở tài liệu PDF / Link ↗
+                      </a>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      /* =======================================================================
+         11. TAB 4: MOCK TEST SCORES & ERROR BLACKLIST
+         ======================================================================= */
+      function calcOverall(l, r, w, s) {
+        const nums = [l, r, w, s].filter(v => typeof v === 'number' && !isNaN(v) && v > 0);
+        if (!nums.length) return null;
+        const avg = nums.reduce((a, b) => a + b, 0) / nums.length;
+        return Math.round(avg * 2) / 2;
+      }
+
+      function renderMockChart() {
+        const box = document.getElementById('mock-chart-box');
+        const sorted = [...state.mockTests].sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+        if (!sorted.length) {
+          box.innerHTML = `<div style="padding:32px;text-align:center;color:var(--text-muted);font-size:0.8rem;">Chưa có dữ liệu điểm bài test.</div>`;
+          return;
+        }
+
+        const isDark = state.theme === 'dark';
+        const w = Math.max(480, sorted.length * 95);
+        const h = 210;
+        const padL = 34, padR = 20, padT = 16, padB = 34;
+        const plotW = w - padL - padR;
+        const plotH = h - padT - padB;
+        const xAt = i => sorted.length === 1 ? padL + plotW / 2 : padL + (i / (sorted.length - 1)) * plotW;
+        const yAt = v => padT + ((9 - Math.min(9, Math.max(4, v))) / 5) * plotH;
+
+        const grid = [4, 5, 6, 7, 8, 9].map(b => {
+          const y = yAt(b);
+          return `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" stroke="${isDark ? '#1e293b' : '#e2e8f0'}" stroke-dasharray="4 4"/>
+                  <text x="${padL - 6}" y="${y + 4}" text-anchor="end" font-size="10" font-weight="700" fill="${isDark ? '#94a3b8' : '#64748b'}">${b.toFixed(1)}</text>`;
+        }).join('');
+
+        const lines = [
+          { key: 'l', color: '#0284c7' },
+          { key: 'r', color: '#059669' },
+          { key: 'w', color: '#e11d48' },
+          { key: 's', color: '#7c3aed' },
+          { key: 'overall', color: isDark ? '#ffffff' : '#0f172a', bold: true }
+        ];
+
+        let svgBody = '';
+        lines.forEach(s => {
+          const pts = sorted.map((d, i) => {
+            const val = s.key === 'overall' ? calcOverall(d.l, d.r, d.w, d.s) : d[s.key];
+            return val ? { x: xAt(i), y: yAt(val), val } : null;
+          }).filter(Boolean);
+
+          if (pts.length > 1) {
+            const path = pts.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
+            svgBody += `<path d="${path}" fill="none" stroke="${s.color}" stroke-width="${s.bold ? 3 : 2}" stroke-linecap="round"/>`;
+          }
+          pts.forEach(p => {
+            svgBody += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${s.bold ? 4.5 : 3.5}" fill="${s.color}"><title>${s.key.toUpperCase()}: ${p.val}</title></circle>`;
+          });
+        });
+
+        const xLabels = sorted.map((d, i) => {
+          const shortName = d.name.length > 14 ? d.name.slice(0, 13) + '…' : d.name;
+          return `<text x="${xAt(i)}" y="${h - 10}" text-anchor="middle" font-size="10" font-weight="700" fill="${isDark ? '#cbd5e1' : '#475569'}">${esc(shortName)}</text>`;
+        }).join('');
+
+        box.innerHTML = `<svg viewBox="0 0 ${w} ${h}" style="width:100%;min-width:440px;height:auto;">${grid}${svgBody}${xLabels}</svg>`;
+      }
+
+      function renderMockHistory() {
+        const list = document.getElementById('mock-history-list');
+        const sorted = [...state.mockTests].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        list.innerHTML = sorted.map(mt => {
+          const ov = calcOverall(mt.l, mt.r, mt.w, mt.s);
+          return `
+            <div style="padding:12px 14px;border-radius:14px;background:var(--bg-subtle);border:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;gap:10px;">
+              <div>
+                <div style="font-size:0.86rem;font-weight:800;">${esc(mt.name)} <span style="font-size:0.74rem;color:var(--text-muted);font-weight:600;">(${esc(mt.date)})</span></div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;">
+                  <span class="skill-badge skill-Listening">L: ${mt.l ?? '-'}</span>
+                  <span class="skill-badge skill-Reading">R: ${mt.r ?? '-'}</span>
+                  <span class="skill-badge skill-Writing">W: ${mt.w ?? '-'}</span>
+                  <span class="skill-badge skill-Speaking">S: ${mt.s ?? '-'}</span>
+                  ${ov !== null ? `<span class="pill" style="background:var(--text-primary);color:var(--bg-surface);">Overall: ${ov.toFixed(1)}</span>` : ''}
+                </div>
+                ${mt.note ? `<div style="font-size:0.76rem;color:var(--text-muted);margin-top:5px;">${esc(mt.note)}</div>` : ''}
+              </div>
+              <button type="button" data-action="delete-mock" data-id="${esc(mt.id)}" class="icon-btn" style="color:#e11d48;">Xóa</button>
+            </div>
+          `;
+        }).join('');
+        renderMockChart();
+      }
+
+      function renderBlacklist() {
+        const box = document.getElementById('blacklist-items');
+        const activeCount = state.blacklist.filter(b => !b.resolved).length;
+        document.getElementById('bl-counter').textContent = `${activeCount} lỗi chưa diệt`;
+
+        box.innerHTML = state.blacklist.map(item => `
+          <div style="padding:12px;border-radius:14px;background:var(--bg-subtle);border:1px solid ${item.resolved ? 'var(--reading-border)' : 'var(--border-color)'};opacity:${item.resolved ? '0.68' : '1'};display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <input type="checkbox" data-action="toggle-blacklist" data-id="${esc(item.id)}" ${item.resolved ? 'checked' : ''} style="width:17px;height:17px;margin-top:2px;accent-color:#059669;cursor:pointer;" />
+              <div>
+                <span class="skill-badge skill-${esc(item.skill)}">${esc(item.skill)}</span>
+                <div style="font-size:0.84rem;font-weight:700;margin-top:5px;text-decoration:${item.resolved ? 'line-through' : 'none'};">${esc(item.mistake)}</div>
+                ${item.fix ? `<div style="font-size:0.76rem;color:var(--reading);margin-top:3px;"><strong>→ Fix:</strong> ${esc(item.fix)}</div>` : ''}
+              </div>
+            </div>
+            <button type="button" data-action="delete-blacklist" data-id="${esc(item.id)}" style="color:var(--text-muted);font-weight:800;padding:2px 6px;">✕</button>
+          </div>
+        `).join('');
+      }
+
+      /* =======================================================================
+         12. FLOATING EXAM TIMER WITH WEB AUDIO CHIME
+         ======================================================================= */
+      const PRESETS = {
+        task1: { label: 'Writing Task 1 (20 phút)', sec: 20 * 60 },
+        task2: { label: 'Writing Task 2 (40 phút)', sec: 40 * 60 },
+        fullWriting: { label: 'Full Writing / Reading (60 phút)', sec: 60 * 60 },
+        readingP: { label: '1 Passage Reading (20 phút)', sec: 20 * 60 },
+        speakingP2: { label: 'Speaking Part 2 (1p chuẩn bị → 2p nói)', sec: 60, twoPhase: true, sec2: 120 },
+        pomodoro: { label: 'Tập trung Pomodoro (25 phút)', sec: 25 * 60 }
+      };
+
+      const timerState = {
+        preset: 'task1',
+        remain: 20 * 60,
+        phase: 1,
+        running: false,
+        sound: true,
+        interval: null
+      };
+
+      function beep(isPhaseSwitch = false) {
+        if (!timerState.sound) return;
+        try {
+          const Ctx = window.AudioContext || window.webkitAudioContext;
+          const ctx = new Ctx();
+          const freqs = isPhaseSwitch ? [523.25, 659.25] : [523.25, 659.25, 783.99, 1046.5];
+          freqs.forEach((f, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = f;
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            const t0 = ctx.currentTime + idx * 0.14;
+            gain.gain.setValueAtTime(0.001, t0);
+            gain.gain.exponentialRampToValueAtTime(0.15, t0 + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.4);
+            osc.start(t0);
+            osc.stop(t0 + 0.45);
+          });
+        } catch (e) {}
+      }
+
+      function fmtMMSS(sec) {
+        const m = Math.floor(sec / 60);
+        const s = sec % 60;
+        return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      }
+
+      function renderTimer() {
+        const p = PRESETS[timerState.preset];
+        const str = fmtMMSS(timerState.remain);
+        document.getElementById('timer-preset-label').textContent = p.label;
+        document.getElementById('timer-digits').textContent = str;
+        document.getElementById('timer-start-btn').textContent = timerState.running ? '⏸ Tạm dừng' : '▶ Bắt đầu';
+        document.getElementById('timer-status').textContent = timerState.running ? 'Đang đếm ngược...' : (timerState.remain === 0 ? 'Đã hết giờ!' : 'Sẵn sàng bấm giờ');
+        document.getElementById('timer-fab-label').textContent = timerState.running ? str : 'Bấm giờ thi';
+        document.getElementById('timer-sound-btn').textContent = timerState.sound ? '🔔' : '🔕';
+
+        const phaseTag = document.getElementById('timer-phase-tag');
+        if (p.twoPhase) {
+          phaseTag.classList.remove('hidden');
+          phaseTag.textContent = timerState.phase === 1 ? 'CHUẨN BỊ 1 PHÚT' : 'BẮT ĐẦU NÓI 2 PHÚT';
+          phaseTag.style.color = timerState.phase === 1 ? '#d97706' : '#059669';
+        } else {
+          phaseTag.classList.add('hidden');
+        }
+
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.preset === timerState.preset);
+        });
+      }
+
+      function stopTimer() {
+        if (timerState.interval) {
+          clearInterval(timerState.interval);
+          timerState.interval = null;
+        }
+        timerState.running = false;
+      }
+
+      function selectTimerPreset(key) {
+        stopTimer();
+        const p = PRESETS[key] || PRESETS.task1;
+        timerState.preset = key;
+        timerState.phase = 1;
+        timerState.remain = p.sec;
+        renderTimer();
+      }
+
+      function toggleTimerRun() {
+        if (timerState.running) {
+          stopTimer();
+          renderTimer();
+          return;
+        }
+        if (timerState.remain <= 0) selectTimerPreset(timerState.preset);
+        timerState.running = true;
+        renderTimer();
+        timerState.interval = setInterval(() => {
+          timerState.remain--;
+          if (timerState.remain <= 0) {
+            const p = PRESETS[timerState.preset];
+            if (p.twoPhase && timerState.phase === 1) {
+              beep(true);
+              timerState.phase = 2;
+              timerState.remain = p.sec2;
+              showToast('Hết 1 phút chuẩn bị! Bắt đầu NÓI 2 phút 🎙️', 'info');
+            } else {
+              stopTimer();
+              timerState.remain = 0;
+              beep(false);
+              showToast('⏰ Hết giờ! Dừng bút ngay nhé.', 'warning');
+            }
+          }
+          renderTimer();
+        }, 1000);
+      }
+
+      /* =======================================================================
+         13. VIEW MODE & TAB SWITCHING
+         ======================================================================= */
+      function setViewMode(mode) {
+        ui.viewMode = mode;
+        const todayView = document.getElementById('view-today-focus');
+        const allView = document.getElementById('view-all-days');
+        const navCtrls = document.getElementById('today-nav-controls');
+        const btnToday = document.getElementById('btn-mode-today');
+        const btnAll = document.getElementById('btn-mode-all');
+
+        if (mode === 'today') {
+          todayView.classList.remove('hidden');
+          allView.classList.add('hidden');
+          navCtrls.classList.remove('hidden');
+          btnToday.classList.add('active');
+          btnAll.classList.remove('active');
+          renderTodayFocusView();
+        } else {
+          todayView.classList.add('hidden');
+          allView.classList.remove('hidden');
+          navCtrls.classList.add('hidden');
+          btnToday.classList.remove('active');
+          btnAll.classList.add('active');
+          renderAllDaysView();
+        }
+      }
+
+      function switchTab(tab) {
+        ui.activeTab = tab;
+        document.querySelectorAll('.tab-panel').forEach(p => {
+          p.classList.toggle('hidden', p.id !== `panel-${tab}`);
+        });
+        document.querySelectorAll('.nav-tab').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.tab === tab);
+        });
+        if (tab === 'mocktests') renderMockChart();
+      }
+
+      function applyTheme() {
+        const isDark = state.theme === 'dark';
+        document.documentElement.classList.toggle('dark', isDark);
+        document.getElementById('theme-btn').textContent = isDark ? '☀️ Sáng' : '🌙 Tối';
+      }
+
+      /* =======================================================================
+         14. CENTRALIZED EVENT DELEGATION (100% RELIABLE INTERACTIVITY)
+         ======================================================================= */
+      document.addEventListener('click', e => {
+        const target = e.target.closest('[data-action]');
+        if (!target) return;
+        const action = target.dataset.action;
+
+        if (action === 'switch-tab') {
+          switchTab(target.dataset.tab);
+        } else if (action === 'set-view-mode') {
+          setViewMode(target.dataset.mode);
+        } else if (action === 'prev-day') {
+          if (ui.selectedDayIndex > 0) {
+            ui.selectedDayIndex--;
+            renderTodayFocusView();
+          }
+        } else if (action === 'next-day') {
+          if (ui.selectedDayIndex < ROADMAP.length - 1) {
+            ui.selectedDayIndex++;
+            renderTodayFocusView();
+          }
+        } else if (action === 'jump-today') {
+          ui.selectedDayIndex = TODAY.index;
+          renderTodayFocusView();
+          showToast(`Đang xem: ${ROADMAP[TODAY.index].dayLabel} (${fmtDateVN(ROADMAP[TODAY.index].date)})`, 'info');
+        } else if (action === 'focus-day') {
+          ui.selectedDayIndex = Number(target.dataset.day);
+          setViewMode('today');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (action === 'toggle-whole-day') {
+          const dayIdx = Number(target.dataset.day);
+          const day = ROADMAP[dayIdx];
+          if (!day) return;
+          const allDone = day.tasks.every(t => !!state.completedTasks[t.id]);
+          day.tasks.forEach(t => {
+            if (allDone) delete state.completedTasks[t.id];
+            else state.completedTasks[t.id] = true;
+          });
+          saveState();
+          updateStats();
+          renderTodayFocusView();
+          showToast(allDone ? 'Đã bỏ đánh dấu cả ngày' : `Tuyệt vời! Hoàn thành ${day.dayLabel} 🎉`, allDone ? 'info' : 'success');
+        } else if (action === 'filter-week') {
+          ui.weekFilter = target.dataset.week;
+          document.querySelectorAll('[data-action="filter-week"]').forEach(b => b.classList.toggle('active', b === target));
+          renderAllDaysView();
+        } else if (action === 'filter-skill') {
+          ui.skillFilter = target.dataset.skill;
+          document.querySelectorAll('[data-action="filter-skill"]').forEach(b => b.classList.toggle('active', b === target));
+          renderAllDaysView();
+        } else if (action === 'toggle-theme') {
+          state.theme = state.theme === 'dark' ? 'light' : 'dark';
+          saveState();
+          applyTheme();
+          renderMockChart();
+        } else if (action === 'export-json') {
+          const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `ielts-30day-backup-${getLocalYYYYMMDD(new Date())}.json`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+          showToast('Đã xuất file backup JSON!', 'success');
+        } else if (action === 'toggle-timer-panel') {
+          document.getElementById('timer-panel').classList.toggle('hidden');
+          renderTimer();
+        } else if (action === 'close-timer') {
+          document.getElementById('timer-panel').classList.add('hidden');
+        } else if (action === 'select-preset') {
+          selectTimerPreset(target.dataset.preset);
+        } else if (action === 'open-preset') {
+          selectTimerPreset(target.dataset.preset);
+          document.getElementById('timer-panel').classList.remove('hidden');
+        } else if (action === 'start-pause-timer') {
+          toggleTimerRun();
+        } else if (action === 'reset-timer') {
+          selectTimerPreset(timerState.preset);
+        } else if (action === 'toggle-timer-sound') {
+          timerState.sound = !timerState.sound;
+          renderTimer();
+        } else if (action === 'delete-mock') {
+          const id = target.dataset.id;
+          state.mockTests = state.mockTests.filter(m => m.id !== id);
+          saveState();
+          renderMockHistory();
+          showToast('Đã xóa bản ghi điểm', 'info');
+        } else if (action === 'delete-blacklist') {
+          const id = target.dataset.id;
+          state.blacklist = state.blacklist.filter(b => b.id !== id);
+          saveState();
+          renderBlacklist();
+          showToast('Đã xóa mục khỏi Sổ lỗi sai', 'info');
+        }
+      });
+
+      document.addEventListener('change', e => {
+        const target = e.target;
+        const action = target.dataset.action;
+        if (!action) return;
+
+        if (action === 'toggle-task') {
+          const id = target.dataset.id;
+          if (target.checked) state.completedTasks[id] = true;
+          else delete state.completedTasks[id];
+          saveState();
+          updateStats();
+          if (ui.viewMode === 'today') renderTodayFocusView();
+          else renderAllDaysView();
+        } else if (action === 'select-day') {
+          ui.selectedDayIndex = Number(target.value);
+          renderTodayFocusView();
+        } else if (action === 'filter-unfinished') {
+          ui.onlyUnfinished = target.checked;
+          renderAllDaysView();
+        } else if (action === 'toggle-blacklist') {
+          const item = state.blacklist.find(b => b.id === target.dataset.id);
+          if (item) {
+            item.resolved = target.checked;
+            saveState();
+            renderBlacklist();
+          }
+        } else if (action === 'import-json') {
+          const file = target.files && target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = ev => {
+            try {
+              const parsed = JSON.parse(ev.target.result);
+              if (!parsed || typeof parsed !== 'object') throw new Error('Invalid');
+              state = {
+                ...JSON.parse(JSON.stringify(DEFAULT_STATE)),
+                ...parsed,
+                completedTasks: parsed.completedTasks || {},
+                dayNotes: parsed.dayNotes || {},
+                mockTests: Array.isArray(parsed.mockTests) ? parsed.mockTests : [],
+                blacklist: Array.isArray(parsed.blacklist) ? parsed.blacklist : []
+              };
+              saveState();
+              applyTheme();
+              updateStats();
+              if (ui.viewMode === 'today') renderTodayFocusView();
+              else renderAllDaysView();
+              renderMockHistory();
+              renderBlacklist();
+              showToast('Khôi phục dữ liệu thành công! 🎉', 'success');
+            } catch (err) {
+              showToast('File JSON không hợp lệ!', 'error');
+            }
+            target.value = '';
+          };
+          reader.readAsText(file);
+        }
+      });
+
+      let noteTimer = null;
+      document.addEventListener('input', e => {
+        const target = e.target;
+        const action = target.dataset.action;
+        if (!action) return;
+
+        if (action === 'save-day-note') {
+          const dayIdx = Number(target.dataset.day);
+          state.dayNotes[dayIdx] = target.value;
+          clearTimeout(noteTimer);
+          noteTimer = setTimeout(() => {
+            saveState();
+            const hint = document.getElementById('note-saved-hint');
+            if (hint) hint.textContent = '✓ Đã lưu vừa xong';
+          }, 250);
+        } else if (action === 'search-roadmap') {
+          ui.searchQuery = target.value;
+          renderAllDaysView();
+        }
+      });
+
+      document.addEventListener('submit', e => {
+        if (e.target.id === 'mock-form') {
+          e.preventDefault();
+          const name = document.getElementById('mt-name').value.trim();
+          const date = document.getElementById('mt-date').value;
+          const l = parseFloat(document.getElementById('mt-l').value);
+          const r = parseFloat(document.getElementById('mt-r').value);
+          const w = parseFloat(document.getElementById('mt-w').value);
+          const s = parseFloat(document.getElementById('mt-s').value);
+          const note = document.getElementById('mt-note').value.trim();
+
+          if (!name) return;
+          state.mockTests.push({
+            id: 'mt-' + Date.now(),
+            name,
+            date,
+            l: isNaN(l) ? null : l,
+            r: isNaN(r) ? null : r,
+            w: isNaN(w) ? null : w,
+            s: isNaN(s) ? null : s,
+            note
+          });
+          saveState();
+          e.target.reset();
+          document.getElementById('mt-date').value = TODAY.isExact ? TODAY.dateStr : '2026-11-24';
+          renderMockHistory();
+          showToast('Đã lưu điểm bài test vào biểu đồ! 📊', 'success');
+        } else if (e.target.id === 'blacklist-form') {
+          e.preventDefault();
+          const skill = document.getElementById('bl-skill').value;
+          const mistake = document.getElementById('bl-mistake').value.trim();
+          const fix = document.getElementById('bl-fix').value.trim();
+          if (!mistake) return;
+
+          state.blacklist.unshift({
+            id: 'bl-' + Date.now(),
+            skill,
+            mistake,
+            fix,
+            resolved: false
+          });
+          saveState();
+          e.target.reset();
+          renderBlacklist();
+          showToast('Đã thêm lỗi vào Sổ Blacklist!', 'success');
+        }
+      });
+
+      /* =======================================================================
+         15. BOOTSTRAP ON LOAD
+         ======================================================================= */
+      function initApp() {
+        applyTheme();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        if (!TODAY.isExact) {
+          const banner = document.getElementById('outside-date-banner');
+          banner.textContent = `ℹ️ Ngày trên thiết bị hiện tại (${fmtDateVN(TODAY.dateStr)}) nằm ngoài khung 24/11 – 26/12/2026, nên hệ thống đang hiển thị mặc định Ngày 1 (Thứ 3, 24/11/2026). Bạn có thể chọn bất kỳ ngày nào ở thanh bên dưới.`;
+          banner.classList.remove('hidden');
+        }
+
+        updateStats();
+        setViewMode('today'); // Default: "Chỉ xem Hôm nay"
+        renderScheduleTab();
+        renderResourcesTab();
+        renderMockHistory();
+        renderBlacklist();
+        renderTimer();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+      } else {
+        initApp();
+      }
+    })();
+  </script>
+</body>
+</html>
